@@ -3,7 +3,7 @@
 //  PTLDatasource DemoTests
 //
 //  Created by Brian Partridge on 7/10/13.
-//  Copyright (c) 2013 Pear Tree labs. All rights reserved.
+//  Copyright (c) 2013 Pear Tree Labs. All rights reserved.
 //
 
 #import "PTLDatasource_DemoTests.h"
