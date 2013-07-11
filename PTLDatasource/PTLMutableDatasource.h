@@ -18,8 +18,10 @@ typedef NS_ENUM(NSInteger, PTLChangeType) {
 
 @protocol PTLMutableDatasource <PTLDatasource>
 
-- (void)beginMutations;
-- (void)endMutations;
+- (void)beginChanges;
+- (void)endChanges;
+
+#pragma mark - Item Changes
 
 - (void)addObject:(id)object toSection:(NSInteger)sectionIndex;
 - (void)insertObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
@@ -32,5 +34,18 @@ typedef NS_ENUM(NSInteger, PTLChangeType) {
 - (void)replaceObjectAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object;
 
 - (BOOL)canPerformChange:(PTLChangeType)change sourceIndexPath:(NSIndexPath *)sourceIndexPath destinationIndexPath:(NSIndexPath *)destinationIndexPath;
+
+#pragma mark - Section Changes
+
+- (void)addSection;
+- (void)insertSectionAtIndex:(NSInteger)sectionIndex;
+
+- (void)removeSectionAtIndex:(NSInteger)sectionIndex;
+
+- (void)moveSectionAtIndex:(NSInteger)startIndex toIndex:(NSInteger)endIndex;
+
+- (void)replaceSectionAtIndex:(NSInteger)startIndex;
+
+- (BOOL)canPerformSectionChange:(PTLChangeType)change sourceIndex:(NSInteger)sourceIndex destinationIndex:(NSInteger)destinationIndex;
 
 @end
