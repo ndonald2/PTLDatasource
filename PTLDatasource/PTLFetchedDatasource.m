@@ -7,10 +7,9 @@
 //
 
 #import "PTLFetchedDatasource.h"
+#import "PTLDatasource+Observation.h"
 
-#ifdef _COREDATADEFINES_H
-
-@interface PTLFetchedDatasource ()
+@interface PTLFetchedDatasource () <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *controller;
 
@@ -18,10 +17,13 @@
 
 @implementation PTLFetchedDatasource
 
-- (id)initWithFetchedResults:(NSFetchedResultsController *)controller {
+- (id)initWithFetchedResults:(NSFetchedResultsController *)controller monitorChanges:(BOOL)monitorChanges {
     self = [super init];
     if (self) {
         _controller = controller;
+        if (monitorChanges) {
+            controller.delegate = self;
+        }
     }
 
     return self;
@@ -41,6 +43,55 @@
     return [self.controller objectAtIndexPath:indexPath];
 }
 
-@end
+#pragma mark - NSFetchedResultsControllerDelegate
 
-#endif
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self notifyObserversOfChangesBeginning];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self notifyObserversOfSectionChange:PTLChangeTypeAdd
+                                    sectionIndex:sectionIndex];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self notifyObserversOfSectionChange:PTLChangeTypeRemove
+                                    sectionIndex:sectionIndex];
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self notifyObserversOfChange:PTLChangeTypeAdd
+                          sourceIndexPath:indexPath
+                     destinationIndexPath:newIndexPath];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self notifyObserversOfChange:PTLChangeTypeRemove
+                          sourceIndexPath:indexPath
+                     destinationIndexPath:newIndexPath];
+            break;
+        case NSFetchedResultsChangeUpdate:
+            [self notifyObserversOfChange:PTLChangeTypeUpdate
+                          sourceIndexPath:indexPath
+                     destinationIndexPath:newIndexPath];
+            break;
+        case NSFetchedResultsChangeMove:
+            [self notifyObserversOfChange:PTLChangeTypeMove
+                          sourceIndexPath:indexPath
+                     destinationIndexPath:newIndexPath];
+            break;
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self notifyObserversOfChangesEnding];
+}
+
+@end
