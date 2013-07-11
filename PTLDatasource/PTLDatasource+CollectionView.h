@@ -11,6 +11,8 @@
 typedef void(^PTLCollectionViewCellConfigBlock)(UICollectionView *collectionView, UICollectionViewCell *cell, id item, NSIndexPath *indexPath);
 typedef void(^PTLCollectionViewSupplementaryViewConfigBlock)(UICollectionView *collectionView, UICollectionReusableView *view, NSIndexPath *indexPath);
 
+#pragma mark - Protocol
+
 @protocol PTLCollectionViewDatasource <PTLDatasource>
 
 - (NSString *)collectionViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath;
@@ -21,6 +23,8 @@ typedef void(^PTLCollectionViewSupplementaryViewConfigBlock)(UICollectionView *c
 - (PTLCollectionViewSupplementaryViewConfigBlock)collectionViewSupplementaryViewConfigBlockForIndexPath:(NSIndexPath *)indexPath;
 
 @end
+
+#pragma mark - Implementation
 
 @interface PTLDatasource (CollectionView) <PTLCollectionViewDatasource>
 

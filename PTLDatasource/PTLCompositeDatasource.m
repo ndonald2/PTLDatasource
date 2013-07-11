@@ -10,7 +10,7 @@
 
 @interface PTLCompositeDatasource ()
 
-@property (nonatomic, strong) NSArray *datasources;
+@property (nonatomic, strong) NSMutableArray *datasources;
 @property (nonatomic, strong) NSDictionary *datasourceToSectionRange;
 
 @end
@@ -20,12 +20,15 @@
 - (id)initWithWithDatasources:(NSArray *)datasources {
 	self = [super init];
 	if (self) {
-	    _datasources = datasources;
-        [self reloadSectionsFromDatasources];
+	    _datasources = [datasources mutableCopy];
+       [_datasources makeObjectsPerformSelector:@selector(addChangeObserver:) withObject:self];
+       [self reloadSectionsFromDatasources];
 	}
 
 	return self;
 }
+
+#pragma mark - Helpers
 
 - (void)reloadSectionsFromDatasources {
     NSMutableDictionary *datasourceToSectionRange = [NSMutableDictionary dictionary];

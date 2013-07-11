@@ -23,15 +23,10 @@
 	self = [super init];
 	if (self) {
         _datasource = datasource;
+        [_datasource addChangeObserver:self];
 	}
 
 	return self;
-}
-
-#pragma mark - NSCopying
-
-- (id)copyWithZone:(NSZone *)zone {
-    return self;
 }
 
 #pragma mark - PTLDatasource
@@ -78,6 +73,16 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)sectionIndex {
     return [self.datasource subtitleForSection:sectionIndex];
+}
+
+#pragma mark - PTLDatasourceObserver
+
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change sourceIndexPath:(NSIndexPath *)sourceIndexPath destinationIndexPath:(NSIndexPath *)destinationIndexPath {
+   [self notifyObserversOfChange:change sourceIndexPath:sourceIndexPath destinationIndexPath:destinationIndexPath];
+}
+
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change sectionIndex:(NSInteger)sectionIndex {
+   [self notifyObserversOfSectionChange:change sectionIndex:sectionIndex];
 }
 
 @end

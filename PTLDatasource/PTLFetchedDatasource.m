@@ -7,7 +7,6 @@
 //
 
 #import "PTLFetchedDatasource.h"
-#import "PTLDatasource+Observation.h"
 
 @interface PTLFetchedDatasource () <NSFetchedResultsControllerDelegate>
 

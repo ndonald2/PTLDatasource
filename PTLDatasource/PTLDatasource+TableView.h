@@ -11,7 +11,9 @@
 
 typedef void(^PTLTableViewCellConfigBlock)(UITableView *tableView, UITableViewCell *cell, id item, NSIndexPath *indexPath);
 
-@protocol PTLTableViewDatasource <PTLDatasource>
+#pragma mark - Protocol
+
+@protocol PTLTableViewDatasource <PTLDatasource, PTLMutableDatasource, PTLObservableDatasource>
 
 - (NSString *)tableViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath;
 - (PTLTableViewCellConfigBlock)tableViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath;
@@ -22,6 +24,8 @@ typedef void(^PTLTableViewCellConfigBlock)(UITableView *tableView, UITableViewCe
 - (CGFloat)heightForCellAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
+
+#pragma mark - Implementation
 
 @interface PTLDatasource (TableView) <PTLTableViewDatasource>
 

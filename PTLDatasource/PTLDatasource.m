@@ -7,6 +7,7 @@
 //
 
 #import "PTLDatasource.h"
+#import <objc/runtime.h>
 
 @implementation PTLDatasource
 
@@ -27,5 +28,114 @@
 - (id)copyWithZone:(NSZone *)zone {
     return self;
 }
+
+@end
+
+#pragma mark - Mutability Implementation
+
+@implementation PTLDatasource (Mutability)
+
+- (void)beginChanges {
+   [self notifyObserversOfChangesBeginning];
+}
+
+- (void)endChanges {
+   [self notifyObserversOfChangesEnding];
+}
+
+@end
+
+#pragma mark - Observation Implementation
+
+@interface WeakObserverWrapper : NSObject
+
+@property (nonatomic, weak) id<PTLDatasourceObserver>observer;
+
++ (instancetype)wrapObserver:(id<PTLDatasourceObserver>)observer;
+
+@end
+
+@implementation WeakObserverWrapper
+
++ (instancetype)wrapObserver:(id<PTLDatasourceObserver>)observer {
+   WeakObserverWrapper *wrapper = [[WeakObserverWrapper alloc] init];
+   wrapper.observer = observer;
+   return wrapper;
+}
+
+@end
+
+@interface PTLDatasource (Observation_Private)
+
+@property (nonatomic, readonly, strong) NSMutableArray *observers;
+
+@end
+
+@implementation PTLDatasource (Observation)
+
+- (void)addChangeObserver:(id<PTLDatasourceObserver>)observer {
+   [self.observers addObject:[WeakObserverWrapper wrapObserver:observer]];
+}
+
+- (void)removeChangeObserver:(id<PTLDatasourceObserver>)observer {
+   NSArray *wrappersToRemove = [self.observers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(WeakObserverWrapper *wrapper, NSDictionary *bindings) {
+      return (wrapper.observer == observer ||
+              wrapper.observer == nil);
+   }]];
+   [self.observers removeObjectsInArray:wrappersToRemove];
+}
+
+- (void)removeAllObservers {
+   [self.observers removeAllObjects];
+}
+
+- (void)notifyObserversOfChangesBeginning {
+   for (WeakObserverWrapper *wrapper in self.observers) {
+      if ([wrapper.observer respondsToSelector:@selector(datasourceWillChange:)]) {
+         [wrapper.observer datasourceWillChange:self];
+      }
+   }
+}
+
+- (void)notifyObserversOfChangesEnding {
+   for (WeakObserverWrapper *wrapper in self.observers) {
+      if ([wrapper.observer respondsToSelector:@selector(datasourceDidChange:)]) {
+         [wrapper.observer datasourceDidChange:self];
+      }
+   }
+}
+
+- (void)notifyObserversOfChange:(PTLChangeType)change sourceIndexPath:(NSIndexPath *)sourceIndexPath destinationIndexPath:(NSIndexPath *)destinationIndexPath {
+   for (WeakObserverWrapper *wrapper in self.observers) {
+      if ([wrapper.observer respondsToSelector:@selector(datasource:didChange:sourceIndexPath:destinationIndexPath:)]) {
+         [wrapper.observer datasource:self didChange:change sourceIndexPath:sourceIndexPath destinationIndexPath:destinationIndexPath];
+      }
+   }
+}
+
+- (void)notifyObserversOfSectionChange:(PTLChangeType)change sectionIndex:(NSInteger)sectionIndex {
+   for (WeakObserverWrapper *wrapper in self.observers) {
+      if ([wrapper.observer respondsToSelector:@selector(datasource:didChange:sectionIndex:)]) {
+         [wrapper.observer datasource:self didChange:change sectionIndex:sectionIndex];
+      }
+   }
+}
+
+@end
+
+@implementation PTLDatasource (Observation_Private)
+
+@dynamic observers;
+
+- (NSMutableArray *)observers {
+   NSMutableArray *result = objc_getAssociatedObject(self, @"observers");
+   if (result == nil) {
+      result = [NSMutableArray array];
+      objc_setAssociatedObject(self, @"observers", result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+   }
+   return result;
+}
+
+
 
 @end
