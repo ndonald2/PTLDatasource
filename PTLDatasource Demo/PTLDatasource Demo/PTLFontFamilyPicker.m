@@ -7,12 +7,12 @@
 //
 
 #import "PTLFontFamilyPicker.h"
-#import "PTLTableViewDatasource.h"
+#import "PTLDatasource.h"
 #import "PTLArraySection.h"
 
 @interface PTLFontFamilyPicker ()
 
-@property (nonatomic, strong) PTLTableViewDatasource *datasource;
+@property (nonatomic, strong) PTLDatasource *datasource;
 
 @end
 
@@ -43,7 +43,7 @@
         cell.textLabel.font = font;
     };
 
-    self.datasource = [[PTLTableViewDatasource alloc] initWithWithSections:@[familySection]];
+    self.datasource = [[PTLDatasource alloc] initWithWithSections:@[familySection]];
     self.tableView.dataSource = self.datasource;
 }
 

@@ -1,14 +1,16 @@
 //
-//  PTLDatasource.h
+//  PTLDatasource
 //  PTLDatasource Demo
 //
 //  Created by Brian Partridge on 7/10/13.
 //  Copyright (c) 2013 Pear Tree Labs. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@protocol PTLDatasource <NSObject>
+@interface PTLDatasource : NSObject <UITableViewDataSource, UICollectionViewDataSource>
+
+- (id)initWithWithSections:(NSArray *)sections;
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex;

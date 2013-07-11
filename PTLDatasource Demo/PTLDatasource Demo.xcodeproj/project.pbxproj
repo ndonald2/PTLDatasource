@@ -11,7 +11,7 @@
 		D36FB5F1178E583E00188879 /* PTLEnumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36FB5F0178E583E00188879 /* PTLEnumTableViewController.m */; };
 		D38A483A178E46E6006C4659 /* PTLArraySection.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4833178E46E6006C4659 /* PTLArraySection.m */; };
 		D38A483B178E46E6006C4659 /* PTLFetchedSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4837178E46E6006C4659 /* PTLFetchedSection.m */; };
-		D38A483C178E46E6006C4659 /* PTLTableViewDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4839178E46E6006C4659 /* PTLTableViewDatasource.m */; };
+		D38A483C178E46E6006C4659 /* PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4839178E46E6006C4659 /* PTLDatasource.m */; };
 		D38A4840178E4724006C4659 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38A483F178E4724006C4659 /* CoreData.framework */; };
 		D38A4843178E4821006C4659 /* PTLFontFamilyPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4842178E4821006C4659 /* PTLFontFamilyPicker.m */; };
 		D3F85A84178E405000040FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F85A83178E405000040FC6 /* UIKit.framework */; };
@@ -45,14 +45,14 @@
 		D36FB5ED178E548C00188879 /* PTLIndexSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexSection.m; sourceTree = "<group>"; };
 		D36FB5EF178E583E00188879 /* PTLEnumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLEnumTableViewController.h; sourceTree = "<group>"; };
 		D36FB5F0178E583E00188879 /* PTLEnumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLEnumTableViewController.m; sourceTree = "<group>"; };
+		D36FB5F2178E5D1000188879 /* PTLCollectionViewDatasourceSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLCollectionViewDatasourceSection.h; sourceTree = "<group>"; };
 		D38A4832178E46E6006C4659 /* PTLArraySection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLArraySection.h; sourceTree = "<group>"; };
 		D38A4833178E46E6006C4659 /* PTLArraySection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLArraySection.m; sourceTree = "<group>"; };
-		D38A4834178E46E6006C4659 /* PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLDatasource.h; sourceTree = "<group>"; };
 		D38A4835178E46E6006C4659 /* PTLDatasourceSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLDatasourceSection.h; sourceTree = "<group>"; };
 		D38A4836178E46E6006C4659 /* PTLFetchedSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLFetchedSection.h; sourceTree = "<group>"; };
 		D38A4837178E46E6006C4659 /* PTLFetchedSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLFetchedSection.m; sourceTree = "<group>"; };
-		D38A4838178E46E6006C4659 /* PTLTableViewDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLTableViewDatasource.h; sourceTree = "<group>"; };
-		D38A4839178E46E6006C4659 /* PTLTableViewDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLTableViewDatasource.m; sourceTree = "<group>"; };
+		D38A4838178E46E6006C4659 /* PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLDatasource.h; sourceTree = "<group>"; };
+		D38A4839178E46E6006C4659 /* PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLDatasource.m; sourceTree = "<group>"; };
 		D38A483F178E4724006C4659 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D38A4841178E4821006C4659 /* PTLFontFamilyPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLFontFamilyPicker.h; sourceTree = "<group>"; };
 		D38A4842178E4821006C4659 /* PTLFontFamilyPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLFontFamilyPicker.m; sourceTree = "<group>"; };
@@ -116,9 +116,8 @@
 		D38A483D178E46EF006C4659 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
-				D38A4834178E46E6006C4659 /* PTLDatasource.h */,
-				D38A4838178E46E6006C4659 /* PTLTableViewDatasource.h */,
-				D38A4839178E46E6006C4659 /* PTLTableViewDatasource.m */,
+				D38A4838178E46E6006C4659 /* PTLDatasource.h */,
+				D38A4839178E46E6006C4659 /* PTLDatasource.m */,
 			);
 			name = Datasources;
 			sourceTree = "<group>";
@@ -128,6 +127,7 @@
 			children = (
 				D38A4835178E46E6006C4659 /* PTLDatasourceSection.h */,
 				D38A4844178E49D4006C4659 /* PTLTableViewDatasourceSection.h */,
+				D36FB5F2178E5D1000188879 /* PTLCollectionViewDatasourceSection.h */,
 				D38A4832178E46E6006C4659 /* PTLArraySection.h */,
 				D38A4833178E46E6006C4659 /* PTLArraySection.m */,
 				D38A4836178E46E6006C4659 /* PTLFetchedSection.h */,
@@ -331,7 +331,7 @@
 				D3F85A94178E405000040FC6 /* PTLAppDelegate.m in Sources */,
 				D38A483A178E46E6006C4659 /* PTLArraySection.m in Sources */,
 				D38A483B178E46E6006C4659 /* PTLFetchedSection.m in Sources */,
-				D38A483C178E46E6006C4659 /* PTLTableViewDatasource.m in Sources */,
+				D38A483C178E46E6006C4659 /* PTLDatasource.m in Sources */,
 				D38A4843178E4821006C4659 /* PTLFontFamilyPicker.m in Sources */,
 				D36FB5EE178E548C00188879 /* PTLIndexSection.m in Sources */,
 				D36FB5F1178E583E00188879 /* PTLEnumTableViewController.m in Sources */,

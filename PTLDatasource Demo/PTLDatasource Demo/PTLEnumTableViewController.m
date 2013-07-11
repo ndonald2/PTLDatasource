@@ -7,12 +7,12 @@
 //
 
 #import "PTLEnumTableViewController.h"
-#import "PTLTableViewDatasource.h"
+#import "PTLDatasource.h"
 #import "PTLIndexSection.h"
 
 @interface PTLEnumTableViewController ()
 
-@property (nonatomic, strong) PTLTableViewDatasource *datasource;
+@property (nonatomic, strong) PTLDatasource *datasource;
 
 @end
 
@@ -55,6 +55,43 @@
     return nil;
 }
 
+- (UIColor *)colorForEyeColor:(EyeColor)color {
+    switch (color) {
+        case EyeColorBlue:
+            return [UIColor blueColor];
+            break;
+        case EyeColorGreen:
+            return [UIColor greenColor];
+            break;
+        case EyeColorBrown:
+            return [UIColor brownColor];
+            break;
+        default:
+            break;
+    }
+    return nil;
+}
+
+- (UIColor *)colorForHairColor:(HairColor)color {
+    switch (color) {
+        case HairColorBrown:
+            return [UIColor brownColor];
+            break;
+        case HairColorBlack:
+            return [UIColor blackColor];
+            break;
+        case HairColorBlonde:
+            return [UIColor yellowColor];
+            break;
+        case HairColorRed:
+            return [UIColor redColor];
+            break;
+        default:
+            break;
+    }
+    return nil;
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -78,6 +115,7 @@
     eyesSection.tableViewCellIdentifier = cellId;
     eyesSection.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSNumber *item, NSIndexPath *indexPath) {
         cell.textLabel.text = [self nameForEyeColor:item.integerValue];
+        cell.textLabel.textColor = [self colorForEyeColor:item.integerValue];
     };
 
     PTLIndexSection *hairSection = [[PTLIndexSection alloc] initWithIndecies:hair];
@@ -85,9 +123,10 @@
     hairSection.tableViewCellIdentifier = cellId;
     hairSection.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSNumber *item, NSIndexPath *indexPath) {
         cell.textLabel.text = [self nameForHairColor:item.integerValue];
+        cell.textLabel.textColor = [self colorForHairColor:item.integerValue];
     };
 
-    self.datasource = [[PTLTableViewDatasource alloc] initWithWithSections:@[eyesSection, hairSection]];
+    self.datasource = [[PTLDatasource alloc] initWithWithSections:@[eyesSection, hairSection]];
     self.tableView.dataSource = self.datasource;
 }
 

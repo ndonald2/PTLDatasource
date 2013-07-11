@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "PTLTableViewDatasourceSection.h"
+#import "PTLCollectionViewDatasourceSection.h"
 
-@interface PTLIndexSection : NSObject <PTLTableViewDatasourceSection>
+@interface PTLIndexSection : NSObject <PTLTableViewDatasourceSection, PTLCollectionViewDatasourceSection>
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
+
 @property (nonatomic, copy) NSString *tableViewCellIdentifier;
 @property (nonatomic, copy) PTLTableViewCellConfigBlock tableViewCellConfigBlock;
+
+@property (nonatomic, copy) NSString *collectionViewCellIdentifier;
+@property (nonatomic, copy) PTLCollectionViewCellConfigBlock collectionViewCellConfigBlock;
 
 - (id)initWithIndecies:(NSIndexSet *)indecies;
 
