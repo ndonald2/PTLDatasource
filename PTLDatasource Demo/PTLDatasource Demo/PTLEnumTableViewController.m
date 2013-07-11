@@ -7,12 +7,13 @@
 //
 
 #import "PTLEnumTableViewController.h"
-#import "PTLDatasource.h"
-#import "PTLIndexSection.h"
+#import "PTLViewDatasource.h"
+#import "PTLCompositeDatasource.h"
+#import "PTLIndexDatasource.h"
 
 @interface PTLEnumTableViewController ()
 
-@property (nonatomic, strong) PTLDatasource *datasource;
+@property (nonatomic, strong) id<PTLViewDatasource> datasource;
 
 @end
 
@@ -110,7 +111,7 @@
     NSIndexSet *eyes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, EyeColorCount)];
     NSIndexSet *hair = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, HairColorCount)];
 
-    PTLIndexSection *eyesSection = [[PTLIndexSection alloc] initWithIndecies:eyes];
+    PTLIndexDatasource *eyesSection = [[PTLIndexDatasource alloc] initWithIndecies:eyes];
     eyesSection.title = @"Eyes";
     eyesSection.tableViewCellIdentifier = cellId;
     eyesSection.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSNumber *item, NSIndexPath *indexPath) {
@@ -118,7 +119,7 @@
         cell.textLabel.textColor = [self colorForEyeColor:item.integerValue];
     };
 
-    PTLIndexSection *hairSection = [[PTLIndexSection alloc] initWithIndecies:hair];
+    PTLIndexDatasource *hairSection = [[PTLIndexDatasource alloc] initWithIndecies:hair];
     hairSection.title = @"Hair";
     hairSection.tableViewCellIdentifier = cellId;
     hairSection.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSNumber *item, NSIndexPath *indexPath) {
@@ -126,7 +127,7 @@
         cell.textLabel.textColor = [self colorForHairColor:item.integerValue];
     };
 
-    self.datasource = [[PTLDatasource alloc] initWithWithSections:@[eyesSection, hairSection]];
+    self.datasource = [[PTLViewDatasource alloc] initWithDatasource:[[PTLCompositeDatasource alloc] initWithWithDatasources:@[eyesSection, hairSection]]];
     self.tableView.dataSource = self.datasource;
 }
 

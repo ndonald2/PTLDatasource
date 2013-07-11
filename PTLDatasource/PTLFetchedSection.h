@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "PTLDatasourceSection.h"
+#import "PTLDatasource.h"
 
 #ifdef _COREDATADEFINES_H
 
-@interface PTLFetchedSection : NSObject <PTLDatasourceSection>
+@interface PTLFetchedSection : NSObject <PTLDatasource>
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;

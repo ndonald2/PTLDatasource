@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 Pear Tree Labs. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface PTLDatasource : NSObject <UITableViewDataSource, UICollectionViewDataSource>
-
-- (id)initWithWithSections:(NSArray *)sections;
+@protocol PTLDatasource <NSObject, NSCopying>
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex;

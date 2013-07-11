@@ -7,12 +7,12 @@
 //
 
 #import "PTLFontFamilyPicker.h"
-#import "PTLDatasource.h"
-#import "PTLArraySection.h"
+#import "PTLArrayDatasource.h"
+#import "PTLViewDatasource.h"
 
 @interface PTLFontFamilyPicker ()
 
-@property (nonatomic, strong) PTLDatasource *datasource;
+@property (nonatomic, strong) PTLViewDatasource *datasource;
 
 @end
 
@@ -33,17 +33,17 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:familyCellId];
 
     NSArray *fonts = [[UIFont familyNames] sortedArrayUsingSelector:@selector(compare:)];
-    PTLArraySection *familySection = [[PTLArraySection alloc] initWithItems:fonts];
-    familySection.title = @"Font Families";
-    familySection.tableViewCellIdentifier = familyCellId;
-    familySection.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSString *familyName, NSIndexPath *indexPath) {
+    PTLArrayDatasource *familyDatasource = [[PTLArrayDatasource alloc] initWithItems:fonts];
+    familyDatasource.title = @"Font Families";
+    familyDatasource.tableViewCellIdentifier = familyCellId;
+    familyDatasource.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSString *familyName, NSIndexPath *indexPath) {
         cell.textLabel.text = familyName;
         NSArray *fontNames = [UIFont fontNamesForFamilyName:familyName];
         UIFont *font = [UIFont fontWithName:[fontNames lastObject] size:cell.textLabel.font.pointSize];
         cell.textLabel.font = font;
     };
 
-    self.datasource = [[PTLDatasource alloc] initWithWithSections:@[familySection]];
+    self.datasource = [[PTLViewDatasource alloc] initWithDatasource:familyDatasource];
     self.tableView.dataSource = self.datasource;
 }
 

@@ -1,5 +1,5 @@
 //
-//  PTLArraySection.h
+//  PTLIndexSection.h
 //  PTLDatasource Demo
 //
 //  Created by Brian Partridge on 7/10/13.
@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PTLTableViewDatasourceSection.h"
-#import "PTLCollectionViewDatasourceSection.h"
+#import "PTLTableViewDatasource.h"
+#import "PTLCollectionViewDatasource.h"
 
-@interface PTLArraySection : NSObject <PTLTableViewDatasourceSection, PTLCollectionViewDatasourceSection>
+@interface PTLIndexDatasource : NSObject <PTLTableViewDatasource, PTLCollectionViewDatasource>
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
@@ -21,6 +21,6 @@
 @property (nonatomic, copy) NSString *collectionViewCellIdentifier;
 @property (nonatomic, copy) PTLCollectionViewCellConfigBlock collectionViewCellConfigBlock;
 
-- (id)initWithItems:(NSArray *)items;
+- (id)initWithIndecies:(NSIndexSet *)indecies;
 
 @end
