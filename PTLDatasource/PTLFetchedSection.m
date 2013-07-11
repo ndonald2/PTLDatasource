@@ -12,7 +12,6 @@
 
 @interface PTLFetchedSection ()
 
-@property (nonatomic, strong) NSFetchRequest *request;
 @property (nonatomic, strong) NSFetchedResultsController *controller;
 
 @end
@@ -28,14 +27,18 @@
     return self;
 }
 
-#pragma mark - PTLDatasourceSection
+#pragma mark - PTLDatasource
 
-- (NSInteger)numberOfItems {
-    return ((id<NSFetchedResultsSectionInfo>)[self.controller.sections lastObject]).numberOfObjects;
+- (NSInteger)numberOfSections {
+    return self.controller.sections.count;
 }
 
-- (id)itemAtIndex:(NSInteger)index {
-    return [self.controller objectAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+- (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex {
+    return ((id<NSFetchedResultsSectionInfo>)[self.controller.sections objectAtIndex:sectionIndex]).numberOfObjects;
+}
+
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.controller objectAtIndexPath:indexPath];
 }
 
 @end
