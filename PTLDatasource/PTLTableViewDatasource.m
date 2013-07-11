@@ -50,9 +50,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     id<PTLTableViewDatasourceSection> section = [self.sections objectAtIndex:indexPath.section];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:section.cellIdentifier forIndexPath:indexPath];
-    if (section.cellConfigBlock != nil) {
-        section.cellConfigBlock(tableView, cell, [self itemAtIndexPath:indexPath], indexPath);
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:section.tableViewCellIdentifier forIndexPath:indexPath];
+    if (section.tableViewCellConfigBlock != nil) {
+        section.tableViewCellConfigBlock(tableView, cell, [self itemAtIndexPath:indexPath], indexPath);
     }
     return cell;
 }

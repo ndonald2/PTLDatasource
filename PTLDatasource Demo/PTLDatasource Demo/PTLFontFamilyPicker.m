@@ -35,9 +35,8 @@
     NSArray *fonts = [[UIFont familyNames] sortedArrayUsingSelector:@selector(compare:)];
     PTLArraySection *familySection = [[PTLArraySection alloc] initWithItems:fonts];
     familySection.title = @"Font Families";
-    familySection.cellIdentifier = familyCellId;
-    familySection.cellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, id item, NSIndexPath *indexPath) {
-        NSString *familyName = item;
+    familySection.tableViewCellIdentifier = familyCellId;
+    familySection.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSString *familyName, NSIndexPath *indexPath) {
         cell.textLabel.text = familyName;
         NSArray *fontNames = [UIFont fontNamesForFamilyName:familyName];
         UIFont *font = [UIFont fontWithName:[fontNames lastObject] size:cell.textLabel.font.pointSize];

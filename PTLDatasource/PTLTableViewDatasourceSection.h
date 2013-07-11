@@ -13,7 +13,7 @@ typedef void(^PTLTableViewCellConfigBlock)(UITableView *tableView, UITableViewCe
 
 @protocol PTLTableViewDatasourceSection <PTLDatasourceSection>
 
-- (NSString *)cellIdentifier;
-- (PTLTableViewCellConfigBlock)cellConfigBlock;
+- (NSString *)tableViewCellIdentifier;
+- (PTLTableViewCellConfigBlock)tableViewCellConfigBlock;
 
 @end

@@ -13,8 +13,8 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
-@property (nonatomic, copy) NSString *cellIdentifier;
-@property (nonatomic, copy) PTLTableViewCellConfigBlock cellConfigBlock;
+@property (nonatomic, copy) NSString *tableViewCellIdentifier;
+@property (nonatomic, copy) PTLTableViewCellConfigBlock tableViewCellConfigBlock;
 
 - (id)initWithItems:(NSArray *)items;
 

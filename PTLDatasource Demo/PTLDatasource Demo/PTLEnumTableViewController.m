@@ -75,15 +75,15 @@
 
     PTLIndexSection *eyesSection = [[PTLIndexSection alloc] initWithIndecies:eyes];
     eyesSection.title = @"Eyes";
-    eyesSection.cellIdentifier = cellId;
-    eyesSection.cellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSNumber *item, NSIndexPath *indexPath) {
+    eyesSection.tableViewCellIdentifier = cellId;
+    eyesSection.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSNumber *item, NSIndexPath *indexPath) {
         cell.textLabel.text = [self nameForEyeColor:item.integerValue];
     };
 
     PTLIndexSection *hairSection = [[PTLIndexSection alloc] initWithIndecies:hair];
     hairSection.title = @"Hair";
-    hairSection.cellIdentifier = cellId;
-    hairSection.cellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSNumber *item, NSIndexPath *indexPath) {
+    hairSection.tableViewCellIdentifier = cellId;
+    hairSection.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSNumber *item, NSIndexPath *indexPath) {
         cell.textLabel.text = [self nameForHairColor:item.integerValue];
     };
 
