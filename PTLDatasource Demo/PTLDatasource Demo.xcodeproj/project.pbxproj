@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D36FB5EE178E548C00188879 /* PTLIndexSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D36FB5ED178E548C00188879 /* PTLIndexSection.m */; };
+		D36FB5F1178E583E00188879 /* PTLEnumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36FB5F0178E583E00188879 /* PTLEnumTableViewController.m */; };
 		D38A483A178E46E6006C4659 /* PTLArraySection.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4833178E46E6006C4659 /* PTLArraySection.m */; };
 		D38A483B178E46E6006C4659 /* PTLFetchedSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4837178E46E6006C4659 /* PTLFetchedSection.m */; };
 		D38A483C178E46E6006C4659 /* PTLTableViewDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4839178E46E6006C4659 /* PTLTableViewDatasource.m */; };
@@ -39,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D36FB5EC178E548C00188879 /* PTLIndexSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexSection.h; sourceTree = "<group>"; };
+		D36FB5ED178E548C00188879 /* PTLIndexSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexSection.m; sourceTree = "<group>"; };
+		D36FB5EF178E583E00188879 /* PTLEnumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLEnumTableViewController.h; sourceTree = "<group>"; };
+		D36FB5F0178E583E00188879 /* PTLEnumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLEnumTableViewController.m; sourceTree = "<group>"; };
 		D38A4832178E46E6006C4659 /* PTLArraySection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLArraySection.h; sourceTree = "<group>"; };
 		D38A4833178E46E6006C4659 /* PTLArraySection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLArraySection.m; sourceTree = "<group>"; };
 		D38A4834178E46E6006C4659 /* PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLDatasource.h; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 				D38A4833178E46E6006C4659 /* PTLArraySection.m */,
 				D38A4836178E46E6006C4659 /* PTLFetchedSection.h */,
 				D38A4837178E46E6006C4659 /* PTLFetchedSection.m */,
+				D36FB5EC178E548C00188879 /* PTLIndexSection.h */,
+				D36FB5ED178E548C00188879 /* PTLIndexSection.m */,
 			);
 			name = Sections;
 			sourceTree = "<group>";
@@ -170,6 +178,8 @@
 				D3F85A8A178E405000040FC6 /* Supporting Files */,
 				D38A4841178E4821006C4659 /* PTLFontFamilyPicker.h */,
 				D38A4842178E4821006C4659 /* PTLFontFamilyPicker.m */,
+				D36FB5EF178E583E00188879 /* PTLEnumTableViewController.h */,
+				D36FB5F0178E583E00188879 /* PTLEnumTableViewController.m */,
 			);
 			path = "PTLDatasource Demo";
 			sourceTree = "<group>";
@@ -323,6 +333,8 @@
 				D38A483B178E46E6006C4659 /* PTLFetchedSection.m in Sources */,
 				D38A483C178E46E6006C4659 /* PTLTableViewDatasource.m in Sources */,
 				D38A4843178E4821006C4659 /* PTLFontFamilyPicker.m in Sources */,
+				D36FB5EE178E548C00188879 /* PTLIndexSection.m in Sources */,
+				D36FB5F1178E583E00188879 /* PTLEnumTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

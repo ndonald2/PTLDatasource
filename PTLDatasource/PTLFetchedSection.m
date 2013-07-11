@@ -12,6 +12,7 @@
 
 @interface PTLFetchedSection ()
 
+@property (nonatomic, strong) NSFetchRequest *request;
 @property (nonatomic, strong) NSFetchedResultsController *controller;
 
 @end

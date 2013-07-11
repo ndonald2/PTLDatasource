@@ -21,7 +21,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.title = @"Array";
     }
     return self;
 }
