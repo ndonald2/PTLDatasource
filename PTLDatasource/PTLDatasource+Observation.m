@@ -7,21 +7,18 @@
 //
 
 #import "PTLDatasource+Observation.h"
+#import <objc/runtime.h>
 
 @interface PTLDatasource (Observation_Private)
 
-@property (nonatomic, strong) NSMutableSet *observers;
+@property (nonatomic, readonly, strong) NSMutableSet *observers;
 
 @end
 
 @implementation PTLDatasource (Observation)
 
 - (void)addChangeObserver:(id<PTLDatasourceObserver>)observer {
-    if (self.observers == nil) {
-        self.observers = [NSMutableSet setWithObject:observer];
-    } else {
-        [self.observers addObject:observer];
-    }
+    [self.observers addObject:observer];
 }
 
 - (void)removeChangeObserver:(id<PTLDatasourceObserver>)observer {
@@ -39,5 +36,21 @@
         }
     }
 }
+
+@end
+
+@implementation PTLDatasource (Observation_Private)
+
+@dynamic observers;
+
+- (NSMutableSet *)observers {
+    NSMutableSet *result = objc_getAssociatedObject(self, @"observers");
+    if (result == nil) {
+        objc_setAssociatedObject(self, @"observers", result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return result;
+}
+
+
 
 @end
