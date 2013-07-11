@@ -29,10 +29,34 @@
     [self.observers removeAllObjects];
 }
 
+- (void)notifyObserversOfChangesBeginning {
+    for (id<PTLDatasourceObserver> observer in self.observers) {
+        if ([observer respondsToSelector:@selector(datasourceWillChange:)]) {
+            [observer datasourceWillChange:self];
+        }
+    }
+}
+
+- (void)notifyObserversOfChangesEnding {
+    for (id<PTLDatasourceObserver> observer in self.observers) {
+        if ([observer respondsToSelector:@selector(datasourceDidChange:)]) {
+            [observer datasourceDidChange:self];
+        }
+    }
+}
+
 - (void)notifyObserversOfChange:(PTLChangeType)change sourceIndexPath:(NSIndexPath *)sourceIndexPath destinationIndexPath:(NSIndexPath *)destinationIndexPath {
     for (id<PTLDatasourceObserver> observer in self.observers) {
         if ([observer respondsToSelector:@selector(datasource:didChange:sourceIndexPath:destinationIndexPath:)]) {
             [observer datasource:self didChange:change sourceIndexPath:sourceIndexPath destinationIndexPath:destinationIndexPath];
+        }
+    }
+}
+
+- (void)notifyObserversOfSectionChange:(PTLChangeType)change sectionIndex:(NSInteger)sectionIndex {
+    for (id<PTLDatasourceObserver> observer in self.observers) {
+        if ([observer respondsToSelector:@selector(datasource:didChange:sectionIndex:)]) {
+            [observer datasource:self didChange:change sectionIndex:sectionIndex];
         }
     }
 }
