@@ -14,11 +14,11 @@
 		178ECB8F178F06EA00943267 /* PTLCollectionViewDatasourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 178ECB8E178F06E900943267 /* PTLCollectionViewDatasourceAdapter.m */; };
 		178ECB92178F070500943267 /* PTLDatasource+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 178ECB91178F070500943267 /* PTLDatasource+CollectionView.m */; };
 		178ECB99178F2B7800943267 /* PTLColorCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178ECB98178F2B7800943267 /* PTLColorCollectionViewController.m */; };
+		178ECB9A178F323100943267 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38A483F178E4724006C4659 /* CoreData.framework */; };
 		D36FB5EE178E548C00188879 /* PTLIndexDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D36FB5ED178E548C00188879 /* PTLIndexDatasource.m */; };
 		D36FB5F1178E583E00188879 /* PTLEnumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36FB5F0178E583E00188879 /* PTLEnumTableViewController.m */; };
 		D38A483A178E46E6006C4659 /* PTLArrayDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4833178E46E6006C4659 /* PTLArrayDatasource.m */; };
-		D38A483B178E46E6006C4659 /* PTLFetchedSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4837178E46E6006C4659 /* PTLFetchedSection.m */; };
-		D38A4840178E4724006C4659 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D38A483F178E4724006C4659 /* CoreData.framework */; };
+		D38A483B178E46E6006C4659 /* PTLFetchedDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4837178E46E6006C4659 /* PTLFetchedDatasource.m */; };
 		D38A4843178E4821006C4659 /* PTLFontFamilyPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4842178E4821006C4659 /* PTLFontFamilyPicker.m */; };
 		D38FDE96178ED35600A53D81 /* PTLCompositeDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38FDE95178ED35600A53D81 /* PTLCompositeDatasource.m */; };
 		D3F85A84178E405000040FC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F85A83178E405000040FC6 /* UIKit.framework */; };
@@ -68,8 +68,8 @@
 		D36FB5F0178E583E00188879 /* PTLEnumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLEnumTableViewController.m; sourceTree = "<group>"; };
 		D38A4832178E46E6006C4659 /* PTLArrayDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLArrayDatasource.h; sourceTree = "<group>"; };
 		D38A4833178E46E6006C4659 /* PTLArrayDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLArrayDatasource.m; sourceTree = "<group>"; };
-		D38A4836178E46E6006C4659 /* PTLFetchedSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLFetchedSection.h; sourceTree = "<group>"; };
-		D38A4837178E46E6006C4659 /* PTLFetchedSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLFetchedSection.m; sourceTree = "<group>"; };
+		D38A4836178E46E6006C4659 /* PTLFetchedDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLFetchedDatasource.h; sourceTree = "<group>"; };
+		D38A4837178E46E6006C4659 /* PTLFetchedDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLFetchedDatasource.m; sourceTree = "<group>"; };
 		D38A483F178E4724006C4659 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D38A4841178E4821006C4659 /* PTLFontFamilyPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLFontFamilyPicker.h; sourceTree = "<group>"; };
 		D38A4842178E4821006C4659 /* PTLFontFamilyPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLFontFamilyPicker.m; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D38A4840178E4724006C4659 /* CoreData.framework in Frameworks */,
+				178ECB9A178F323100943267 /* CoreData.framework in Frameworks */,
 				D3F85A84178E405000040FC6 /* UIKit.framework in Frameworks */,
 				D3F85A86178E405000040FC6 /* Foundation.framework in Frameworks */,
 				D3F85A88178E405000040FC6 /* CoreGraphics.framework in Frameworks */,
@@ -154,8 +154,8 @@
 			children = (
 				D38A4832178E46E6006C4659 /* PTLArrayDatasource.h */,
 				D38A4833178E46E6006C4659 /* PTLArrayDatasource.m */,
-				D38A4836178E46E6006C4659 /* PTLFetchedSection.h */,
-				D38A4837178E46E6006C4659 /* PTLFetchedSection.m */,
+				D38A4836178E46E6006C4659 /* PTLFetchedDatasource.h */,
+				D38A4837178E46E6006C4659 /* PTLFetchedDatasource.m */,
 				D36FB5EC178E548C00188879 /* PTLIndexDatasource.h */,
 				D36FB5ED178E548C00188879 /* PTLIndexDatasource.m */,
 				D38FDE94178ED35600A53D81 /* PTLCompositeDatasource.h */,
@@ -369,7 +369,7 @@
 				D3F85A90178E405000040FC6 /* main.m in Sources */,
 				D3F85A94178E405000040FC6 /* PTLAppDelegate.m in Sources */,
 				D38A483A178E46E6006C4659 /* PTLArrayDatasource.m in Sources */,
-				D38A483B178E46E6006C4659 /* PTLFetchedSection.m in Sources */,
+				D38A483B178E46E6006C4659 /* PTLFetchedDatasource.m in Sources */,
 				D38A4843178E4821006C4659 /* PTLFontFamilyPicker.m in Sources */,
 				D36FB5EE178E548C00188879 /* PTLIndexDatasource.m in Sources */,
 				D36FB5F1178E583E00188879 /* PTLEnumTableViewController.m in Sources */,

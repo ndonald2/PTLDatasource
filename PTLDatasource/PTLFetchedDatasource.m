@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 Pear Tree Labs. All rights reserved.
 //
 
-#import "PTLFetchedSection.h"
+#import "PTLFetchedDatasource.h"
 
 #ifdef _COREDATADEFINES_H
 
-@interface PTLFetchedSection ()
+@interface PTLFetchedDatasource ()
 
 @property (nonatomic, strong) NSFetchedResultsController *controller;
 
 @end
 
-@implementation PTLFetchedSection
+@implementation PTLFetchedDatasource
 
 - (id)initWithFetchedResults:(NSFetchedResultsController *)controller {
     self = [super init];
