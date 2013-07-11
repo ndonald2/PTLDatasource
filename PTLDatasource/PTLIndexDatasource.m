@@ -63,40 +63,4 @@
     return @([self.indecies ptl_indexAtIndex:indexPath.item]);
 }
 
-#pragma mark - PTLTableViewDatasource
-
-- (NSString *)titleForSection:(NSInteger)sectionIndex {
-    return self.title;
-}
-
-- (NSString *)subtitleForSection:(NSInteger)sectionIndex {
-    return self.subtitle;
-}
-
-- (NSString *)tableViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
-    return self.tableViewCellIdentifier;
-}
-
-- (PTLTableViewCellConfigBlock)tableViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-    return self.tableViewCellConfigBlock;
-}
-
-#pragma mark - PTLCollectionViewDatasource
-
-- (NSString *)collectionViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
-    return self.collectionViewCellIdentifier;
-}
-
-- (PTLCollectionViewCellConfigBlock)collectionViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-    return self.collectionViewCellConfigBlock;
-}
-
-- (NSString *)collectionViewSupplementaryViewIdentifierForIndexPath:(NSIndexPath *)indexPath {
-    return nil;
-}
-
-- (PTLCollectionViewSupplementaryViewConfigBlock)collectionViewSupplementaryViewConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-    return nil;
-}
-
 @end

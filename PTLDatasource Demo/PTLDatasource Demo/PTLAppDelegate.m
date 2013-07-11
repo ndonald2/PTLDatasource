@@ -9,6 +9,7 @@
 #import "PTLAppDelegate.h"
 #import "PTLFontFamilyPicker.h"
 #import "PTLEnumTableViewController.h"
+#import "PTLColorCollectionViewController.h"
 
 @implementation PTLAppDelegate
 
@@ -20,8 +21,11 @@
     PTLEnumTableViewController *enumVC = [[PTLEnumTableViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *enumNav = [[UINavigationController alloc] initWithRootViewController:enumVC];
 
+    PTLColorCollectionViewController *colorVC = [[PTLColorCollectionViewController alloc] initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+    UINavigationController *colorNav = [[UINavigationController alloc] initWithRootViewController:colorVC];
+
     UITabBarController *tab = [[UITabBarController alloc] init];
-    tab.viewControllers = @[fontNav, enumNav];
+    tab.viewControllers = @[fontNav, enumNav, colorVC];
 
     self.window.rootViewController = tab;
     [self.window makeKeyAndVisible];

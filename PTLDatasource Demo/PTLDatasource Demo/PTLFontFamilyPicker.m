@@ -8,11 +8,11 @@
 
 #import "PTLFontFamilyPicker.h"
 #import "PTLArrayDatasource.h"
-#import "PTLViewDatasource.h"
+#import "PTLTableViewDatasourceAdapter.h"
 
 @interface PTLFontFamilyPicker ()
 
-@property (nonatomic, strong) PTLViewDatasource *datasource;
+@property (nonatomic, strong) PTLTableViewDatasourceAdapter *datasource;
 
 @end
 
@@ -43,7 +43,7 @@
         cell.textLabel.font = font;
     };
 
-    self.datasource = [[PTLViewDatasource alloc] initWithDatasource:familyDatasource];
+    self.datasource = [[PTLTableViewDatasourceAdapter alloc] initWithDatasource:familyDatasource];
     self.tableView.dataSource = self.datasource;
 }
 

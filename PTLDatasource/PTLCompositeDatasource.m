@@ -3,7 +3,7 @@
 //  PTLDatasource Demo
 //
 //  Created by Brian Partridge on 7/11/13.
-//  Copyright (c) 2013 Brian Partridge. All rights reserved.
+//  Copyright (c) 2013 Pear Tree Labs. All rights reserved.
 //
 
 #import "PTLCompositeDatasource.h"
@@ -51,6 +51,19 @@
     return nil;
 }
 
+- (NSInteger)resolvedChildDatasourceSectionIndexForSectionIndex:(NSInteger)sectionIndex {
+    id<PTLDatasource> datasource = [self datasourceForSectionIndex:sectionIndex];
+    NSRange sectionRange = [[self.datasourceToSectionRange objectForKey:datasource] rangeValue];
+    NSInteger resolvedChildSectionIndex = sectionIndex - sectionRange.location;
+    return resolvedChildSectionIndex;
+}
+
+- (NSIndexPath *)resolvedChildDatasourceIndexPathForIndexPath:(NSIndexPath *)indexPath {
+    NSInteger resolvedChildSectionIndex = [self resolvedChildDatasourceSectionIndexForSectionIndex:indexPath.section];
+    NSIndexPath *resolvedChildIndexPath = [NSIndexPath indexPathForItem:indexPath.item inSection:resolvedChildSectionIndex];
+    return resolvedChildIndexPath;
+}
+
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -69,16 +82,12 @@
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex {
     id<PTLDatasource> datasource = [self datasourceForSectionIndex:sectionIndex];
-    NSRange sectionRange = [[self.datasourceToSectionRange objectForKey:datasource] rangeValue];
-    NSInteger translatedSectionIndex = sectionIndex - sectionRange.location;
-    return [datasource numberOfItemsInSection:translatedSectionIndex];
+    return [datasource numberOfItemsInSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex]];
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
     id<PTLDatasource> datasource = [self datasourceForSectionIndex:indexPath.section];
-    NSRange sectionRange = [[self.datasourceToSectionRange objectForKey:datasource] rangeValue];
-    NSInteger translatedSectionIndex = indexPath.section - sectionRange.location;
-    NSIndexPath *translatedIndexPath = [NSIndexPath indexPathForItem:indexPath.item inSection:translatedSectionIndex];
+    NSIndexPath *translatedIndexPath = [NSIndexPath indexPathForItem:indexPath.item inSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:indexPath.section]];
     return [datasource itemAtIndexPath:translatedIndexPath];
 }
 
@@ -86,22 +95,22 @@
 
 - (NSString *)titleForSection:(NSInteger)sectionIndex {
     id datasource = [self datasourceForSectionIndex:sectionIndex];
-    return [datasource titleForSection:sectionIndex];
+    return [datasource titleForSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex]];
 }
 
 - (NSString *)subtitleForSection:(NSInteger)sectionIndex {
     id datasource = [self datasourceForSectionIndex:sectionIndex];
-    return [datasource subtitleForSection:sectionIndex];
+    return [datasource subtitleForSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex]];
 }
 
 - (NSString *)tableViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
     id datasource = [self datasourceForSectionIndex:indexPath.section];
-    return [datasource tableViewCellIdentifierForIndexPath:indexPath];
+    return [datasource tableViewCellIdentifierForIndexPath:[self resolvedChildDatasourceIndexPathForIndexPath:indexPath]];
 }
 
 - (PTLTableViewCellConfigBlock)tableViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
     id datasource = [self datasourceForSectionIndex:indexPath.section];
-    return [datasource tableViewCellConfigBlockForIndexPath:indexPath];
+    return [datasource tableViewCellConfigBlockForIndexPath:[self resolvedChildDatasourceIndexPathForIndexPath:indexPath]];
 }
 
 #pragma mark - PTLCollectionViewDatasource

@@ -7,13 +7,13 @@
 //
 
 #import "PTLEnumTableViewController.h"
-#import "PTLViewDatasource.h"
+#import "PTLTableViewDatasourceAdapter.h"
 #import "PTLCompositeDatasource.h"
 #import "PTLIndexDatasource.h"
 
 @interface PTLEnumTableViewController ()
 
-@property (nonatomic, strong) id<PTLViewDatasource> datasource;
+@property (nonatomic, strong) PTLTableViewDatasourceAdapter *datasource;
 
 @end
 
@@ -127,7 +127,7 @@
         cell.textLabel.textColor = [self colorForHairColor:item.integerValue];
     };
 
-    self.datasource = [[PTLViewDatasource alloc] initWithDatasource:[[PTLCompositeDatasource alloc] initWithWithDatasources:@[eyesSection, hairSection]]];
+    self.datasource = [[PTLTableViewDatasourceAdapter alloc] initWithDatasource:[[PTLCompositeDatasource alloc] initWithWithDatasources:@[eyesSection, hairSection]]];
     self.tableView.dataSource = self.datasource;
 }
 

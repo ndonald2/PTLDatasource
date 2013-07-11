@@ -6,20 +6,11 @@
 //  Copyright (c) 2013 Pear Tree Labs. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "PTLTableViewDatasource.h"
-#import "PTLCollectionViewDatasource.h"
+#import "PTLDatasource.h"
+#import "PTLDatasource+TableView.h"
+#import "PTLDatasource+CollectionView.h"
 
-@interface PTLArrayDatasource : NSObject <PTLTableViewDatasource, PTLCollectionViewDatasource>
-
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *subtitle;
-
-@property (nonatomic, copy) NSString *tableViewCellIdentifier;
-@property (nonatomic, copy) PTLTableViewCellConfigBlock tableViewCellConfigBlock;
-
-@property (nonatomic, copy) NSString *collectionViewCellIdentifier;
-@property (nonatomic, copy) PTLCollectionViewCellConfigBlock collectionViewCellConfigBlock;
+@interface PTLArrayDatasource : PTLDatasource <PTLTableViewDatasource, PTLCollectionViewDatasource>
 
 - (id)initWithItems:(NSArray *)items;
 

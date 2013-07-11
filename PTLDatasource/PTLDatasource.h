@@ -15,3 +15,7 @@
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
+
+@interface PTLDatasource : NSObject <PTLDatasource>
+
+@end
