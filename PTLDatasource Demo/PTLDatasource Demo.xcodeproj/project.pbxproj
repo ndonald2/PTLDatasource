@@ -13,6 +13,7 @@
 		178ECB8C178F027200943267 /* PTLTableViewDatasourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 178ECB8B178F027200943267 /* PTLTableViewDatasourceAdapter.m */; };
 		178ECB8F178F06EA00943267 /* PTLCollectionViewDatasourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 178ECB8E178F06E900943267 /* PTLCollectionViewDatasourceAdapter.m */; };
 		178ECB92178F070500943267 /* PTLDatasource+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 178ECB91178F070500943267 /* PTLDatasource+CollectionView.m */; };
+		178ECB99178F2B7800943267 /* PTLColorCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178ECB98178F2B7800943267 /* PTLColorCollectionViewController.m */; };
 		D36FB5EE178E548C00188879 /* PTLIndexDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D36FB5ED178E548C00188879 /* PTLIndexDatasource.m */; };
 		D36FB5F1178E583E00188879 /* PTLEnumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D36FB5F0178E583E00188879 /* PTLEnumTableViewController.m */; };
 		D38A483A178E46E6006C4659 /* PTLArrayDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38A4833178E46E6006C4659 /* PTLArrayDatasource.m */; };
@@ -59,6 +60,8 @@
 		178ECB8E178F06E900943267 /* PTLCollectionViewDatasourceAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLCollectionViewDatasourceAdapter.m; sourceTree = "<group>"; };
 		178ECB90178F070500943267 /* PTLDatasource+CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLDatasource+CollectionView.h"; sourceTree = "<group>"; };
 		178ECB91178F070500943267 /* PTLDatasource+CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLDatasource+CollectionView.m"; sourceTree = "<group>"; };
+		178ECB97178F2B7800943267 /* PTLColorCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLColorCollectionViewController.h; sourceTree = "<group>"; };
+		178ECB98178F2B7800943267 /* PTLColorCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLColorCollectionViewController.m; sourceTree = "<group>"; };
 		D36FB5EC178E548C00188879 /* PTLIndexDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexDatasource.h; sourceTree = "<group>"; };
 		D36FB5ED178E548C00188879 /* PTLIndexDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexDatasource.m; sourceTree = "<group>"; };
 		D36FB5EF178E583E00188879 /* PTLEnumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLEnumTableViewController.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				D38A4842178E4821006C4659 /* PTLFontFamilyPicker.m */,
 				D36FB5EF178E583E00188879 /* PTLEnumTableViewController.h */,
 				D36FB5F0178E583E00188879 /* PTLEnumTableViewController.m */,
+				178ECB97178F2B7800943267 /* PTLColorCollectionViewController.h */,
+				178ECB98178F2B7800943267 /* PTLColorCollectionViewController.m */,
 			);
 			path = "PTLDatasource Demo";
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				178ECB8C178F027200943267 /* PTLTableViewDatasourceAdapter.m in Sources */,
 				178ECB8F178F06EA00943267 /* PTLCollectionViewDatasourceAdapter.m in Sources */,
 				178ECB92178F070500943267 /* PTLDatasource+CollectionView.m in Sources */,
+				178ECB99178F2B7800943267 /* PTLColorCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

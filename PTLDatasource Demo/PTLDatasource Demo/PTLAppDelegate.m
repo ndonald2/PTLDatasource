@@ -25,7 +25,7 @@
     UINavigationController *colorNav = [[UINavigationController alloc] initWithRootViewController:colorVC];
 
     UITabBarController *tab = [[UITabBarController alloc] init];
-    tab.viewControllers = @[fontNav, enumNav, colorVC];
+    tab.viewControllers = @[fontNav, enumNav, colorNav];
 
     self.window.rootViewController = tab;
     [self.window makeKeyAndVisible];
