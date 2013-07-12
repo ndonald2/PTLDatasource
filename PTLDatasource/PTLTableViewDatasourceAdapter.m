@@ -30,19 +30,41 @@
 }
 
 #pragma mark - PTLDatasource
+
+- (NSInteger)numberOfSections {
+   return [self.datasource numberOfSections];
+}
+
+- (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex {
+   return [self.datasource numberOfItemsInSection:sectionIndex];
+}
+
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath {
+   return [self.datasource itemAtIndexPath:indexPath];
+}
+
 #pragma mark - PTLTableViewDatasource
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    if (sel_isEqual(aSelector, @selector(numberOfSections)) ||
-        sel_isEqual(aSelector, @selector(numberOfItemsInSection:)) ||
-        sel_isEqual(aSelector, @selector(itemAtIndexPath:)) ||
-        sel_isEqual(aSelector, @selector(titleForSection:)) ||
-        sel_isEqual(aSelector, @selector(subtitleForSection:)) ||
-        sel_isEqual(aSelector, @selector(tableViewCellIdentifierForIndexPath:)) ||
-        sel_isEqual(aSelector, @selector(tableViewCellConfigBlockForIndexPath:))) {
-        return self.datasource;
-    }
-    return nil;
+- (NSString *)tableViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
+   return [self.datasource tableViewCellIdentifierForIndexPath:indexPath];
+}
+
+- (PTLTableViewCellConfigBlock)tableViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
+   return [self.datasource tableViewCellConfigBlockForIndexPath:indexPath];
+}
+
+- (NSString *)titleForSection:(NSInteger)sectionIndex {
+   if ([self.datasource respondsToSelector:@selector(titleForSection:)]) {
+      return [self.datasource titleForSection:sectionIndex];
+   }
+   return nil;
+}
+
+- (NSString *)subtitleForSection:(NSInteger)sectionIndex {
+   if ([self.datasource respondsToSelector:@selector(subtitleForSection:)]) {
+      return [self.datasource subtitleForSection:sectionIndex];
+   }
+   return nil;
 }
 
 #pragma mark - UITableViewDatasource Required Methods

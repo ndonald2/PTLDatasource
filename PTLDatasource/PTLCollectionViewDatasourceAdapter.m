@@ -35,19 +35,41 @@
 }
 
 #pragma mark - PTLDatasource
+
+- (NSInteger)numberOfSections {
+   return [self.datasource numberOfSections];
+}
+
+- (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex {
+   return [self.datasource numberOfItemsInSection:sectionIndex];
+}
+
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath {
+   return [self.datasource itemAtIndexPath:indexPath];
+}
+
 #pragma mark - PTLCollectionViewDatasource
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    if (sel_isEqual(aSelector, @selector(numberOfSections)) ||
-        sel_isEqual(aSelector, @selector(numberOfItemsInSection:)) ||
-        sel_isEqual(aSelector, @selector(itemAtIndexPath:)) ||
-        sel_isEqual(aSelector, @selector(collectionViewCellIdentifierForIndexPath:)) ||
-        sel_isEqual(aSelector, @selector(collectionViewCellConfigBlockForIndexPath:)) ||
-        sel_isEqual(aSelector, @selector(collectionViewSupplementaryViewIdentifierForIndexPath:)) ||
-        sel_isEqual(aSelector, @selector(collectionViewSupplementaryViewConfigBlockForIndexPath:))) {
-        return self.datasource;
-    }
-    return nil;
+- (NSString *)collectionViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
+   return [self.datasource collectionViewCellIdentifierForIndexPath:indexPath];
+}
+
+- (PTLCollectionViewCellConfigBlock)collectionViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
+   return [self.datasource collectionViewCellConfigBlockForIndexPath:indexPath];
+}
+
+- (NSString *)collectionViewSupplementaryViewIdentifierForIndexPath:(NSIndexPath *)indexPath {
+   if ([self.datasource respondsToSelector:@selector(collectionViewSupplementaryViewIdentifierForIndexPath:)]) {
+      return [self.datasource collectionViewSupplementaryViewIdentifierForIndexPath:indexPath];
+   }
+   return nil;
+}
+
+- (PTLCollectionViewSupplementaryViewConfigBlock)collectionViewSupplementaryViewConfigBlockForIndexPath:(NSIndexPath *)indexPath {
+   if ([self.datasource respondsToSelector:@selector(collectionViewSupplementaryViewConfigBlockForIndexPath:)]) {
+      return [self.datasource collectionViewSupplementaryViewConfigBlockForIndexPath:indexPath];
+   }
+   return nil;
 }
 
 #pragma mark - UICollectionViewDatasource Required Methods
