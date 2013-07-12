@@ -13,6 +13,6 @@
 
 @interface PTLFetchedDatasource : PTLDatasource <PTLTableViewDatasource, PTLCollectionViewDatasource>
 
-- (id)initWithFetchedResults:(NSFetchedResultsController *)controller monitorChanges:(BOOL)monitorChanges;
+- (id)initWithFetchedResults:(NSFetchedResultsController *)controller trackChanges:(BOOL)trackChanges;
 
 @end

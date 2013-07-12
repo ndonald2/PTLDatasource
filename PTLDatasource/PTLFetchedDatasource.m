@@ -16,16 +16,22 @@
 
 @implementation PTLFetchedDatasource
 
-- (id)initWithFetchedResults:(NSFetchedResultsController *)controller monitorChanges:(BOOL)monitorChanges {
+- (id)initWithFetchedResults:(NSFetchedResultsController *)controller trackChanges:(BOOL)trackChanges {
     self = [super init];
     if (self) {
         _controller = controller;
-        if (monitorChanges) {
+        if (trackChanges) {
             controller.delegate = self;
         }
     }
 
     return self;
+}
+
+- (void)dealloc {
+   if (self.controller.delegate == self) {
+      self.controller.delegate = nil;
+   }
 }
 
 #pragma mark - PTLDatasource
