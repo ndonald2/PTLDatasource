@@ -13,7 +13,7 @@ typedef void(^PTLCollectionViewSupplementaryViewConfigBlock)(UICollectionView *c
 
 #pragma mark - Protocol
 
-@protocol PTLCollectionViewDatasource <PTLDatasource>
+@protocol PTLCollectionViewDatasource <PTLDatasource, PTLMutableDatasource, PTLObservableDatasource>
 
 - (NSString *)collectionViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath;
 - (PTLCollectionViewCellConfigBlock)collectionViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath;
