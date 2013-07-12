@@ -10,7 +10,7 @@
 
 @interface PTLArrayDatasource ()
 
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSMutableArray *items;
 
 @end
 
@@ -19,7 +19,7 @@
 - (id)initWithItems:(NSArray *)items {
 	self = [super init];
 	if (self) {
-	    _items = items;
+	    _items = [items mutableCopy];
 	}
 
 	return self;
@@ -43,6 +43,25 @@
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
     return [self.items objectAtIndex:indexPath.item];
+}
+
+#pragma mark - Mutability
+
+- (void)addObject:(id)object {
+   [self addObjectsFromArray:@[object]];
+}
+
+- (void)addObjectsFromArray:(NSArray *)array {
+   [self notifyObserversOfChangesBeginning];
+   NSInteger start = self.items.count;
+   [self.items addObjectsFromArray:array];
+   NSInteger end = self.items.count;
+   for (int i = start; i < end; i++) {
+      [self notifyObserversOfChange:PTLChangeTypeInsert
+                        atIndexPath:[NSIndexPath indexPathForItem:i inSection:0]
+                       newIndexPath:nil];
+   }
+   [self notifyObserversOfChangesEnding];
 }
 
 @end
