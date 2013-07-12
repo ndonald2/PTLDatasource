@@ -13,7 +13,6 @@
 
 @property (nonatomic, readonly, strong) NSMutableDictionary *sectionToTitle;
 @property (nonatomic, readonly, strong) NSMutableDictionary *sectionToSubtitle;
-@property (nonatomic, readonly, strong) NSMutableDictionary *indexPathToTableViewCellHeight;
 @property (nonatomic, readonly, strong) NSMutableDictionary *indexPathToTableViewCellIdentifier;
 @property (nonatomic, readonly, strong) NSMutableDictionary *indexPathToTableViewCellConfigBlock;
 
@@ -41,16 +40,6 @@
 
 - (void)setSubitle:(NSString *)subtitle {
     objc_setAssociatedObject(self, @"subtitle", subtitle, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
-@dynamic tableViewCellHeight;
-
-- (CGFloat)tableViewCellHeight {
-    return [objc_getAssociatedObject(self, @"tableViewCellHeight") floatValue];
-}
-
-- (void)setTableViewCellHeight:(CGFloat)tableViewCellHeight {
-    objc_setAssociatedObject(self, @"tableViewCellHeight", @(tableViewCellHeight), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @dynamic tableViewCellIdentifier;
@@ -81,10 +70,6 @@
 
 - (void)setSubtitle:(NSString *)subtitle forSection:(NSInteger)sectionIndex {
     [self.sectionToSubtitle setObject:subtitle forKey:@(sectionIndex)];
-}
-
-- (void)setTableViewCellHeight:(CGFloat)tableViewCellHeight forIndexPath:(NSIndexPath *)indexPath {
-    [self.indexPathToTableViewCellHeight setObject:@(tableViewCellHeight) forKey:indexPath];
 }
 
 - (void)setTableViewCellIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath {
@@ -153,16 +138,6 @@
     NSMutableDictionary *result = objc_getAssociatedObject(self, @"sectionToSubtitle");
     if (result == nil) {
         objc_setAssociatedObject(self, @"sectionToSubtitle", result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    return result;
-}
-
-@dynamic indexPathToTableViewCellHeight;
-
-- (NSMutableDictionary *)indexPathToTableViewCellHeight {
-    NSMutableDictionary *result = objc_getAssociatedObject(self, @"indexPathToTableViewCellHeight");
-    if (result == nil) {
-        objc_setAssociatedObject(self, @"indexPathToTableViewCellHeight", result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     return result;
 }
