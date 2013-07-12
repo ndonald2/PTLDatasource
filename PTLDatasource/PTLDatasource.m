@@ -105,18 +105,18 @@
    }
 }
 
-- (void)notifyObserversOfChange:(PTLChangeType)change sourceIndexPath:(NSIndexPath *)sourceIndexPath destinationIndexPath:(NSIndexPath *)destinationIndexPath {
+- (void)notifyObserversOfChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath {
    for (WeakObserverWrapper *wrapper in self.observers) {
-      if ([wrapper.observer respondsToSelector:@selector(datasource:didChange:sourceIndexPath:destinationIndexPath:)]) {
-         [wrapper.observer datasource:self didChange:change sourceIndexPath:sourceIndexPath destinationIndexPath:destinationIndexPath];
+      if ([wrapper.observer respondsToSelector:@selector(datasource:didChange:atIndexPath:newIndexPath:)]) {
+         [wrapper.observer datasource:self didChange:change atIndexPath:indexPath newIndexPath:newIndexPath];
       }
    }
 }
 
-- (void)notifyObserversOfSectionChange:(PTLChangeType)change sectionIndex:(NSInteger)sectionIndex {
+- (void)notifyObserversOfSectionChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex {
    for (WeakObserverWrapper *wrapper in self.observers) {
-      if ([wrapper.observer respondsToSelector:@selector(datasource:didChange:sectionIndex:)]) {
-         [wrapper.observer datasource:self didChange:change sectionIndex:sectionIndex];
+      if ([wrapper.observer respondsToSelector:@selector(datasource:didChange:atSectionIndex:)]) {
+         [wrapper.observer datasource:self didChange:change atSectionIndex:sectionIndex];
       }
    }
 }

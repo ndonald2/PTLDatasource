@@ -23,6 +23,7 @@
 	self = [super init];
 	if (self) {
         _datasource = datasource;
+        [_datasource addChangeObserver:self];
 	}
 
 	return self;
@@ -104,6 +105,24 @@
         block(collectionView, view, indexPath);
     }
     return view;
+}
+
+#pragma mark - PTLDatasourceObserver
+
+- (void)datasourceWillChange:(id<PTLDatasource>)datasource {
+   [self notifyObserversOfChangesBeginning];
+}
+
+- (void)datasourceDidChange:(id<PTLDatasource>)datasource {
+   [self notifyObserversOfChangesEnding];
+}
+
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath {
+   [self notifyObserversOfChange:change atIndexPath:indexPath newIndexPath:newIndexPath];
+}
+
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex {
+   [self notifyObserversOfSectionChange:change atSectionIndex:sectionIndex];
 }
 
 @end

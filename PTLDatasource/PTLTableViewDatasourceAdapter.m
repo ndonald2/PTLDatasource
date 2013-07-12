@@ -99,12 +99,20 @@
 
 #pragma mark - PTLDatasourceObserver
 
-- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change sourceIndexPath:(NSIndexPath *)sourceIndexPath destinationIndexPath:(NSIndexPath *)destinationIndexPath {
-   [self notifyObserversOfChange:change sourceIndexPath:sourceIndexPath destinationIndexPath:destinationIndexPath];
+- (void)datasourceWillChange:(id<PTLDatasource>)datasource {
+    [self notifyObserversOfChangesBeginning];
 }
 
-- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change sectionIndex:(NSInteger)sectionIndex {
-   [self notifyObserversOfSectionChange:change sectionIndex:sectionIndex];
+- (void)datasourceDidChange:(id<PTLDatasource>)datasource {
+    [self notifyObserversOfChangesEnding];
+}
+
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath {
+    [self notifyObserversOfChange:change atIndexPath:indexPath newIndexPath:newIndexPath];
+}
+
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex {
+    [self notifyObserversOfSectionChange:change atSectionIndex:sectionIndex];
 }
 
 @end

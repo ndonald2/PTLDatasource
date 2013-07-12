@@ -10,7 +10,7 @@
 #import "PTLDatasource+TableView.h"
 #import "PTLDatasource+CollectionView.h"
 
-@interface PTLCompositeDatasource : PTLDatasource <PTLTableViewDatasource, PTLCollectionViewDatasource>
+@interface PTLCompositeDatasource : PTLDatasource <PTLTableViewDatasource, PTLCollectionViewDatasource, PTLDatasourceObserver>
 
 - (id)initWithWithDatasources:(NSArray *)datasources;
 

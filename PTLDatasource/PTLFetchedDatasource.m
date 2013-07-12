@@ -58,12 +58,12 @@
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     switch(type) {
         case NSFetchedResultsChangeInsert:
-            [self notifyObserversOfSectionChange:PTLChangeTypeAdd
-                                    sectionIndex:sectionIndex];
+            [self notifyObserversOfSectionChange:PTLChangeTypeInsert
+                                  atSectionIndex:sectionIndex];
             break;
         case NSFetchedResultsChangeDelete:
             [self notifyObserversOfSectionChange:PTLChangeTypeRemove
-                                    sectionIndex:sectionIndex];
+                                  atSectionIndex:sectionIndex];
             break;
     }
 }
@@ -73,24 +73,24 @@
       newIndexPath:(NSIndexPath *)newIndexPath {
     switch(type) {
         case NSFetchedResultsChangeInsert:
-            [self notifyObserversOfChange:PTLChangeTypeAdd
-                          sourceIndexPath:indexPath
-                     destinationIndexPath:newIndexPath];
+            [self notifyObserversOfChange:PTLChangeTypeInsert
+                              atIndexPath:indexPath
+                             newIndexPath:newIndexPath];
             break;
         case NSFetchedResultsChangeDelete:
             [self notifyObserversOfChange:PTLChangeTypeRemove
-                          sourceIndexPath:indexPath
-                     destinationIndexPath:newIndexPath];
+                              atIndexPath:indexPath
+                             newIndexPath:newIndexPath];
             break;
         case NSFetchedResultsChangeUpdate:
             [self notifyObserversOfChange:PTLChangeTypeUpdate
-                          sourceIndexPath:indexPath
-                     destinationIndexPath:newIndexPath];
+                              atIndexPath:indexPath
+                             newIndexPath:newIndexPath];
             break;
         case NSFetchedResultsChangeMove:
             [self notifyObserversOfChange:PTLChangeTypeMove
-                          sourceIndexPath:indexPath
-                     destinationIndexPath:newIndexPath];
+                              atIndexPath:indexPath
+                             newIndexPath:newIndexPath];
             break;
     }
 }

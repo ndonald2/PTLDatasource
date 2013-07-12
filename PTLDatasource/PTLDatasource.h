@@ -28,7 +28,7 @@
 #pragma mark - Mutability
 
 typedef NS_ENUM(NSInteger, PTLChangeType) {
-   PTLChangeTypeAdd,
+   PTLChangeTypeInsert,
    PTLChangeTypeRemove,
    PTLChangeTypeMove,
    PTLChangeTypeUpdate,
@@ -76,8 +76,8 @@ typedef NS_ENUM(NSInteger, PTLChangeType) {
 
 - (void)datasourceWillChange:(id<PTLDatasource>)datasource;
 - (void)datasourceDidChange:(id<PTLDatasource>)datasource;
-- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change sourceIndexPath:(NSIndexPath *)sourceIndexPath destinationIndexPath:(NSIndexPath *)destinationIndexPath;
-- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change sectionIndex:(NSInteger)sectionIndex;
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath;
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex;
 
 @end
 
@@ -114,7 +114,7 @@ typedef NS_ENUM(NSInteger, PTLChangeType) {
 
 - (void)notifyObserversOfChangesBeginning;
 - (void)notifyObserversOfChangesEnding;
-- (void)notifyObserversOfChange:(PTLChangeType)change sourceIndexPath:(NSIndexPath *)sourceIndexPath destinationIndexPath:(NSIndexPath *)destinationIndexPath;
-- (void)notifyObserversOfSectionChange:(PTLChangeType)change sectionIndex:(NSInteger)sectionIndex;
+- (void)notifyObserversOfChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath;
+- (void)notifyObserversOfSectionChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex;
 
 @end

@@ -21,7 +21,10 @@
 	self = [super init];
 	if (self) {
 	    _datasources = [datasources mutableCopy];
-       [_datasources makeObjectsPerformSelector:@selector(addChangeObserver:) withObject:self];
+       for (PTLDatasource *datasource in datasources) {
+           NSParameterAssert([datasource isKindOfClass:[PTLDatasource class]]);
+           [datasource addChangeObserver:self];
+       }
        [self reloadSectionsFromDatasources];
 	}
 
@@ -67,6 +70,18 @@
     return resolvedChildIndexPath;
 }
 
+- (NSInteger)resolvedSectionIndexForChildDatasource:(id<PTLDatasource>)datasource sectionIndex:(NSInteger)sectionIndex {
+   NSRange sectionRange = [[self.datasourceToSectionRange objectForKey:datasource] rangeValue];
+   NSInteger resolvedSectionIndex = sectionRange.location + sectionIndex;
+   return resolvedSectionIndex;
+}
+
+- (NSIndexPath *)resolvedIndexPathForChildDatasource:(id<PTLDatasource>)datasource indexPath:(NSIndexPath *)indexPath {
+   NSRange sectionRange = [[self.datasourceToSectionRange objectForKey:datasource] rangeValue];
+   NSIndexPath *resolvedIndexPath = [NSIndexPath indexPathForItem:indexPath.item inSection:indexPath.section + sectionRange.location];
+   return resolvedIndexPath;
+}
+
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -90,8 +105,32 @@
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
     id<PTLDatasource> datasource = [self datasourceForSectionIndex:indexPath.section];
-    NSIndexPath *translatedIndexPath = [NSIndexPath indexPathForItem:indexPath.item inSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:indexPath.section]];
-    return [datasource itemAtIndexPath:translatedIndexPath];
+    NSIndexPath *resolvedIndexPath = [self resolvedChildDatasourceIndexPathForIndexPath:indexPath];
+    return [datasource itemAtIndexPath:resolvedIndexPath];
+}
+
+#pragma mark - PTLDatasourceObserver
+
+- (void)datasourceWillChange:(id<PTLDatasource>)datasource {
+   [self notifyObserversOfChangesBeginning];
+}
+
+- (void)datasourceDidChange:(id<PTLDatasource>)datasource {
+   [self notifyObserversOfChangesEnding];
+}
+
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath {
+   [self notifyObserversOfChange:change
+                     atIndexPath:[self resolvedIndexPathForChildDatasource:datasource
+                                                                 indexPath:indexPath]
+                    newIndexPath:[self resolvedIndexPathForChildDatasource:datasource
+                                                                 indexPath:newIndexPath]];
+}
+
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex {
+   [self notifyObserversOfSectionChange:change
+                         atSectionIndex:[self resolvedSectionIndexForChildDatasource:datasource
+                                                                        sectionIndex:sectionIndex]];
 }
 
 #pragma mark - PTLTableViewDatasource
