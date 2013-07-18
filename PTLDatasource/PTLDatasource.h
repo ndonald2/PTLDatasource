@@ -23,6 +23,9 @@
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex;
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath;
 
+- (BOOL)containsItem:(id)item;
+- (NSIndexPath *)indexPathOfItem:(id)item;
+
 @end
 
 #pragma mark - Mutability

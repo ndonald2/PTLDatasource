@@ -23,6 +23,14 @@
     return nil;
 }
 
+- (BOOL)containsItem:(id)item {
+    return NO;
+}
+
+- (NSIndexPath *)indexPathOfItem:(id)item {
+    return nil;
+}
+
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {

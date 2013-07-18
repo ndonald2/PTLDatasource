@@ -36,6 +36,7 @@
 		D3EA401F1797831400A50247 /* PTLFetchedDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC71797820C00A50247 /* PTLFetchedDatasource.m */; };
 		D3EA40201797831400A50247 /* PTLIndexDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC91797820C00A50247 /* PTLIndexDatasource.m */; };
 		D3EA40211797831400A50247 /* PTLTableViewDatasourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FCB1797820C00A50247 /* PTLTableViewDatasourceAdapter.m */; };
+		D3EA402B1797872200A50247 /* PTLArrayDatasourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA402A1797872200A50247 /* PTLArrayDatasourceTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		D3EA400F1797828A00A50247 /* PTLEnumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLEnumTableViewController.m; sourceTree = "<group>"; };
 		D3EA40101797828A00A50247 /* PTLFontFamilyPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLFontFamilyPicker.h; sourceTree = "<group>"; };
 		D3EA40111797828A00A50247 /* PTLFontFamilyPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLFontFamilyPicker.m; sourceTree = "<group>"; };
+		D3EA40291797872200A50247 /* PTLArrayDatasourceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLArrayDatasourceTests.h; sourceTree = "<group>"; };
+		D3EA402A1797872200A50247 /* PTLArrayDatasourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLArrayDatasourceTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +201,8 @@
 				D3EA40031797823600A50247 /* PTLDatasource_DemoTests.h */,
 				D3EA40041797823600A50247 /* PTLDatasource_DemoTests.m */,
 				D3EA3FFE1797823600A50247 /* Supporting Files */,
+				D3EA40291797872200A50247 /* PTLArrayDatasourceTests.h */,
+				D3EA402A1797872200A50247 /* PTLArrayDatasourceTests.m */,
 			);
 			path = "PTLDatasource DemoTests";
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3EA40051797823600A50247 /* PTLDatasource_DemoTests.m in Sources */,
+				D3EA402B1797872200A50247 /* PTLArrayDatasourceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
