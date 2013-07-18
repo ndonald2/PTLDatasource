@@ -5,12 +5,89 @@
 Helpers to lighten your view controllers.
 
 ## Dependencies
-- **OPTIONAL** CoreData for PTLFetchedSection
+- UIKit
+
+### Optional
+- CoreData : PTLFetchedDatasource will not be available if CoreData isn't linked.
+
+## Usage
+
+### Basic Array Datasource
+
+```
+// Prepare your table view
+[self.tableView registerClass:cellClass forCellReuseIdentifier:identifier];
+
+// Setup your datasource
+PTLArrayDatasource *ds = [[PTLArrayDatasource alloc] initWithArray:@[@"Alice", @"Bob", @"Charlie"]];
+ds.tabelViewCellIdentifier = identifier
+ds.tabelViewCellConfigBlock = ^{ ... }
+
+// Attach it to a table view
+self.tableView.dataSource = ds;
+```
+
+### Basic Enum Datasource
+
+```
+typedef NS_ENUM(NSInteger, MyEnum) {
+    MyEnumFoo,
+    MyEnumBar,
+    MyEnumBaz,
+    MyEnumCount
+};
+
+...
+
+// Prepare your table view
+[self.tableView registerClass:cellClass forCellReuseIdentifier:identifier];
+
+// Setup your datasource
+NSIndexSet *indecies = [NSIndexSet initWithIndexesInRange:NSMakeRange(0, MyEnumCount)];
+PTLIndexDatasource *ds = [[PTLIndexDatasource alloc] initWithIndecies:indecies];
+ds.tabelViewCellIdentifier = identifier
+ds.tabelViewCellConfigBlock = ^{ ... }
+
+// Attach it to a table view
+self.tableView.dataSource = ds;
+```
+
+### Advanced Multiple Datasources
+
+```
+// Prepare your table view
+[self.tableView registerClass:arrayCellClass forCellReuseIdentifier:arrayIdentifier];
+[self.tableView registerClass:indexCellClass forCellReuseIdentifier:indexIdentifier];
+[self.tableView registerClass:fetchCellClass forCellReuseIdentifier:fetchIdentifier]
+
+// Setup multiple datasources
+PTLArrayDatasource *arrayDS = [[PTLArrayDatasource alloc] initWithArray:@[@"Alice", @"Bob", @"Charlie"]];
+arrayDS.tabelViewCellIdentifier = arrayIdentifier
+arrayDS.tabelViewCellConfigBlock = ^{ ... }
+
+NSIndexSet *indecies = [NSIndexSet initWithIndexesInRange:NSMakeRange(0, MyEnumCount)];
+PTLIndexDatasource *indexDS = [[PTLIndexDatasource alloc] initWithIndecies:indecies];
+indexDS.tabelViewCellIdentifier = indexIdentifier
+indexDS.tabelViewCellConfigBlock = ^{ ... }
+
+NSFetchedResultsController *frc = ...
+PTLFetchedDatasource *fetchDS = [[PTLFetchedDatasource alloc] initWithFetchedResults:frc trackChanges:YES];
+fetchDS.tabelViewCellIdentifier = fetchIdentifier
+fetchDS.tabelViewCellConfigBlock = ^{ ... }
+
+// Concatenate them
+PTLCompositeDatasource *ds = [[PTLCompositeDatasource alloc] initWithDatasources:@[arrayDS, indexDS, fetchDS]];
+
+// Attach to a table view
+self.tableView.dataSource = ds;
+
+// Handle datasource changes
+[ds addChangeObserver:self];
+```
 
 ## Known Issues
 
 ## Roadmap
-- Convert to XCTest
 - Add unit tests for PTLFetchedDatasource, UITableView extensions, UICollectionView extensions
 - Add support for OSX
 
