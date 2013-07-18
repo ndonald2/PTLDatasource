@@ -10,7 +10,7 @@ Helpers to lighten your view controllers.
 - Datasources should contain static content. Mutability via direct modifications of NSFetchedResultsControllerDelegate is on the roadmap.
 
 ## License
-MIT - See LICENSE.txt
+[MIT](LICENSE.txt)
 
 ## Contact
 [Brian Partridge](http://brianpartridge.name) - @brianpartridge on [Twitter](http://twitter.com/brianpartridge) and [App.Net](http://alpha.app.net/brianpartridge)

@@ -39,35 +39,6 @@ typedef NS_ENUM(NSInteger, PTLChangeType) {
 - (void)beginChanges;
 - (void)endChanges;
 
-@optional
-
-// Item Changes
-
-- (void)addObject:(id)object toSection:(NSInteger)sectionIndex;
-- (void)insertObject:(id)object atIndexPath:(NSIndexPath *)indexPath;
-
-- (void)removeObject:(id)object;
-- (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath;
-
-- (void)moveObjectAtIndexPath:(NSIndexPath *)start toIndexPath:(NSIndexPath *)end;
-
-- (void)replaceObjectAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object;
-
-- (BOOL)canPerformChange:(PTLChangeType)change sourceIndexPath:(NSIndexPath *)sourceIndexPath destinationIndexPath:(NSIndexPath *)destinationIndexPath;
-
-// Section Changes
-
-- (void)addSection;
-- (void)insertSectionAtIndex:(NSInteger)sectionIndex;
-
-- (void)removeSectionAtIndex:(NSInteger)sectionIndex;
-
-- (void)moveSectionAtIndex:(NSInteger)startIndex toIndex:(NSInteger)endIndex;
-
-- (void)replaceSectionAtIndex:(NSInteger)startIndex;
-
-- (BOOL)canPerformSectionChange:(PTLChangeType)change sourceIndex:(NSInteger)sourceIndex destinationIndex:(NSInteger)destinationIndex;
-
 @end
 
 #pragma mark - Observation

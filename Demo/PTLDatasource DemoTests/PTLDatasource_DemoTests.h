@@ -2,8 +2,8 @@
 //  PTLDatasource_DemoTests.h
 //  PTLDatasource DemoTests
 //
-//  Created by Brian Partridge on 7/10/13.
-//  Copyright (c) 2013 Pear Tree Labs. All rights reserved.
+//  Created by Brian Partridge on 7/17/13.
+//
 //
 
 #import <SenTestingKit/SenTestingKit.h>

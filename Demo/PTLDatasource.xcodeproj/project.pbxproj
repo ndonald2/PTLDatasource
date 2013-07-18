@@ -1,0 +1,642 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D3EA3FD41797823500A50247 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD31797823500A50247 /* UIKit.framework */; };
+		D3EA3FD61797823500A50247 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD51797823500A50247 /* Foundation.framework */; };
+		D3EA3FD81797823500A50247 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD71797823500A50247 /* CoreGraphics.framework */; };
+		D3EA3FDA1797823500A50247 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD91797823500A50247 /* CoreData.framework */; };
+		D3EA3FE01797823500A50247 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3EA3FDE1797823500A50247 /* InfoPlist.strings */; };
+		D3EA3FE21797823500A50247 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FE11797823500A50247 /* main.m */; };
+		D3EA3FE61797823500A50247 /* PTLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FE51797823500A50247 /* PTLAppDelegate.m */; };
+		D3EA3FE81797823500A50247 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EA3FE71797823500A50247 /* Default.png */; };
+		D3EA3FEA1797823500A50247 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EA3FE91797823500A50247 /* Default@2x.png */; };
+		D3EA3FEC1797823500A50247 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3EA3FEB1797823500A50247 /* Default-568h@2x.png */; };
+		D3EA3FEF1797823500A50247 /* PTLDatasource_Demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FED1797823500A50247 /* PTLDatasource_Demo.xcdatamodeld */; };
+		D3EA3FF71797823600A50247 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FF61797823600A50247 /* SenTestingKit.framework */; };
+		D3EA3FF81797823600A50247 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD31797823500A50247 /* UIKit.framework */; };
+		D3EA3FF91797823600A50247 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD51797823500A50247 /* Foundation.framework */; };
+		D3EA3FFA1797823600A50247 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD91797823500A50247 /* CoreData.framework */; };
+		D3EA40021797823600A50247 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3EA40001797823600A50247 /* InfoPlist.strings */; };
+		D3EA40051797823600A50247 /* PTLDatasource_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA40041797823600A50247 /* PTLDatasource_DemoTests.m */; };
+		D3EA4016179782E700A50247 /* PTLColorCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA400D1797828A00A50247 /* PTLColorCollectionViewController.m */; };
+		D3EA4017179782E700A50247 /* PTLEnumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA400F1797828A00A50247 /* PTLEnumTableViewController.m */; };
+		D3EA4018179782E700A50247 /* PTLFontFamilyPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA40111797828A00A50247 /* PTLFontFamilyPicker.m */; };
+		D3EA40191797831400A50247 /* PTLArrayDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FBB1797820C00A50247 /* PTLArrayDatasource.m */; };
+		D3EA401A1797831400A50247 /* PTLCollectionViewDatasourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FBD1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.m */; };
+		D3EA401B1797831400A50247 /* PTLCompositeDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FBF1797820C00A50247 /* PTLCompositeDatasource.m */; };
+		D3EA401C1797831400A50247 /* PTLDatasource+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC11797820C00A50247 /* PTLDatasource+CollectionView.m */; };
+		D3EA401D1797831400A50247 /* PTLDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC31797820C00A50247 /* PTLDatasource+TableView.m */; };
+		D3EA401E1797831400A50247 /* PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC51797820C00A50247 /* PTLDatasource.m */; };
+		D3EA401F1797831400A50247 /* PTLFetchedDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC71797820C00A50247 /* PTLFetchedDatasource.m */; };
+		D3EA40201797831400A50247 /* PTLIndexDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC91797820C00A50247 /* PTLIndexDatasource.m */; };
+		D3EA40211797831400A50247 /* PTLTableViewDatasourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FCB1797820C00A50247 /* PTLTableViewDatasourceAdapter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D3EA3FFB1797823600A50247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3964C06179781B70020B888 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3EA3FCF1797823500A50247;
+			remoteInfo = "PTLDatasource Demo";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D3EA3FBA1797820C00A50247 /* PTLArrayDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLArrayDatasource.h; sourceTree = "<group>"; };
+		D3EA3FBB1797820C00A50247 /* PTLArrayDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLArrayDatasource.m; sourceTree = "<group>"; };
+		D3EA3FBC1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLCollectionViewDatasourceAdapter.h; sourceTree = "<group>"; };
+		D3EA3FBD1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLCollectionViewDatasourceAdapter.m; sourceTree = "<group>"; };
+		D3EA3FBE1797820C00A50247 /* PTLCompositeDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLCompositeDatasource.h; sourceTree = "<group>"; };
+		D3EA3FBF1797820C00A50247 /* PTLCompositeDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLCompositeDatasource.m; sourceTree = "<group>"; };
+		D3EA3FC01797820C00A50247 /* PTLDatasource+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PTLDatasource+CollectionView.h"; sourceTree = "<group>"; };
+		D3EA3FC11797820C00A50247 /* PTLDatasource+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PTLDatasource+CollectionView.m"; sourceTree = "<group>"; };
+		D3EA3FC21797820C00A50247 /* PTLDatasource+TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PTLDatasource+TableView.h"; sourceTree = "<group>"; };
+		D3EA3FC31797820C00A50247 /* PTLDatasource+TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PTLDatasource+TableView.m"; sourceTree = "<group>"; };
+		D3EA3FC41797820C00A50247 /* PTLDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLDatasource.h; sourceTree = "<group>"; };
+		D3EA3FC51797820C00A50247 /* PTLDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLDatasource.m; sourceTree = "<group>"; };
+		D3EA3FC61797820C00A50247 /* PTLFetchedDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLFetchedDatasource.h; sourceTree = "<group>"; };
+		D3EA3FC71797820C00A50247 /* PTLFetchedDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLFetchedDatasource.m; sourceTree = "<group>"; };
+		D3EA3FC81797820C00A50247 /* PTLIndexDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLIndexDatasource.h; sourceTree = "<group>"; };
+		D3EA3FC91797820C00A50247 /* PTLIndexDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLIndexDatasource.m; sourceTree = "<group>"; };
+		D3EA3FCA1797820C00A50247 /* PTLTableViewDatasourceAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLTableViewDatasourceAdapter.h; sourceTree = "<group>"; };
+		D3EA3FCB1797820C00A50247 /* PTLTableViewDatasourceAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLTableViewDatasourceAdapter.m; sourceTree = "<group>"; };
+		D3EA3FD01797823500A50247 /* PTLDatasource Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PTLDatasource Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3EA3FD31797823500A50247 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D3EA3FD51797823500A50247 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D3EA3FD71797823500A50247 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		D3EA3FD91797823500A50247 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		D3EA3FDD1797823500A50247 /* PTLDatasource Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PTLDatasource Demo-Info.plist"; sourceTree = "<group>"; };
+		D3EA3FDF1797823500A50247 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D3EA3FE11797823500A50247 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D3EA3FE31797823500A50247 /* PTLDatasource Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PTLDatasource Demo-Prefix.pch"; sourceTree = "<group>"; };
+		D3EA3FE41797823500A50247 /* PTLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLAppDelegate.h; sourceTree = "<group>"; };
+		D3EA3FE51797823500A50247 /* PTLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLAppDelegate.m; sourceTree = "<group>"; };
+		D3EA3FE71797823500A50247 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D3EA3FE91797823500A50247 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D3EA3FEB1797823500A50247 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D3EA3FEE1797823500A50247 /* PTLDatasource_Demo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PTLDatasource_Demo.xcdatamodel; sourceTree = "<group>"; };
+		D3EA3FF51797823600A50247 /* PTLDatasource DemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PTLDatasource DemoTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3EA3FF61797823600A50247 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D3EA3FFF1797823600A50247 /* PTLDatasource DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PTLDatasource DemoTests-Info.plist"; sourceTree = "<group>"; };
+		D3EA40011797823600A50247 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D3EA40031797823600A50247 /* PTLDatasource_DemoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLDatasource_DemoTests.h; sourceTree = "<group>"; };
+		D3EA40041797823600A50247 /* PTLDatasource_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLDatasource_DemoTests.m; sourceTree = "<group>"; };
+		D3EA400C1797828A00A50247 /* PTLColorCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLColorCollectionViewController.h; sourceTree = "<group>"; };
+		D3EA400D1797828A00A50247 /* PTLColorCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLColorCollectionViewController.m; sourceTree = "<group>"; };
+		D3EA400E1797828A00A50247 /* PTLEnumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLEnumTableViewController.h; sourceTree = "<group>"; };
+		D3EA400F1797828A00A50247 /* PTLEnumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLEnumTableViewController.m; sourceTree = "<group>"; };
+		D3EA40101797828A00A50247 /* PTLFontFamilyPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLFontFamilyPicker.h; sourceTree = "<group>"; };
+		D3EA40111797828A00A50247 /* PTLFontFamilyPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLFontFamilyPicker.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D3EA3FCD1797823500A50247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3EA3FD41797823500A50247 /* UIKit.framework in Frameworks */,
+				D3EA3FD61797823500A50247 /* Foundation.framework in Frameworks */,
+				D3EA3FD81797823500A50247 /* CoreGraphics.framework in Frameworks */,
+				D3EA3FDA1797823500A50247 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3EA3FF11797823600A50247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3EA3FF71797823600A50247 /* SenTestingKit.framework in Frameworks */,
+				D3EA3FF81797823600A50247 /* UIKit.framework in Frameworks */,
+				D3EA3FF91797823600A50247 /* Foundation.framework in Frameworks */,
+				D3EA3FFA1797823600A50247 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D3964C05179781B70020B888 = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FB91797820C00A50247 /* PTLDatasource */,
+				D3EA3FDB1797823500A50247 /* PTLDatasource Demo */,
+				D3EA3FFD1797823600A50247 /* PTLDatasource DemoTests */,
+				D3EA3FD21797823500A50247 /* Frameworks */,
+				D3EA3FD11797823500A50247 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D3EA3FB91797820C00A50247 /* PTLDatasource */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA40231797833E00A50247 /* Base */,
+				D3EA40241797834800A50247 /* Extensions */,
+				D3EA40251797835C00A50247 /* Concrete Datasources */,
+				D3EA40221797832800A50247 /* Adapters */,
+			);
+			name = PTLDatasource;
+			path = ../PTLDatasource;
+			sourceTree = "<group>";
+		};
+		D3EA3FD11797823500A50247 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FD01797823500A50247 /* PTLDatasource Demo.app */,
+				D3EA3FF51797823600A50247 /* PTLDatasource DemoTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D3EA3FD21797823500A50247 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FD31797823500A50247 /* UIKit.framework */,
+				D3EA3FD51797823500A50247 /* Foundation.framework */,
+				D3EA3FD71797823500A50247 /* CoreGraphics.framework */,
+				D3EA3FD91797823500A50247 /* CoreData.framework */,
+				D3EA3FF61797823600A50247 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3EA3FDB1797823500A50247 /* PTLDatasource Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA40151797828F00A50247 /* Controllers */,
+				D3EA3FE41797823500A50247 /* PTLAppDelegate.h */,
+				D3EA3FE51797823500A50247 /* PTLAppDelegate.m */,
+				D3EA3FED1797823500A50247 /* PTLDatasource_Demo.xcdatamodeld */,
+				D3EA3FDC1797823500A50247 /* Supporting Files */,
+			);
+			path = "PTLDatasource Demo";
+			sourceTree = "<group>";
+		};
+		D3EA3FDC1797823500A50247 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FDD1797823500A50247 /* PTLDatasource Demo-Info.plist */,
+				D3EA3FDE1797823500A50247 /* InfoPlist.strings */,
+				D3EA3FE11797823500A50247 /* main.m */,
+				D3EA3FE31797823500A50247 /* PTLDatasource Demo-Prefix.pch */,
+				D3EA3FE71797823500A50247 /* Default.png */,
+				D3EA3FE91797823500A50247 /* Default@2x.png */,
+				D3EA3FEB1797823500A50247 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3EA3FFD1797823600A50247 /* PTLDatasource DemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA40031797823600A50247 /* PTLDatasource_DemoTests.h */,
+				D3EA40041797823600A50247 /* PTLDatasource_DemoTests.m */,
+				D3EA3FFE1797823600A50247 /* Supporting Files */,
+			);
+			path = "PTLDatasource DemoTests";
+			sourceTree = "<group>";
+		};
+		D3EA3FFE1797823600A50247 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FFF1797823600A50247 /* PTLDatasource DemoTests-Info.plist */,
+				D3EA40001797823600A50247 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3EA40151797828F00A50247 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA400C1797828A00A50247 /* PTLColorCollectionViewController.h */,
+				D3EA400D1797828A00A50247 /* PTLColorCollectionViewController.m */,
+				D3EA400E1797828A00A50247 /* PTLEnumTableViewController.h */,
+				D3EA400F1797828A00A50247 /* PTLEnumTableViewController.m */,
+				D3EA40101797828A00A50247 /* PTLFontFamilyPicker.h */,
+				D3EA40111797828A00A50247 /* PTLFontFamilyPicker.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D3EA40221797832800A50247 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FBC1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.h */,
+				D3EA3FBD1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.m */,
+				D3EA3FCA1797820C00A50247 /* PTLTableViewDatasourceAdapter.h */,
+				D3EA3FCB1797820C00A50247 /* PTLTableViewDatasourceAdapter.m */,
+			);
+			name = Adapters;
+			sourceTree = "<group>";
+		};
+		D3EA40231797833E00A50247 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FC41797820C00A50247 /* PTLDatasource.h */,
+				D3EA3FC51797820C00A50247 /* PTLDatasource.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		D3EA40241797834800A50247 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FC01797820C00A50247 /* PTLDatasource+CollectionView.h */,
+				D3EA3FC11797820C00A50247 /* PTLDatasource+CollectionView.m */,
+				D3EA3FC21797820C00A50247 /* PTLDatasource+TableView.h */,
+				D3EA3FC31797820C00A50247 /* PTLDatasource+TableView.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D3EA40251797835C00A50247 /* Concrete Datasources */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FBA1797820C00A50247 /* PTLArrayDatasource.h */,
+				D3EA3FBB1797820C00A50247 /* PTLArrayDatasource.m */,
+				D3EA3FBE1797820C00A50247 /* PTLCompositeDatasource.h */,
+				D3EA3FBF1797820C00A50247 /* PTLCompositeDatasource.m */,
+				D3EA3FC61797820C00A50247 /* PTLFetchedDatasource.h */,
+				D3EA3FC71797820C00A50247 /* PTLFetchedDatasource.m */,
+				D3EA3FC81797820C00A50247 /* PTLIndexDatasource.h */,
+				D3EA3FC91797820C00A50247 /* PTLIndexDatasource.m */,
+			);
+			name = "Concrete Datasources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D3EA3FCF1797823500A50247 /* PTLDatasource Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3EA40061797823600A50247 /* Build configuration list for PBXNativeTarget "PTLDatasource Demo" */;
+			buildPhases = (
+				D3EA3FCC1797823500A50247 /* Sources */,
+				D3EA3FCD1797823500A50247 /* Frameworks */,
+				D3EA3FCE1797823500A50247 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PTLDatasource Demo";
+			productName = "PTLDatasource Demo";
+			productReference = D3EA3FD01797823500A50247 /* PTLDatasource Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D3EA3FF41797823600A50247 /* PTLDatasource DemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3EA40091797823600A50247 /* Build configuration list for PBXNativeTarget "PTLDatasource DemoTests" */;
+			buildPhases = (
+				D3EA3FF01797823600A50247 /* Sources */,
+				D3EA3FF11797823600A50247 /* Frameworks */,
+				D3EA3FF21797823600A50247 /* Resources */,
+				D3EA3FF31797823600A50247 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3EA3FFC1797823600A50247 /* PBXTargetDependency */,
+			);
+			name = "PTLDatasource DemoTests";
+			productName = "PTLDatasource DemoTests";
+			productReference = D3EA3FF51797823600A50247 /* PTLDatasource DemoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D3964C06179781B70020B888 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = D3964C09179781B70020B888 /* Build configuration list for PBXProject "PTLDatasource" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D3964C05179781B70020B888;
+			productRefGroup = D3EA3FD11797823500A50247 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D3EA3FCF1797823500A50247 /* PTLDatasource Demo */,
+				D3EA3FF41797823600A50247 /* PTLDatasource DemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D3EA3FCE1797823500A50247 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3EA3FE01797823500A50247 /* InfoPlist.strings in Resources */,
+				D3EA3FE81797823500A50247 /* Default.png in Resources */,
+				D3EA3FEA1797823500A50247 /* Default@2x.png in Resources */,
+				D3EA3FEC1797823500A50247 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3EA3FF21797823600A50247 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3EA40021797823600A50247 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D3EA3FF31797823600A50247 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D3EA3FCC1797823500A50247 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3EA3FE21797823500A50247 /* main.m in Sources */,
+				D3EA3FE61797823500A50247 /* PTLAppDelegate.m in Sources */,
+				D3EA3FEF1797823500A50247 /* PTLDatasource_Demo.xcdatamodeld in Sources */,
+				D3EA4016179782E700A50247 /* PTLColorCollectionViewController.m in Sources */,
+				D3EA4017179782E700A50247 /* PTLEnumTableViewController.m in Sources */,
+				D3EA4018179782E700A50247 /* PTLFontFamilyPicker.m in Sources */,
+				D3EA40191797831400A50247 /* PTLArrayDatasource.m in Sources */,
+				D3EA401A1797831400A50247 /* PTLCollectionViewDatasourceAdapter.m in Sources */,
+				D3EA401B1797831400A50247 /* PTLCompositeDatasource.m in Sources */,
+				D3EA401C1797831400A50247 /* PTLDatasource+CollectionView.m in Sources */,
+				D3EA401D1797831400A50247 /* PTLDatasource+TableView.m in Sources */,
+				D3EA401E1797831400A50247 /* PTLDatasource.m in Sources */,
+				D3EA401F1797831400A50247 /* PTLFetchedDatasource.m in Sources */,
+				D3EA40201797831400A50247 /* PTLIndexDatasource.m in Sources */,
+				D3EA40211797831400A50247 /* PTLTableViewDatasourceAdapter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3EA3FF01797823600A50247 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3EA40051797823600A50247 /* PTLDatasource_DemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3EA3FFC1797823600A50247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D3EA3FCF1797823500A50247 /* PTLDatasource Demo */;
+			targetProxy = D3EA3FFB1797823600A50247 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D3EA3FDE1797823500A50247 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3EA3FDF1797823500A50247 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D3EA40001797823600A50247 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3EA40011797823600A50247 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D3964C0A179781B70020B888 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		D3964C0B179781B70020B888 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		D3EA40071797823600A50247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PTLDatasource Demo/PTLDatasource Demo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "PTLDatasource Demo/PTLDatasource Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D3EA40081797823600A50247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PTLDatasource Demo/PTLDatasource Demo-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "PTLDatasource Demo/PTLDatasource Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D3EA400A1797823600A50247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PTLDatasource Demo.app/PTLDatasource Demo";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PTLDatasource Demo/PTLDatasource Demo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "PTLDatasource DemoTests/PTLDatasource DemoTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D3EA400B1797823600A50247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PTLDatasource Demo.app/PTLDatasource Demo";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PTLDatasource Demo/PTLDatasource Demo-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "PTLDatasource DemoTests/PTLDatasource DemoTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D3964C09179781B70020B888 /* Build configuration list for PBXProject "PTLDatasource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3964C0A179781B70020B888 /* Debug */,
+				D3964C0B179781B70020B888 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3EA40061797823600A50247 /* Build configuration list for PBXNativeTarget "PTLDatasource Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3EA40071797823600A50247 /* Debug */,
+				D3EA40081797823600A50247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D3EA40091797823600A50247 /* Build configuration list for PBXNativeTarget "PTLDatasource DemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3EA400A1797823600A50247 /* Debug */,
+				D3EA400B1797823600A50247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D3EA3FED1797823500A50247 /* PTLDatasource_Demo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D3EA3FEE1797823500A50247 /* PTLDatasource_Demo.xcdatamodel */,
+			);
+			currentVersion = D3EA3FEE1797823500A50247 /* PTLDatasource_Demo.xcdatamodel */;
+			path = PTLDatasource_Demo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D3964C06179781B70020B888 /* Project object */;
+}
