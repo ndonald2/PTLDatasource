@@ -125,4 +125,32 @@
    [self notifyObserversOfSectionChange:change atSectionIndex:sectionIndex];
 }
 
+#pragma mark - PTLDatasourceContainer
+
+- (NSInteger)numberOfChildDatasources {
+   return (self.datasource != nil) ? 1 : 0;
+}
+
+- (id<PTLDatasource>)childDatasourceAtIndex:(NSInteger)datasourceIndex {
+   return (datasourceIndex == 0) ? self.datasource : nil;
+}
+
+- (NSIndexSet *)sectionIndicesForDescendantDatasource:(id<PTLDatasource>)datasource {
+   if (self.datasource == datasource) {
+      return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [self numberOfSections])];
+   } else if ([self.datasource conformsToProtocol:@protocol(PTLDatasourceContainer)]) {
+      return [(id<PTLDatasourceContainer>)self.datasource sectionIndicesForDescendantDatasource:datasource];
+   }
+   return [NSIndexSet indexSet];
+}
+
+- (id<PTLDatasource>)descendantDatasourceContainingSectionIndex:(NSInteger)sectionIndex {
+   if (sectionIndex >= [self numberOfSections]) {
+      return nil;
+   } else if ([self.datasource conformsToProtocol:@protocol(PTLDatasourceContainer)]) {
+      return [(id<PTLDatasourceContainer>)self.datasource descendantDatasourceContainingSectionIndex:sectionIndex];
+   }
+   return self.datasource;
+}
+
 @end

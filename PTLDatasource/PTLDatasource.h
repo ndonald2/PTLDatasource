@@ -63,6 +63,17 @@ typedef NS_ENUM(NSInteger, PTLChangeType) {
 
 @end
 
+#pragma mark - Containment
+
+@protocol PTLDatasourceContainer <NSObject>
+
+- (NSInteger)numberOfChildDatasources;
+- (id<PTLDatasource>)childDatasourceAtIndex:(NSInteger)datasourceIndex;
+- (NSIndexSet *)sectionIndicesForDescendantDatasource:(id<PTLDatasource>)datasource;
+- (id<PTLDatasource>)descendantDatasourceContainingSectionIndex:(NSInteger)sectionIndex;
+
+@end
+
 #pragma mark - Datasource Implementation
 
 @interface PTLDatasource : NSObject <PTLDatasource>

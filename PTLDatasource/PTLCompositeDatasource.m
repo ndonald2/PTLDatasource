@@ -21,9 +21,11 @@
 	self = [super init];
 	if (self) {
 	    _datasources = [datasources mutableCopy];
-       for (PTLDatasource *datasource in datasources) {
-           NSParameterAssert([datasource isKindOfClass:[PTLDatasource class]]);
-           [datasource addChangeObserver:self];
+       for (id<PTLDatasource> datasource in datasources) {
+           NSParameterAssert([datasource conformsToProtocol:@protocol(PTLDatasource)]);
+           if ([datasource conformsToProtocol:@protocol(PTLObservableDatasource)]) {
+               [(id<PTLObservableDatasource>)datasource addChangeObserver:self];
+           }
        }
        [self reloadSectionsFromDatasources];
 	}
@@ -82,12 +84,6 @@
    return resolvedIndexPath;
 }
 
-#pragma mark - NSCopying
-
-- (id)copyWithZone:(NSZone *)zone {
-    return self;
-}
-
 #pragma mark - PTLDatasource
 
 - (NSInteger)numberOfSections {
@@ -131,6 +127,45 @@
    [self notifyObserversOfSectionChange:change
                          atSectionIndex:[self resolvedSectionIndexForChildDatasource:datasource
                                                                         sectionIndex:sectionIndex]];
+}
+
+#pragma mark - PTLDatasourceContainer
+
+- (NSInteger)numberOfChildDatasources {
+   return self.datasources.count;
+}
+
+- (id<PTLDatasource>)childDatasourceAtIndex:(NSInteger)datasourceIndex {
+   return [self.datasources objectAtIndex:datasourceIndex];
+}
+
+- (NSIndexSet *)sectionIndicesForDescendantDatasource:(id<PTLDatasource>)datasource {
+   if ([self.datasources containsObject:datasource]) {
+      NSRange sectionRange = [[self.datasourceToSectionRange objectForKey:datasource] rangeValue];
+      return [NSIndexSet indexSetWithIndexesInRange:sectionRange];
+   } else {
+      for (id<PTLDatasource> childDatasource in self.datasources) {
+         if ([childDatasource conformsToProtocol:@protocol(PTLDatasourceContainer)]) {
+            NSIndexSet *indices = [(id<PTLDatasourceContainer>)childDatasource sectionIndicesForDescendantDatasource:datasource];
+            if (indices.count > 0) {
+               NSInteger offset = [self resolvedSectionIndexForChildDatasource:childDatasource sectionIndex:0];
+               NSMutableIndexSet *resolvedIndicies = [indices mutableCopy];
+               [resolvedIndicies shiftIndexesStartingAtIndex:[resolvedIndicies firstIndex] by:offset];
+               return [resolvedIndicies copy];
+            }
+         }
+      }
+   }
+   return [NSIndexSet indexSet];
+}
+
+- (id<PTLDatasource>)descendantDatasourceContainingSectionIndex:(NSInteger)sectionIndex {
+   id<PTLDatasource> childDatasource = [self childDatasourceContainingSectionIndex:sectionIndex];
+   if ([childDatasource conformsToProtocol:@protocol(PTLDatasourceContainer)]) {
+      NSInteger childSectionIndex = [self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex];
+      return [(id<PTLDatasourceContainer>)childDatasource descendantDatasourceContainingSectionIndex:childSectionIndex];
+   }
+   return childDatasource;
 }
 
 #pragma mark - PTLTableViewDatasource

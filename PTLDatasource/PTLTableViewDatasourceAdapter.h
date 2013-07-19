@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PTLDatasource+TableView.h"
 
-@interface PTLTableViewDatasourceAdapter : PTLDatasource <PTLTableViewDatasource, UITableViewDataSource, PTLDatasourceObserver>
+@interface PTLTableViewDatasourceAdapter : PTLDatasource <PTLTableViewDatasource, UITableViewDataSource, PTLDatasourceObserver, PTLDatasourceContainer>
 
 - (id)initWithDatasource:(id<PTLTableViewDatasource>)datasource;
 
