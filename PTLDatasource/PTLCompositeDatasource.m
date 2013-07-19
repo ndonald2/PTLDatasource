@@ -46,19 +46,19 @@
     self.datasourceToSectionRange = [datasourceToSectionRange copy];
 }
 
-- (id<PTLDatasource>)datasourceForSectionIndex:(NSInteger)sectionIndex {
-    for (id<PTLDatasource> datasource in self.datasources) {
-        NSRange sectionRange = [[self.datasourceToSectionRange objectForKey:datasource] rangeValue];
-        if (sectionRange.location <= sectionIndex &&
-            sectionIndex < sectionRange.location + sectionRange.length) {
-            return datasource;
-        }
-    }
-    return nil;
+- (id<PTLDatasource>)childDatasourceContainingSectionIndex:(NSInteger)sectionIndex {
+   for (id<PTLDatasource> datasource in self.datasources) {
+      NSRange sectionRange = [[self.datasourceToSectionRange objectForKey:datasource] rangeValue];
+      if (sectionRange.location <= sectionIndex &&
+          sectionIndex < sectionRange.location + sectionRange.length) {
+         return datasource;
+      }
+   }
+   return nil;
 }
 
 - (NSInteger)resolvedChildDatasourceSectionIndexForSectionIndex:(NSInteger)sectionIndex {
-    id<PTLDatasource> datasource = [self datasourceForSectionIndex:sectionIndex];
+    id<PTLDatasource> datasource = [self childDatasourceContainingSectionIndex:sectionIndex];
     NSRange sectionRange = [[self.datasourceToSectionRange objectForKey:datasource] rangeValue];
     NSInteger resolvedChildSectionIndex = sectionIndex - sectionRange.location;
     return resolvedChildSectionIndex;
@@ -99,12 +99,12 @@
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex {
-    id<PTLDatasource> datasource = [self datasourceForSectionIndex:sectionIndex];
+    id<PTLDatasource> datasource = [self childDatasourceContainingSectionIndex:sectionIndex];
     return [datasource numberOfItemsInSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex]];
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
-    id<PTLDatasource> datasource = [self datasourceForSectionIndex:indexPath.section];
+    id<PTLDatasource> datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
     NSIndexPath *resolvedIndexPath = [self resolvedChildDatasourceIndexPathForIndexPath:indexPath];
     return [datasource itemAtIndexPath:resolvedIndexPath];
 }
@@ -136,44 +136,44 @@
 #pragma mark - PTLTableViewDatasource
 
 - (NSString *)titleForSection:(NSInteger)sectionIndex {
-    id datasource = [self datasourceForSectionIndex:sectionIndex];
+    id datasource = [self childDatasourceContainingSectionIndex:sectionIndex];
     return [datasource titleForSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex]];
 }
 
 - (NSString *)subtitleForSection:(NSInteger)sectionIndex {
-    id datasource = [self datasourceForSectionIndex:sectionIndex];
+    id datasource = [self childDatasourceContainingSectionIndex:sectionIndex];
     return [datasource subtitleForSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex]];
 }
 
 - (NSString *)tableViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self datasourceForSectionIndex:indexPath.section];
+    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
     return [datasource tableViewCellIdentifierForIndexPath:[self resolvedChildDatasourceIndexPathForIndexPath:indexPath]];
 }
 
 - (PTLTableViewCellConfigBlock)tableViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self datasourceForSectionIndex:indexPath.section];
+    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
     return [datasource tableViewCellConfigBlockForIndexPath:[self resolvedChildDatasourceIndexPathForIndexPath:indexPath]];
 }
 
 #pragma mark - PTLCollectionViewDatasource
 
 - (NSString *)collectionViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self datasourceForSectionIndex:indexPath.section];
+    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
     return [datasource collectionViewCellIdentifierForIndexPath:indexPath];
 }
 
 - (PTLCollectionViewCellConfigBlock)collectionViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self datasourceForSectionIndex:indexPath.section];
+    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
     return [datasource collectionViewCellConfigBlockForIndexPath:indexPath];
 }
 
 - (NSString *)collectionViewSupplementaryViewIdentifierForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self datasourceForSectionIndex:indexPath.section];
+    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
     return [datasource collectionViewSupplementaryViewIdentifierForIndexPath:indexPath];
 }
 
 - (PTLCollectionViewSupplementaryViewConfigBlock)collectionViewSupplementaryViewConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self datasourceForSectionIndex:indexPath.section];
+    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
     return [datasource collectionViewSupplementaryViewConfigBlockForIndexPath:indexPath];
 }
 
