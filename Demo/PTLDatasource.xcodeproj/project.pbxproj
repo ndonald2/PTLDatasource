@@ -50,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D3B5A1CD17AB4FBC00E7B7E6 /* PTLDatasourceIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLDatasourceIncludes.h; sourceTree = "<group>"; };
+		D3B5A1CE17AB506100E7B7E6 /* PTLDatasource+Containment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLDatasource+Containment.h"; sourceTree = "<group>"; };
 		D3EA3FBA1797820C00A50247 /* PTLArrayDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLArrayDatasource.h; sourceTree = "<group>"; };
 		D3EA3FBB1797820C00A50247 /* PTLArrayDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLArrayDatasource.m; sourceTree = "<group>"; };
 		D3EA3FBC1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLCollectionViewDatasourceAdapter.h; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		D3EA40231797833E00A50247 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				D3B5A1CD17AB4FBC00E7B7E6 /* PTLDatasourceIncludes.h */,
 				D3EA3FC41797820C00A50247 /* PTLDatasource.h */,
 				D3EA3FC51797820C00A50247 /* PTLDatasource.m */,
 			);
@@ -252,6 +255,7 @@
 		D3EA40241797834800A50247 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D3B5A1CE17AB506100E7B7E6 /* PTLDatasource+Containment.h */,
 				D3EA3FC01797820C00A50247 /* PTLDatasource+CollectionView.h */,
 				D3EA3FC11797820C00A50247 /* PTLDatasource+CollectionView.m */,
 				D3EA3FC21797820C00A50247 /* PTLDatasource+TableView.h */,
@@ -620,6 +624,7 @@
 				D3EA40081797823600A50247 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D3EA40091797823600A50247 /* Build configuration list for PBXNativeTarget "PTLDatasource DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -628,6 +633,7 @@
 				D3EA400B1797823600A50247 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

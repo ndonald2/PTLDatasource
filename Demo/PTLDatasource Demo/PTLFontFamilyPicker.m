@@ -7,8 +7,7 @@
 //
 
 #import "PTLFontFamilyPicker.h"
-#import "PTLArrayDatasource.h"
-#import "PTLTableViewDatasourceAdapter.h"
+#import "PTLDatasourceIncludes.h"
 
 @interface PTLFontFamilyPicker ()
 

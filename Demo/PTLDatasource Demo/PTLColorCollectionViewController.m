@@ -7,8 +7,7 @@
 //
 
 #import "PTLColorCollectionViewController.h"
-#import "PTLCollectionViewDatasourceAdapter.h"
-#import "PTLArrayDatasource.h"
+#import "PTLDatasourceIncludes.h"
 
 @interface PTLColorCollectionViewController ()
 

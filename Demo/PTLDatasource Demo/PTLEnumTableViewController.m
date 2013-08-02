@@ -7,9 +7,7 @@
 //
 
 #import "PTLEnumTableViewController.h"
-#import "PTLTableViewDatasourceAdapter.h"
-#import "PTLCompositeDatasource.h"
-#import "PTLIndexDatasource.h"
+#import "PTLDatasourceIncludes.h"
 
 @interface PTLEnumTableViewController ()
 
