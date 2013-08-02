@@ -24,7 +24,4 @@
 
 - (void)replaceItemAtIndex:(NSInteger)index withItem:(id)item;
 
-- (BOOL)containsItem:(id)item;
-- (NSIndexPath *)indexPathOfItem:(id)item;
-
 @end

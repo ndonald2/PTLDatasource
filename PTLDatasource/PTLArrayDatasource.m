@@ -17,6 +17,7 @@
 @implementation PTLArrayDatasource
 
 - (id)initWithItems:(NSArray *)items {
+    NSParameterAssert(items != nil);
 	self = [super init];
 	if (self) {
 	    _items = [items mutableCopy];
@@ -38,10 +39,15 @@
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex {
+    NSParameterAssert(sectionIndex >= 0 &&
+                      sectionIndex < [self numberOfSections]);
     return self.items.count;
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
+    NSParameterAssert(indexPath.section == 0);
+    NSParameterAssert(indexPath.item >= 0 &&
+                      indexPath.item < [self numberOfItemsInSection:indexPath.section]);
     return [self.items objectAtIndex:indexPath.item];
 }
 
@@ -50,9 +56,7 @@
 #pragma mark - Insert
 
 - (void)addItem:(id)item {
-    if (item == nil) {
-        return;
-    }
+    NSParameterAssert(item != nil);
     [self addItemsFromArray:@[item]];
 }
 
@@ -70,6 +74,8 @@
 }
 
 - (void)insertItem:(id)item atIndex:(NSInteger)index {
+    NSParameterAssert(index >= 0 &&
+                      index <= self.items.count);
     [self notifyObserversOfChangesBeginning];
     [self.items insertObject:item atIndex:index];
     [self notifyObserversOfChange:PTLChangeTypeInsert
@@ -82,13 +88,15 @@
 
 - (void)removeItem:(id)item {
     NSInteger index = [self.items indexOfObject:item];
+    if (index == NSNotFound) {
+        return;
+    }
     [self removeItemAtIndex:index];
 }
 
 - (void)removeItemAtIndex:(NSInteger)index {
-    if (index > self.items.count) {
-        return;
-    }
+    NSParameterAssert(index >= 0 &&
+                      index < self.items.count);
     [self notifyObserversOfChangesBeginning];
     [self.items removeObjectAtIndex:index];
     [self notifyObserversOfChange:PTLChangeTypeRemove
@@ -112,10 +120,17 @@
 #pragma mark - Move
 
 - (void)moveItemAtIndex:(NSInteger)startIndex toIndex:(NSInteger)endIndex {
+    NSParameterAssert(startIndex >= 0 &&
+                      startIndex < self.items.count);
+    NSParameterAssert(endIndex >= 0 &&
+                      endIndex < self.items.count);
+    if (startIndex == endIndex) {
+        return;
+    }
     [self notifyObserversOfChangesBeginning];
-    id startItem = self.items[startIndex];
-    self.items[startIndex] = self.items[endIndex];
-    self.items[endIndex] = startItem;
+    id item = self.items[startIndex];
+    [self.items removeObjectAtIndex:startIndex];
+    [self.items insertObject:item atIndex:endIndex];
     [self notifyObserversOfChange:PTLChangeTypeMove
                       atIndexPath:[NSIndexPath indexPathForItem:startIndex inSection:0]
                      newIndexPath:[NSIndexPath indexPathForItem:startIndex inSection:0]];
@@ -125,6 +140,8 @@
 #pragma mark - Update
 
 - (void)replaceItemAtIndex:(NSInteger)index withItem:(id)item {
+    NSParameterAssert(index >= 0 &&
+                      index < self.items.count);
     [self notifyObserversOfChangesBeginning];
     [self.items replaceObjectAtIndex:index withObject:item];
     [self notifyObserversOfChange:PTLChangeTypeUpdate

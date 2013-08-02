@@ -15,16 +15,16 @@
     PTLDatasource *ds = [[PTLArrayDatasource alloc] initWithItems:@[]];
     STAssertTrue([ds numberOfSections] == 1, @"Number of sections should be 1 for an empty array.");
     STAssertTrue([ds numberOfItemsInSection:0] == 0, @"Number of items should be 0 for an empty array.");
-    STAssertTrue([ds numberOfItemsInSection:1] == 0, @"Number of items should be 0 for the wrong section index.");
+    STAssertThrows([ds numberOfItemsInSection:1], @"Number of items should be 0 for the wrong section index.");
     STAssertThrows([ds itemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]], @"There are no items in the array");
 }
 
 - (void)testSampleArray {
     PTLDatasource *ds = [[PTLArrayDatasource alloc] initWithItems:@[@"Alice", @"Bob", @"Charlie"]];
-    STAssertTrue([ds numberOfSections] == 1, @"Number of sections should be 1 for an empty array.");
-    STAssertTrue([ds numberOfItemsInSection:0] == 3, @"Number of items should be 0 for an empty array.");
+    STAssertTrue([ds numberOfSections] == 1, @"Number of sections should always be 1.");
+    STAssertTrue([ds numberOfItemsInSection:0] == 3, @"Number of items should be 3.");
     STAssertNotNil([ds itemAtIndexPath:[NSIndexPath indexPathForItem:2 inSection:0]], @"There should be an object at index 2");
-    STAssertEqualObjects([ds itemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]], @"Bob", @"There are no items in the array");
+    STAssertEqualObjects([ds itemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]], @"Bob", @"Bob should be at index 1");
 }
 
 - (void)testInsertion {
@@ -55,7 +55,7 @@
     STAssertTrue([ds numberOfItemsInSection:0] == 5, @"Nothing should have changed");
     STAssertFalse([ds containsItem:@"Bob"], @"Bob should be long gone");
 
-    [ds removeItemAtIndex:20];
+    STAssertThrows([ds removeItemAtIndex:20], @"Should throw for removing form an invalid index");
     STAssertTrue([ds numberOfItemsInSection:0] == 5, @"Nothing should have changed");
 
     [ds removeItemAtIndex:1];
@@ -72,6 +72,12 @@
     STAssertTrue([ds numberOfItemsInSection:0] == 6, @"The size shouldn't have changed");
     STAssertEqualObjects([ds itemAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0]], @"Eve", @"Eve should now be before David");
     STAssertEqualObjects([ds itemAtIndexPath:[NSIndexPath indexPathForItem:4 inSection:0]], @"David", @"David should now be after Eve");
+
+    ds = [[PTLArrayDatasource alloc] initWithItems:@[@"Alice", @"Bob", @"Charlie", @"David", @"Eve", @"Fred"]];
+    [ds moveItemAtIndex:1 toIndex:4];
+    STAssertTrue([ds numberOfItemsInSection:0] == 6, @"The size shouldn't have changed");
+    STAssertEqualObjects([ds itemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]], @"Charlie", @"Charlie should now be after Alice");
+    STAssertEqualObjects([ds itemAtIndexPath:[NSIndexPath indexPathForItem:4 inSection:0]], @"Bob", @"Bob should now be after David");
 }
 
 - (void)testReplacement {
