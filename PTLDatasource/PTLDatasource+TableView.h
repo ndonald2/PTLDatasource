@@ -19,8 +19,8 @@ typedef void(^PTLTableViewCellConfigBlock)(UITableView *tableView, UITableViewCe
 - (PTLTableViewCellConfigBlock)tableViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath;
 
 @optional
-- (NSString *)titleForSection:(NSInteger)sectionIndex;
-- (NSString *)subtitleForSection:(NSInteger)sectionIndex;
+- (NSString *)tableViewSectionHeaderTitleForSection:(NSInteger)sectionIndex;
+- (NSString *)tableViewSectionFooterTitleForSection:(NSInteger)sectionIndex;
 
 @end
 
@@ -28,13 +28,13 @@ typedef void(^PTLTableViewCellConfigBlock)(UITableView *tableView, UITableViewCe
 
 @interface PTLDatasource (TableView) <PTLTableViewDatasource>
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *subtitle;
+@property (nonatomic, copy) NSString *tableViewSectionHeaderTitle;
+@property (nonatomic, copy) NSString *tableViewSectionFooterTitle;
 @property (nonatomic, copy) NSString *tableViewCellIdentifier;
 @property (nonatomic, copy) PTLTableViewCellConfigBlock tableViewCellConfigBlock;
 
-- (void)setTitle:(NSString *)title forSection:(NSInteger)sectionIndex;
-- (void)setSubtitle:(NSString *)subtitle forSection:(NSInteger)sectionIndex;
+- (void)setTableViewSectionHeaderTitle:(NSString *)title forSection:(NSInteger)sectionIndex;
+- (void)setTableViewSectionFooterTitle:(NSString *)title forSection:(NSInteger)sectionIndex;
 - (void)setTableViewCellIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
 - (void)setTableViewCellConfigBlock:(PTLTableViewCellConfigBlock)block forIndexPath:(NSIndexPath *)indexPath;
 

@@ -22,19 +22,19 @@
 
 #pragma mark - Properties
 
-@dynamic title;
+@dynamic tableViewSectionHeaderTitle;
 
-- (NSString *)title {
+- (NSString *)tableViewSectionHeaderTitle {
     return objc_getAssociatedObject(self, @"title");
 }
 
-- (void)setTitle:(NSString *)title {
+- (void)setTableViewSectionHeaderTitle:(NSString *)title {
     objc_setAssociatedObject(self, @"title", title, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-@dynamic subtitle;
+@dynamic tableViewSectionFooterTitle;
 
-- (NSString *)subtitle {
+- (NSString *)tableViewSectionFooterTitle {
     return objc_getAssociatedObject(self, @"subtitle");
 }
 
@@ -64,18 +64,17 @@
 
 #pragma mark - Setters
 
-- (void)setTitle:(NSString *)title forSection:(NSInteger)sectionIndex {
+- (void)setTableViewSectionHeaderTitle:(NSString *)title forSection:(NSInteger)sectionIndex {
     [self.sectionToTitle setObject:title forKey:@(sectionIndex)];
 }
 
-- (void)setSubtitle:(NSString *)subtitle forSection:(NSInteger)sectionIndex {
-    [self.sectionToSubtitle setObject:subtitle forKey:@(sectionIndex)];
+- (void)setTableViewSectionFooterTitle:(NSString *)title forSection:(NSInteger)sectionIndex {
+    [self.sectionToSubtitle setObject:title forKey:@(sectionIndex)];
 }
 
 - (void)setTableViewCellIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath {
     [self.indexPathToTableViewCellIdentifier setObject:identifier forKey:indexPath];
 }
-
 
 - (void)setTableViewCellConfigBlock:(PTLTableViewCellConfigBlock)block forIndexPath:(NSIndexPath *)indexPath {
     [self.indexPathToTableViewCellConfigBlock setObject:[block copy] forKey:indexPath];
@@ -83,18 +82,18 @@
 
 #pragma mark - Getters
 
-- (NSString *)titleForSection:(NSInteger)sectionIndex {
+- (NSString *)tableViewSectionHeaderTitleForSection:(NSInteger)sectionIndex {
     NSString *title = [self.sectionToTitle objectForKey:@(sectionIndex)];
     if (title == nil) {
-        title = self.title;
+        title = self.tableViewSectionHeaderTitle;
     }
     return title;
 }
 
-- (NSString *)subtitleForSection:(NSInteger)sectionIndex {
+- (NSString *)tableViewSectionFooterTitleForSection:(NSInteger)sectionIndex {
     NSString *subtitle = [self.sectionToSubtitle objectForKey:@(sectionIndex)];
     if (subtitle == nil) {
-        subtitle = self.subtitle;
+        subtitle = self.tableViewSectionFooterTitle;
     }
     return subtitle;
 }

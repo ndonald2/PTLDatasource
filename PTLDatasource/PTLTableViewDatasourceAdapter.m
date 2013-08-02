@@ -55,14 +55,14 @@
 
 - (NSString *)titleForSection:(NSInteger)sectionIndex {
    if ([self.datasource respondsToSelector:@selector(titleForSection:)]) {
-      return [self.datasource titleForSection:sectionIndex];
+      return [self.datasource tableViewSectionHeaderTitleForSection:sectionIndex];
    }
    return nil;
 }
 
 - (NSString *)subtitleForSection:(NSInteger)sectionIndex {
    if ([self.datasource respondsToSelector:@selector(subtitleForSection:)]) {
-      return [self.datasource subtitleForSection:sectionIndex];
+      return [self.datasource tableViewSectionFooterTitleForSection:sectionIndex];
    }
    return nil;
 }
@@ -90,11 +90,11 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex {
-    return [self.datasource titleForSection:sectionIndex];
+    return [self.datasource tableViewSectionHeaderTitleForSection:sectionIndex];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)sectionIndex {
-    return [self.datasource subtitleForSection:sectionIndex];
+    return [self.datasource tableViewSectionFooterTitleForSection:sectionIndex];
 }
 
 #pragma mark - PTLDatasourceObserver
