@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3B5A1D617AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */; };
 		D3EA3FD41797823500A50247 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD31797823500A50247 /* UIKit.framework */; };
 		D3EA3FD61797823500A50247 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD51797823500A50247 /* Foundation.framework */; };
 		D3EA3FD81797823500A50247 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD71797823500A50247 /* CoreGraphics.framework */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		D3B5A1CD17AB4FBC00E7B7E6 /* PTLDatasourceIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLDatasourceIncludes.h; sourceTree = "<group>"; };
 		D3B5A1CE17AB506100E7B7E6 /* PTLDatasource+Containment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLDatasource+Containment.h"; sourceTree = "<group>"; };
+		D3B5A1D417AB67BA00E7B7E6 /* PTLIndexDatasourceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexDatasourceTests.h; sourceTree = "<group>"; };
+		D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexDatasourceTests.m; sourceTree = "<group>"; };
 		D3EA3FBA1797820C00A50247 /* PTLArrayDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLArrayDatasource.h; sourceTree = "<group>"; };
 		D3EA3FBB1797820C00A50247 /* PTLArrayDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLArrayDatasource.m; sourceTree = "<group>"; };
 		D3EA3FBC1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLCollectionViewDatasourceAdapter.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				D3EA3FFE1797823600A50247 /* Supporting Files */,
 				D3EA40291797872200A50247 /* PTLArrayDatasourceTests.h */,
 				D3EA402A1797872200A50247 /* PTLArrayDatasourceTests.m */,
+				D3B5A1D417AB67BA00E7B7E6 /* PTLIndexDatasourceTests.h */,
+				D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */,
 			);
 			path = "PTLDatasource DemoTests";
 			sourceTree = "<group>";
@@ -411,6 +416,7 @@
 			files = (
 				D3EA40051797823600A50247 /* PTLDatasource_DemoTests.m in Sources */,
 				D3EA402B1797872200A50247 /* PTLArrayDatasourceTests.m in Sources */,
+				D3B5A1D617AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

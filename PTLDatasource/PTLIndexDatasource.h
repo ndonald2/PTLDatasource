@@ -12,4 +12,13 @@
 
 - (id)initWithIndecies:(NSIndexSet *)indecies;
 
+- (void)addIndexValue:(NSUInteger)indexValue;
+- (void)addIndexValuesFromIndexSet:(NSIndexSet *)indexValues;
+
+- (void)removeIndexValue:(NSUInteger)indexValue;
+- (void)removeAllItems;
+
+- (BOOL)containsIndexValue:(NSUInteger)indexValue;
+- (NSIndexPath *)indexPathOfIndexValue:(NSUInteger)indexValue;
+
 @end
