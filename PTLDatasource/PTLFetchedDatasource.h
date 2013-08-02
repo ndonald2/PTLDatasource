@@ -9,11 +9,9 @@
 #ifdef _COREDATADEFINES_H
 
 #import "PTLDatasource.h"
-#import "PTLDatasource+TableView.h"
-#import "PTLDatasource+CollectionView.h"
 #import <CoreData/CoreData.h>
 
-@interface PTLFetchedDatasource : PTLDatasource <PTLTableViewDatasource, PTLCollectionViewDatasource>
+@interface PTLFetchedDatasource : PTLDatasource
 
 - (id)initWithFetchedResults:(NSFetchedResultsController *)controller trackChanges:(BOOL)trackChanges;
 

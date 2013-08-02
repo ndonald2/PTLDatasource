@@ -7,6 +7,8 @@
 //
 
 #import "PTLCompositeDatasource.h"
+#import "PTLDatasource+TableView.h"
+#import "PTLDatasource+CollectionView.h"
 
 @interface PTLCompositeDatasource ()
 

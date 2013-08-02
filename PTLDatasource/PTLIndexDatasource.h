@@ -7,10 +7,8 @@
 //
 
 #import "PTLDatasource.h"
-#import "PTLDatasource+TableView.h"
-#import "PTLDatasource+CollectionView.h"
 
-@interface PTLIndexDatasource : PTLDatasource <PTLTableViewDatasource, PTLCollectionViewDatasource>
+@interface PTLIndexDatasource : PTLDatasource
 
 - (id)initWithIndecies:(NSIndexSet *)indecies;
 

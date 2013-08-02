@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PTLDatasource+CollectionView.h"
+#import "PTLDatasource+Containment.h"
 
-@interface PTLCollectionViewDatasourceAdapter : PTLDatasource <PTLCollectionViewDatasource, UICollectionViewDataSource, PTLDatasourceObserver, PTLDatasourceContainer>
+@interface PTLCollectionViewDatasourceAdapter : PTLDatasource <UICollectionViewDataSource, PTLDatasourceContainer>
 
 - (id)initWithDatasource:(id<PTLCollectionViewDatasource>)datasource;
 

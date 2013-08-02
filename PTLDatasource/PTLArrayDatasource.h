@@ -7,10 +7,8 @@
 //
 
 #import "PTLDatasource.h"
-#import "PTLDatasource+TableView.h"
-#import "PTLDatasource+CollectionView.h"
 
-@interface PTLArrayDatasource : PTLDatasource <PTLTableViewDatasource, PTLCollectionViewDatasource>
+@interface PTLArrayDatasource : PTLDatasource
 
 - (id)initWithItems:(NSArray *)items;
 

@@ -13,7 +13,7 @@ typedef void(^PTLTableViewCellConfigBlock)(UITableView *tableView, UITableViewCe
 
 #pragma mark - Protocol
 
-@protocol PTLTableViewDatasource <PTLDatasource, PTLMutableDatasource, PTLObservableDatasource>
+@protocol PTLTableViewDatasource <PTLDatasource>
 
 - (NSString *)tableViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath;
 - (PTLTableViewCellConfigBlock)tableViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath;

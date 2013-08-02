@@ -9,13 +9,44 @@
 #import "PTLDatasource.h"
 #import <objc/runtime.h>
 
+#pragma mark - Observer Wrapper
+
+@interface WeakObserverWrapper : NSObject
+
+@property (nonatomic, weak) id<PTLDatasourceObserver>observer;
+
++ (instancetype)wrapObserver:(id<PTLDatasourceObserver>)observer;
+
+@end
+
+@implementation WeakObserverWrapper
+
++ (instancetype)wrapObserver:(id<PTLDatasourceObserver>)observer {
+    WeakObserverWrapper *wrapper = [[WeakObserverWrapper alloc] init];
+    wrapper.observer = observer;
+    return wrapper;
+}
+
+@end
+
+#pragma mark - PTLDatasource
+
+@interface PTLDatasource ()
+
+@property (nonatomic, readonly, strong) NSMutableArray *observers;
+
+@end
+
 @implementation PTLDatasource
+
+#pragma mark - PTLItemDatasource
 
 - (NSInteger)numberOfSections {
     return 0;
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex {
+    NSAssert(NO, @"Invalid section index, there are no sections in the datasource.");
     return 0;
 }
 
@@ -37,11 +68,7 @@
     return self;
 }
 
-@end
-
-#pragma mark - Mutability Implementation
-
-@implementation PTLDatasource (Mutability)
+#pragma mark - PTLMutableDatasource
 
 - (void)beginChanges {
    [self notifyObserversOfChangesBeginning];
@@ -51,35 +78,7 @@
    [self notifyObserversOfChangesEnding];
 }
 
-@end
-
-#pragma mark - Observation Implementation
-
-@interface WeakObserverWrapper : NSObject
-
-@property (nonatomic, weak) id<PTLDatasourceObserver>observer;
-
-+ (instancetype)wrapObserver:(id<PTLDatasourceObserver>)observer;
-
-@end
-
-@implementation WeakObserverWrapper
-
-+ (instancetype)wrapObserver:(id<PTLDatasourceObserver>)observer {
-   WeakObserverWrapper *wrapper = [[WeakObserverWrapper alloc] init];
-   wrapper.observer = observer;
-   return wrapper;
-}
-
-@end
-
-@interface PTLDatasource (Observation_Private)
-
-@property (nonatomic, readonly, strong) NSMutableArray *observers;
-
-@end
-
-@implementation PTLDatasource (Observation)
+#pragma mark - PTLObservableDatasource
 
 - (void)addChangeObserver:(id<PTLDatasourceObserver>)observer {
    [self.observers addObject:[WeakObserverWrapper wrapObserver:observer]];
@@ -95,6 +94,19 @@
 
 - (void)removeAllObservers {
    [self.observers removeAllObjects];
+}
+
+#pragma mark - Observation Helpers
+
+@dynamic observers;
+
+- (NSMutableArray *)observers {
+    NSMutableArray *result = objc_getAssociatedObject(self, @"observers");
+    if (result == nil) {
+        result = [NSMutableArray array];
+        objc_setAssociatedObject(self, @"observers", result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return result;
 }
 
 - (void)notifyObserversOfChangesBeginning {
@@ -128,22 +140,5 @@
       }
    }
 }
-
-@end
-
-@implementation PTLDatasource (Observation_Private)
-
-@dynamic observers;
-
-- (NSMutableArray *)observers {
-   NSMutableArray *result = objc_getAssociatedObject(self, @"observers");
-   if (result == nil) {
-      result = [NSMutableArray array];
-      objc_setAssociatedObject(self, @"observers", result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-   }
-   return result;
-}
-
-
 
 @end

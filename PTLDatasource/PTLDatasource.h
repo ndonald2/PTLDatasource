@@ -10,14 +10,20 @@
 
 @class PTLDatasource;
 @protocol PTLDatasource;
+@protocol PTLItemDatasource;
 @protocol PTLMutableDatasource;
 @protocol PTLObservableDatasource;
-@protocol PTLTableViewDatasource;
-@protocol PTLCollectionViewDatasource;
+@protocol PTLDatasourceObserver;
 
 #pragma mark - Datasource
 
-@protocol PTLDatasource <NSObject, NSCopying>
+@protocol PTLDatasource <PTLMutableDatasource, PTLObservableDatasource, NSCopying>
+@end
+
+#pragma mark - Items
+
+/// Adopted by an object containing a number of items in a number of sections.
+@protocol PTLItemDatasource <NSObject>
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex;
@@ -37,7 +43,9 @@ typedef NS_ENUM(NSInteger, PTLChangeType) {
    PTLChangeTypeUpdate,
 };
 
-@protocol PTLMutableDatasource <PTLDatasource>
+/// Adopted by a datasource which provides methods to mutate the item collection.
+/// Implementing these methods enables batching mutations into a set.
+@protocol PTLMutableDatasource <PTLItemDatasource>
 
 - (void)beginChanges;
 - (void)endChanges;
@@ -46,60 +54,35 @@ typedef NS_ENUM(NSInteger, PTLChangeType) {
 
 #pragma mark - Observation
 
+/// Adopted by a datasource which will notify interested observers when the item collection changes.
+@protocol PTLObservableDatasource <PTLItemDatasource>
+
+- (void)addChangeObserver:(id<PTLDatasourceObserver>)observer;
+- (void)removeChangeObserver:(id<PTLDatasourceObserver>)observer;
+- (void)removeAllObservers;
+
+@end
+
+#pragma mark - Datasource Implementation
+
+/// Abstract base class providing implementing basic mutability and observation logic.
+@interface PTLDatasource : NSObject <PTLDatasource>
+
+// Observation Helpers
+- (void)notifyObserversOfChangesBeginning;
+- (void)notifyObserversOfChangesEnding;
+- (void)notifyObserversOfChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath;
+- (void)notifyObserversOfSectionChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex;
+
+@end
+
+#pragma mark - Observer
+
 @protocol PTLDatasourceObserver <NSObject>
 
 - (void)datasourceWillChange:(id<PTLDatasource>)datasource;
 - (void)datasourceDidChange:(id<PTLDatasource>)datasource;
 - (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath;
 - (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex;
-
-@end
-
-@protocol PTLObservableDatasource <PTLDatasource>
-
-- (void)addChangeObserver:(id<PTLDatasourceObserver>)observer;
-- (void)removeChangeObserver:(id<PTLDatasourceObserver>)observer;
-- (void)removeAllObservers;
-
-@end
-
-#pragma mark - Containment
-
-@protocol PTLDatasourceContainer <NSObject>
-
-- (NSInteger)numberOfChildDatasources;
-- (id<PTLDatasource>)childDatasourceAtIndex:(NSInteger)datasourceIndex;
-- (NSIndexSet *)sectionIndicesForDescendantDatasource:(id<PTLDatasource>)datasource;
-- (id<PTLDatasource>)descendantDatasourceContainingSectionIndex:(NSInteger)sectionIndex;
-
-@end
-
-#pragma mark - Datasource Implementation
-
-@interface PTLDatasource : NSObject <PTLDatasource>
-
-@end
-
-#pragma mark - Mutability Implementation
-
-@interface PTLDatasource (Mutability) <PTLMutableDatasource>
-
-- (void)beginChanges;
-- (void)endChanges;
-
-@end
-
-#pragma mark - Observation Implementation
-
-@interface PTLDatasource (Observation) <PTLObservableDatasource>
-
-- (void)addChangeObserver:(id<PTLDatasourceObserver>)observer;
-- (void)removeChangeObserver:(id<PTLDatasourceObserver>)observer;
-- (void)removeAllObservers;
-
-- (void)notifyObserversOfChangesBeginning;
-- (void)notifyObserversOfChangesEnding;
-- (void)notifyObserversOfChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath;
-- (void)notifyObserversOfSectionChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex;
 
 @end
