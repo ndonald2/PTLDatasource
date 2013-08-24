@@ -1,4 +1,5 @@
 # PTLDatasource
+[![Build Status](https://travis-ci.org/PearTreeLabs/PTLDatasource.png?branch=master)](https://travis-ci.org/PearTreeLabs/PTLDatasource)
 
 ## Description
 Helpers to lighten your view controllers.
