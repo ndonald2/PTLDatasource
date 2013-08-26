@@ -49,30 +49,6 @@
    return [self.datasource itemAtIndexPath:indexPath];
 }
 
-#pragma mark - PTLCollectionViewDatasource
-
-- (NSString *)collectionViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
-   return [self.datasource collectionViewCellIdentifierForIndexPath:indexPath];
-}
-
-- (PTLCollectionViewCellConfigBlock)collectionViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-   return [self.datasource collectionViewCellConfigBlockForIndexPath:indexPath];
-}
-
-- (NSString *)collectionViewSupplementaryViewIdentifierForIndexPath:(NSIndexPath *)indexPath {
-   if ([self.datasource respondsToSelector:@selector(collectionViewSupplementaryViewIdentifierForIndexPath:)]) {
-      return [self.datasource collectionViewSupplementaryViewIdentifierForIndexPath:indexPath];
-   }
-   return nil;
-}
-
-- (PTLCollectionViewSupplementaryViewConfigBlock)collectionViewSupplementaryViewConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-   if ([self.datasource respondsToSelector:@selector(collectionViewSupplementaryViewConfigBlockForIndexPath:)]) {
-      return [self.datasource collectionViewSupplementaryViewConfigBlockForIndexPath:indexPath];
-   }
-   return nil;
-}
-
 #pragma mark - UICollectionViewDatasource Required Methods
 
 
@@ -97,12 +73,13 @@
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    NSString *identifier = [self.datasource collectionViewSupplementaryViewIdentifierForIndexPath:indexPath elementKind:kind];
     UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
-                                                                        withReuseIdentifier:[self.datasource collectionViewSupplementaryViewIdentifierForIndexPath:indexPath]
+                                                                        withReuseIdentifier:identifier
                                                                                forIndexPath:indexPath];
-    PTLCollectionViewSupplementaryViewConfigBlock block = [self.datasource collectionViewSupplementaryViewConfigBlockForIndexPath:indexPath];
+    PTLCollectionViewSupplementaryViewConfigBlock block = [self.datasource collectionViewSupplementaryViewConfigBlockForIndexPath:indexPath elementKind:kind];
     if (block != nil) {
-        block(collectionView, view, indexPath);
+        block(collectionView, view, indexPath, kind);
     }
     return view;
 }

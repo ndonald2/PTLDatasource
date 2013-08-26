@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PTLDatasource+CollectionView.h"
+#import "PTLCollectionViewDatasource.h"
 #import "PTLDatasourceContainer.h"
+
+#import "PTLArrayDatasource+CollectionView.h"
+#import "PTLCompositeDatasource+CollectionView.h"
+#import "PTLFetchedDatasource+CollectionView.h"
+#import "PTLIndexDatasource+CollectionView.h"
 
 @interface PTLCollectionViewDatasourceAdapter : PTLDatasource <UICollectionViewDataSource, PTLDatasourceContainer>
 
