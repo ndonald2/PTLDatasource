@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "PTLDatasource+Containment.h"
+#import "PTLDatasourceContainer.h"
 
 @interface PTLCompositeDatasource : PTLDatasource <PTLDatasourceContainer>
 

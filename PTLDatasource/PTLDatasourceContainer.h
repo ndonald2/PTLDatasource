@@ -1,5 +1,5 @@
 //
-//  PTLDatasource+Containment.h
+//  PTLDatasourceContainer.h
 //  PTLDatasource
 //
 //  Created by Brian Partridge on 8/1/13.

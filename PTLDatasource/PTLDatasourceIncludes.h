@@ -10,13 +10,17 @@
 #define PTLDatasource_PTLDatasourceIncludes_h
 
 #import "PTLDatasource.h"
-#import "PTLDatasource+CollectionView.h"
-#import "PTLDatasource+TableView.h"
 #import "PTLArrayDatasource.h"
 #import "PTLCompositeDatasource.h"
 #import "PTLFetchedDatasource.h"
 #import "PTLIndexDatasource.h"
+
+#ifdef TARGET_OS_IPHONE
 #import "PTLCollectionViewDatasourceAdapter.h"
 #import "PTLTableViewDatasourceAdapter.h"
+#endif
+
+#ifdef TARGET_OS_MAC
+#endif
 
 #endif

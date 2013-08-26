@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PTLDatasource+TableView.h"
-#import "PTLDatasource+Containment.h"
+#import "PTLTableViewDatasource.h"
+#import "PTLDatasourceContainer.h"
+
+#import "PTLArrayDatasource+TableView.h"
+#import "PTLCompositeDatasource+TableView.h"
+#import "PTLFetchedDatasource+TableView.h"
+#import "PTLIndexDatasource+TableView.h"
 
 @interface PTLTableViewDatasourceAdapter : PTLDatasource <UITableViewDataSource, PTLDatasourceContainer>
 

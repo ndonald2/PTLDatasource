@@ -110,7 +110,7 @@
     NSIndexSet *hair = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, HairColorCount)];
 
     PTLIndexDatasource *eyesSection = [[PTLIndexDatasource alloc] initWithIndecies:eyes];
-    eyesSection.tableViewSectionHeaderTitle = @"Eyes";
+    eyesSection.tableViewHeaderTitle = @"Eyes";
     eyesSection.tableViewCellIdentifier = cellId;
     eyesSection.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSNumber *item, NSIndexPath *indexPath) {
         cell.textLabel.text = [self nameForEyeColor:item.integerValue];
@@ -118,7 +118,7 @@
     };
 
     PTLIndexDatasource *hairSection = [[PTLIndexDatasource alloc] initWithIndecies:hair];
-    hairSection.tableViewSectionHeaderTitle = @"Hair";
+    hairSection.tableViewHeaderTitle = @"Hair";
     hairSection.tableViewCellIdentifier = cellId;
     hairSection.tableViewCellConfigBlock = ^(UITableView *tableView, UITableViewCell *cell, NSNumber *item, NSIndexPath *indexPath) {
         cell.textLabel.text = [self nameForHairColor:item.integerValue];

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1759309917CAECFE003BB4B5 /* PTLArrayDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1759309817CAECFE003BB4B5 /* PTLArrayDatasource+TableView.m */; };
+		1759309C17CAF03E003BB4B5 /* PTLCompositeDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1759309B17CAF03E003BB4B5 /* PTLCompositeDatasource+TableView.m */; };
+		1759309F17CAF581003BB4B5 /* PTLIndexDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1759309E17CAF581003BB4B5 /* PTLIndexDatasource+TableView.m */; };
+		175930A217CAF62E003BB4B5 /* PTLFetchedDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 175930A117CAF62E003BB4B5 /* PTLFetchedDatasource+TableView.m */; };
 		D3B5A1D617AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */; };
 		D3EA3FD41797823500A50247 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD31797823500A50247 /* UIKit.framework */; };
 		D3EA3FD61797823500A50247 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD51797823500A50247 /* Foundation.framework */; };
@@ -32,7 +36,6 @@
 		D3EA401A1797831400A50247 /* PTLCollectionViewDatasourceAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FBD1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.m */; };
 		D3EA401B1797831400A50247 /* PTLCompositeDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FBF1797820C00A50247 /* PTLCompositeDatasource.m */; };
 		D3EA401C1797831400A50247 /* PTLDatasource+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC11797820C00A50247 /* PTLDatasource+CollectionView.m */; };
-		D3EA401D1797831400A50247 /* PTLDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC31797820C00A50247 /* PTLDatasource+TableView.m */; };
 		D3EA401E1797831400A50247 /* PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC51797820C00A50247 /* PTLDatasource.m */; };
 		D3EA401F1797831400A50247 /* PTLFetchedDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC71797820C00A50247 /* PTLFetchedDatasource.m */; };
 		D3EA40201797831400A50247 /* PTLIndexDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA3FC91797820C00A50247 /* PTLIndexDatasource.m */; };
@@ -51,8 +54,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1759309717CAECFE003BB4B5 /* PTLArrayDatasource+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLArrayDatasource+TableView.h"; sourceTree = "<group>"; };
+		1759309817CAECFE003BB4B5 /* PTLArrayDatasource+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLArrayDatasource+TableView.m"; sourceTree = "<group>"; };
+		1759309A17CAF03E003BB4B5 /* PTLCompositeDatasource+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLCompositeDatasource+TableView.h"; sourceTree = "<group>"; };
+		1759309B17CAF03E003BB4B5 /* PTLCompositeDatasource+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLCompositeDatasource+TableView.m"; sourceTree = "<group>"; };
+		1759309D17CAF581003BB4B5 /* PTLIndexDatasource+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLIndexDatasource+TableView.h"; sourceTree = "<group>"; };
+		1759309E17CAF581003BB4B5 /* PTLIndexDatasource+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLIndexDatasource+TableView.m"; sourceTree = "<group>"; };
+		175930A017CAF62E003BB4B5 /* PTLFetchedDatasource+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLFetchedDatasource+TableView.h"; sourceTree = "<group>"; };
+		175930A117CAF62E003BB4B5 /* PTLFetchedDatasource+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLFetchedDatasource+TableView.m"; sourceTree = "<group>"; };
 		D3B5A1CD17AB4FBC00E7B7E6 /* PTLDatasourceIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLDatasourceIncludes.h; sourceTree = "<group>"; };
-		D3B5A1CE17AB506100E7B7E6 /* PTLDatasource+Containment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLDatasource+Containment.h"; sourceTree = "<group>"; };
+		D3B5A1CE17AB506100E7B7E6 /* PTLDatasourceContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLDatasourceContainer.h; sourceTree = "<group>"; };
 		D3B5A1D417AB67BA00E7B7E6 /* PTLIndexDatasourceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexDatasourceTests.h; sourceTree = "<group>"; };
 		D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexDatasourceTests.m; sourceTree = "<group>"; };
 		D3EA3FBA1797820C00A50247 /* PTLArrayDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLArrayDatasource.h; sourceTree = "<group>"; };
@@ -63,8 +74,7 @@
 		D3EA3FBF1797820C00A50247 /* PTLCompositeDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLCompositeDatasource.m; sourceTree = "<group>"; };
 		D3EA3FC01797820C00A50247 /* PTLDatasource+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PTLDatasource+CollectionView.h"; sourceTree = "<group>"; };
 		D3EA3FC11797820C00A50247 /* PTLDatasource+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PTLDatasource+CollectionView.m"; sourceTree = "<group>"; };
-		D3EA3FC21797820C00A50247 /* PTLDatasource+TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PTLDatasource+TableView.h"; sourceTree = "<group>"; };
-		D3EA3FC31797820C00A50247 /* PTLDatasource+TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "PTLDatasource+TableView.m"; sourceTree = "<group>"; };
+		D3EA3FC21797820C00A50247 /* PTLTableViewDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLTableViewDatasource.h; sourceTree = "<group>"; };
 		D3EA3FC41797820C00A50247 /* PTLDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLDatasource.h; sourceTree = "<group>"; };
 		D3EA3FC51797820C00A50247 /* PTLDatasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLDatasource.m; sourceTree = "<group>"; };
 		D3EA3FC61797820C00A50247 /* PTLFetchedDatasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLFetchedDatasource.h; sourceTree = "<group>"; };
@@ -130,6 +140,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1759309317CAEAD5003BB4B5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FC01797820C00A50247 /* PTLDatasource+CollectionView.h */,
+				D3EA3FC11797820C00A50247 /* PTLDatasource+CollectionView.m */,
+				D3EA3FC21797820C00A50247 /* PTLTableViewDatasource.h */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		1759309517CAEBCD003BB4B5 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D3EA3FBC1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.h */,
+				D3EA3FBD1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.m */,
+				D3EA3FCA1797820C00A50247 /* PTLTableViewDatasourceAdapter.h */,
+				D3EA3FCB1797820C00A50247 /* PTLTableViewDatasourceAdapter.m */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		1759309617CAECE9003BB4B5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1759309717CAECFE003BB4B5 /* PTLArrayDatasource+TableView.h */,
+				1759309817CAECFE003BB4B5 /* PTLArrayDatasource+TableView.m */,
+				1759309A17CAF03E003BB4B5 /* PTLCompositeDatasource+TableView.h */,
+				1759309B17CAF03E003BB4B5 /* PTLCompositeDatasource+TableView.m */,
+				175930A017CAF62E003BB4B5 /* PTLFetchedDatasource+TableView.h */,
+				175930A117CAF62E003BB4B5 /* PTLFetchedDatasource+TableView.m */,
+				1759309D17CAF581003BB4B5 /* PTLIndexDatasource+TableView.h */,
+				1759309E17CAF581003BB4B5 /* PTLIndexDatasource+TableView.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		D3964C05179781B70020B888 = {
 			isa = PBXGroup;
 			children = (
@@ -239,10 +285,7 @@
 		D3EA40221797832800A50247 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				D3EA3FBC1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.h */,
-				D3EA3FBD1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.m */,
-				D3EA3FCA1797820C00A50247 /* PTLTableViewDatasourceAdapter.h */,
-				D3EA3FCB1797820C00A50247 /* PTLTableViewDatasourceAdapter.m */,
+				1759309517CAEBCD003BB4B5 /* iOS */,
 			);
 			name = Adapters;
 			sourceTree = "<group>";
@@ -260,11 +303,8 @@
 		D3EA40241797834800A50247 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D3B5A1CE17AB506100E7B7E6 /* PTLDatasource+Containment.h */,
-				D3EA3FC01797820C00A50247 /* PTLDatasource+CollectionView.h */,
-				D3EA3FC11797820C00A50247 /* PTLDatasource+CollectionView.m */,
-				D3EA3FC21797820C00A50247 /* PTLDatasource+TableView.h */,
-				D3EA3FC31797820C00A50247 /* PTLDatasource+TableView.m */,
+				1759309317CAEAD5003BB4B5 /* iOS */,
+				D3B5A1CE17AB506100E7B7E6 /* PTLDatasourceContainer.h */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -272,6 +312,7 @@
 		D3EA40251797835C00A50247 /* Concrete Datasources */ = {
 			isa = PBXGroup;
 			children = (
+				1759309617CAECE9003BB4B5 /* Extensions */,
 				D3EA3FBA1797820C00A50247 /* PTLArrayDatasource.h */,
 				D3EA3FBB1797820C00A50247 /* PTLArrayDatasource.m */,
 				D3EA3FBE1797820C00A50247 /* PTLCompositeDatasource.h */,
@@ -393,16 +434,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3EA3FE21797823500A50247 /* main.m in Sources */,
+				1759309917CAECFE003BB4B5 /* PTLArrayDatasource+TableView.m in Sources */,
+				1759309C17CAF03E003BB4B5 /* PTLCompositeDatasource+TableView.m in Sources */,
 				D3EA3FE61797823500A50247 /* PTLAppDelegate.m in Sources */,
 				D3EA3FEF1797823500A50247 /* PTLDatasource_Demo.xcdatamodeld in Sources */,
 				D3EA4016179782E700A50247 /* PTLColorCollectionViewController.m in Sources */,
+				175930A217CAF62E003BB4B5 /* PTLFetchedDatasource+TableView.m in Sources */,
 				D3EA4017179782E700A50247 /* PTLEnumTableViewController.m in Sources */,
 				D3EA4018179782E700A50247 /* PTLFontFamilyPicker.m in Sources */,
 				D3EA40191797831400A50247 /* PTLArrayDatasource.m in Sources */,
+				1759309F17CAF581003BB4B5 /* PTLIndexDatasource+TableView.m in Sources */,
 				D3EA401A1797831400A50247 /* PTLCollectionViewDatasourceAdapter.m in Sources */,
 				D3EA401B1797831400A50247 /* PTLCompositeDatasource.m in Sources */,
 				D3EA401C1797831400A50247 /* PTLDatasource+CollectionView.m in Sources */,
-				D3EA401D1797831400A50247 /* PTLDatasource+TableView.m in Sources */,
 				D3EA401E1797831400A50247 /* PTLDatasource.m in Sources */,
 				D3EA401F1797831400A50247 /* PTLFetchedDatasource.m in Sources */,
 				D3EA40201797831400A50247 /* PTLIndexDatasource.m in Sources */,
