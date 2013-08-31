@@ -27,7 +27,7 @@
     PTLEnumTableViewController *enumVC = [[PTLEnumTableViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *enumNav = [[UINavigationController alloc] initWithRootViewController:enumVC];
 
-    PTLColorCollectionViewController *colorVC = [[PTLColorCollectionViewController alloc] initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
+    PTLColorCollectionViewController *colorVC = [[PTLColorCollectionViewController alloc] initWithCollectionViewLayout:[PTLColorCollectionViewController defaultLayout]];
     UINavigationController *colorNav = [[UINavigationController alloc] initWithRootViewController:colorVC];
 
     UITabBarController *tab = [[UITabBarController alloc] init];

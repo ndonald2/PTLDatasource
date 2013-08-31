@@ -9,6 +9,9 @@
 #import "PTLColorCollectionViewController.h"
 #import "PTLDatasourceIncludes.h"
 
+static NSString * const kColorCell = @"ColorCell";
+static NSString * const kColorHeader = @"ColorHeader";
+
 @interface PTLColorCollectionViewController ()
 
 @property (nonatomic, strong) PTLCollectionViewDatasourceAdapter *datasource;
@@ -16,6 +19,12 @@
 @end
 
 @implementation PTLColorCollectionViewController
+
++ (UICollectionViewFlowLayout *)defaultLayout {
+   UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+   layout.headerReferenceSize = CGSizeMake(30, 30);
+   return layout;
+}
 
 - (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout {
     self = [super initWithCollectionViewLayout:layout];
@@ -28,22 +37,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSString *cellId = @"cell";
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellId];
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kColorCell];
+    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kColorHeader];
 
-    NSArray *colors = @[[UIColor redColor], [UIColor blueColor], [UIColor greenColor], [UIColor yellowColor], [UIColor magentaColor], [UIColor purpleColor]];
-    colors = [colors arrayByAddingObjectsFromArray:colors];
-    colors = [colors arrayByAddingObjectsFromArray:colors];
-    colors = [colors arrayByAddingObjectsFromArray:colors];
-    colors = [colors arrayByAddingObjectsFromArray:colors];
-
-    PTLArrayDatasource *colorDatasource = [[PTLArrayDatasource alloc] initWithItems:colors];
-    colorDatasource.collectionViewCellIdentifier = cellId;
-    colorDatasource.collectionViewCellConfigBlock = ^(UICollectionView *collectionView, UICollectionViewCell *cell, UIColor *color, NSIndexPath *indexPath) {
-        cell.backgroundColor = color;
-    };
-    self.datasource = [[PTLCollectionViewDatasourceAdapter alloc] initWithDatasource:colorDatasource];
+    PTLCompositeDatasource *composite = [[PTLCompositeDatasource alloc] initWithWithDatasources:@[[self colorDatasource],
+                                                                                                  [self colorDatasource],
+                                                                                                  [self colorDatasource],
+                                                                                                  [self colorDatasource]]];
+    self.datasource = [[PTLCollectionViewDatasourceAdapter alloc] initWithDatasource:composite];
     self.collectionView.dataSource = self.datasource;
+}
+
+- (id<PTLDatasource>)colorDatasource {
+   NSArray *colors = @[[UIColor redColor], [UIColor blueColor], [UIColor greenColor], [UIColor yellowColor], [UIColor magentaColor], [UIColor purpleColor]];
+   colors = [colors arrayByAddingObjectsFromArray:colors];
+   colors = [colors arrayByAddingObjectsFromArray:colors];
+   colors = [colors arrayByAddingObjectsFromArray:colors];
+
+   PTLArrayDatasource *colorDatasource = [[PTLArrayDatasource alloc] initWithItems:colors];
+   colorDatasource.collectionViewCellIdentifier = kColorCell;
+   colorDatasource.collectionViewCellConfigBlock = ^(UICollectionView *collectionView, UICollectionViewCell *cell, UIColor *color, NSIndexPath *indexPath) {
+      cell.backgroundColor = color;
+   };
+
+   colorDatasource.collectionViewHeaderIdentifier = kColorHeader;
+   colorDatasource.collectionViewHeaderConfigBlock = ^(UICollectionView *collectionView, UICollectionReusableView *view, NSIndexPath *indexPath, NSString *elementKind) {
+      view.backgroundColor = [UIColor whiteColor];
+   };
+
+   return colorDatasource;
 }
 
 @end

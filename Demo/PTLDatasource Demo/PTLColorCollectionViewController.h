@@ -10,4 +10,6 @@
 
 @interface PTLColorCollectionViewController : UICollectionViewController
 
++ (UICollectionViewFlowLayout *)defaultLayout;
+
 @end
