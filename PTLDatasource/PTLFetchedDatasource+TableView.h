@@ -7,13 +7,8 @@
 //
 
 #import "PTLFetchedDatasource.h"
-#import "PTLTableViewDatasource.h"
+#import "PTLDatasource+TableView.h"
 
-@interface PTLFetchedDatasource (TableView) <PTLTableViewDatasource>
-
-@property (nonatomic, copy) NSString *tableViewHeaderTitle;
-@property (nonatomic, copy) NSString *tableViewFooterTitle;
-@property (nonatomic, copy) NSString *tableViewCellIdentifier;
-@property (nonatomic, copy) PTLTableViewCellConfigBlock tableViewCellConfigBlock;
+@interface PTLFetchedDatasource (TableView)
 
 @end

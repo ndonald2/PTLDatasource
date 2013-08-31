@@ -1,15 +1,15 @@
 //
-//  PTLFetchedDatasource+CollectionView.h
+//  PTLDatasource+CollectionView.h
 //  PTLDatasource
 //
-//  Created by Brian Partridge on 8/25/13.
+//  Created by Brian Partridge on 8/30/13.
 //
 //
 
-#import "PTLFetchedDatasource.h"
+#import "PTLDatasource.h"
 #import "PTLCollectionViewDatasource.h"
 
-@interface PTLFetchedDatasource (CollectionView) <PTLCollectionViewDatasource>
+@interface PTLDatasource (CollectionView) <PTLCollectionViewDatasource>
 
 @property (nonatomic, copy) NSString *collectionViewCellIdentifier;
 @property (nonatomic, copy) PTLCollectionViewCellConfigBlock collectionViewCellConfigBlock;

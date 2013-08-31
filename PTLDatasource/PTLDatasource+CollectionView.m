@@ -1,22 +1,38 @@
 //
-//  PTLIndexDatasource+CollectionView.m
+//  PTLDatasource+CollectionView.m
 //  PTLDatasource
 //
-//  Created by Brian Partridge on 8/26/13.
+//  Created by Brian Partridge on 8/30/13.
 //
 //
 
-#import "PTLIndexDatasource+CollectionView.h"
+#import "PTLDatasource+CollectionView.h"
 #import <objc/runtime.h>
 
+static NSString * const kPTLCollectionViewDatasourceCellIdentifier = @"kPTLCollectionViewDatasourceCellIdentifier";
+static NSString * const kPTLCollectionViewDatasourceCellConfigBlock = @"kPTLCollectionViewDatasourceCellConfigBlock";
 static NSString * const kPTLCollectionViewDatasourceElementKindToReusableViewIdentifier = @"kPTLCollectionViewDatasourceElementKindToReusableViewIdentifier";
 static NSString * const kPTLCollectionViewDatasourceElementKindToReusableViewConfigBlock = @"kPTLCollectionViewDatasourceElementKindToReusableViewConfigBlock";
 
-@implementation PTLIndexDatasource (CollectionView)
+@implementation PTLDatasource (CollectionView)
 
 #pragma mark - Properties
 
-// TODO: use associated properties for cell id and config block
+- (void)setCollectionViewCellIdentifier:(NSString *)collectionViewCellIdentifier {
+   objc_setAssociatedObject(self, (__bridge const void *)(kPTLCollectionViewDatasourceCellIdentifier), collectionViewCellIdentifier, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (NSString *)collectionViewCellIdentifier {
+   return objc_getAssociatedObject(self, (__bridge const void *)(kPTLCollectionViewDatasourceCellIdentifier));
+}
+
+- (void)setCollectionViewCellConfigBlock:(PTLCollectionViewCellConfigBlock)collectionViewCellConfigBlock {
+   objc_setAssociatedObject(self, (__bridge const void *)(kPTLCollectionViewDatasourceCellConfigBlock), collectionViewCellConfigBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (PTLCollectionViewCellConfigBlock)collectionViewCellConfigBlock {
+   return objc_getAssociatedObject(self, (__bridge const void *)(kPTLCollectionViewDatasourceCellConfigBlock));
+}
 
 #pragma mark - Flow Layout
 
@@ -75,23 +91,27 @@ static NSString * const kPTLCollectionViewDatasourceElementKindToReusableViewCon
 #pragma mark - Protocol Methods
 
 - (NSString *)collectionViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
-   NSParameterAssert(indexPath.section == 0);
+   NSParameterAssert(indexPath.section < [self numberOfSections]);
    NSParameterAssert(indexPath.item < [self numberOfItemsInSection:indexPath.section]);
    return self.collectionViewCellIdentifier;
 }
 
 - (PTLCollectionViewCellConfigBlock)collectionViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-   NSParameterAssert(indexPath.section == 0);
+   NSParameterAssert(indexPath.section < [self numberOfSections]);
    NSParameterAssert(indexPath.item < [self numberOfItemsInSection:indexPath.section]);
    return self.collectionViewCellConfigBlock;
 }
 
 - (NSString *)collectionViewSupplementaryViewIdentifierForIndexPath:(NSIndexPath *)indexPath elementKind:(NSString *)elementKind {
+   NSParameterAssert(indexPath.section < [self numberOfSections]);
+   NSParameterAssert(indexPath.item < [self numberOfItemsInSection:indexPath.section]);
    NSMapTable *table = objc_getAssociatedObject(self, (__bridge const void *)(kPTLCollectionViewDatasourceElementKindToReusableViewIdentifier));
    return [table objectForKey:elementKind];
 }
 
 - (PTLCollectionViewSupplementaryViewConfigBlock)collectionViewSupplementaryViewConfigBlockForIndexPath:(NSIndexPath *)indexPath elementKind:(NSString *)elementKind {
+   NSParameterAssert(indexPath.section < [self numberOfSections]);
+   NSParameterAssert(indexPath.item < [self numberOfItemsInSection:indexPath.section]);
    NSMapTable *table = objc_getAssociatedObject(self, (__bridge const void *)(kPTLCollectionViewDatasourceElementKindToReusableViewConfigBlock));
    return [table objectForKey:elementKind];
 }

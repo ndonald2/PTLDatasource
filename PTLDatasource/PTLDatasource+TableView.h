@@ -1,15 +1,15 @@
 //
-//  PTLIndexDatasource+TableView.h
+//  PTLDatasource+TableView.h
 //  PTLDatasource
 //
-//  Created by Brian Partridge on 8/25/13.
+//  Created by Brian Partridge on 8/30/13.
 //
 //
 
-#import "PTLIndexDatasource.h"
+#import "PTLDatasource.h"
 #import "PTLTableViewDatasource.h"
 
-@interface PTLIndexDatasource (TableView) <PTLTableViewDatasource>
+@interface PTLDatasource (TableView) <PTLTableViewDatasource>
 
 @property (nonatomic, copy) NSString *tableViewHeaderTitle;
 @property (nonatomic, copy) NSString *tableViewFooterTitle;
