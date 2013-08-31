@@ -79,4 +79,34 @@ static NSString * const kPTLTableViewDatasourceFooterIdentifier = @"kPTLTableVie
    return self.tableViewFooterTitle;
 }
 
+#pragma mark - UITableViewDatasource Required Methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+   return [self numberOfItemsInSection:section];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self tableViewCellIdentifierForIndexPath:indexPath]
+                                                           forIndexPath:indexPath];
+   PTLTableViewCellConfigBlock block = [self tableViewCellConfigBlockForIndexPath:indexPath];
+   if (block != nil) {
+      block(tableView, cell, [self itemAtIndexPath:indexPath], indexPath);
+   }
+   return cell;
+}
+
+#pragma mark - UITableViewDatasource Optional Methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+   return [self numberOfSections];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)sectionIndex {
+   return [self tableViewHeaderTitleForSection:sectionIndex];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)sectionIndex {
+   return [self tableViewFooterTitleForSection:sectionIndex];
+}
+
 @end

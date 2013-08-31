@@ -11,7 +11,7 @@
 
 @interface PTLEnumTableViewController ()
 
-@property (nonatomic, strong) PTLTableViewDatasourceAdapter *datasource;
+@property (nonatomic, strong) PTLDatasource *datasource;
 
 @end
 
@@ -125,7 +125,7 @@
         cell.textLabel.textColor = [self colorForHairColor:item.integerValue];
     };
 
-    self.datasource = [[PTLTableViewDatasourceAdapter alloc] initWithDatasource:[[PTLCompositeDatasource alloc] initWithWithDatasources:@[eyesSection, hairSection]]];
+    self.datasource = [[PTLCompositeDatasource alloc] initWithWithDatasources:@[eyesSection, hairSection]];
     self.tableView.dataSource = self.datasource;
 }
 

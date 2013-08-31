@@ -14,7 +14,7 @@ static NSString * const kColorHeader = @"ColorHeader";
 
 @interface PTLColorCollectionViewController ()
 
-@property (nonatomic, strong) PTLCollectionViewDatasourceAdapter *datasource;
+@property (nonatomic, strong) PTLDatasource *datasource;
 
 @end
 
@@ -40,11 +40,10 @@ static NSString * const kColorHeader = @"ColorHeader";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kColorCell];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kColorHeader];
 
-    PTLCompositeDatasource *composite = [[PTLCompositeDatasource alloc] initWithWithDatasources:@[[self colorDatasource],
-                                                                                                  [self colorDatasource],
-                                                                                                  [self colorDatasource],
-                                                                                                  [self colorDatasource]]];
-    self.datasource = [[PTLCollectionViewDatasourceAdapter alloc] initWithDatasource:composite];
+    self.datasource = [[PTLCompositeDatasource alloc] initWithWithDatasources:@[[self colorDatasource],
+                                                                                [self colorDatasource],
+                                                                                [self colorDatasource],
+                                                                                [self colorDatasource]]];
     self.collectionView.dataSource = self.datasource;
 }
 

@@ -11,7 +11,7 @@
 
 @interface PTLFontFamilyPicker ()
 
-@property (nonatomic, strong) PTLTableViewDatasourceAdapter *datasource;
+@property (nonatomic, strong) PTLDatasource *datasource;
 
 @end
 
@@ -42,7 +42,7 @@
         cell.textLabel.font = font;
     };
 
-    self.datasource = [[PTLTableViewDatasourceAdapter alloc] initWithDatasource:familyDatasource];
+    self.datasource = familyDatasource;
     self.tableView.dataSource = self.datasource;
 }
 

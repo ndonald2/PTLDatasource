@@ -16,8 +16,7 @@
 #import "PTLIndexDatasource.h"
 
 #ifdef TARGET_OS_IPHONE
-#import "PTLCollectionViewDatasourceAdapter.h"
-#import "PTLTableViewDatasourceAdapter.h"
+#import "PTLDatasource+UIKit.h"
 #endif
 
 #ifdef TARGET_OS_MAC

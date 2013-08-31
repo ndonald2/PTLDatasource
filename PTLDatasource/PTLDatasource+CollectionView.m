@@ -116,4 +116,38 @@ static NSString * const kPTLCollectionViewDatasourceElementKindToReusableViewCon
    return [table objectForKey:elementKind];
 }
 
+#pragma mark - UICollectionViewDatasource Required Methods
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+   return [self numberOfItemsInSection:section];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+   UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[self collectionViewCellIdentifierForIndexPath:indexPath]
+                                                                          forIndexPath:indexPath];
+   PTLCollectionViewCellConfigBlock block = [self collectionViewCellConfigBlockForIndexPath:indexPath];
+   if (block != nil) {
+      block(collectionView, cell, [self itemAtIndexPath:indexPath], indexPath);
+   }
+   return cell;
+}
+
+#pragma mark - UICollectionViewDatasource Optional Methods
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+   return [self numberOfSections];
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+   NSString *identifier = [self collectionViewSupplementaryViewIdentifierForIndexPath:indexPath elementKind:kind];
+   UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                                       withReuseIdentifier:identifier
+                                                                              forIndexPath:indexPath];
+   PTLCollectionViewSupplementaryViewConfigBlock block = [self collectionViewSupplementaryViewConfigBlockForIndexPath:indexPath elementKind:kind];
+   if (block != nil) {
+      block(collectionView, view, indexPath, kind);
+   }
+   return view;
+}
+
 @end

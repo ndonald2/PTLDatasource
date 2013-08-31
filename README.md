@@ -12,7 +12,6 @@ Helpers to lighten your view controllers.
 ## Roadmap
 - Convert to XCTest
 - Add unit tests for PTLFetchedDatasource, UITableView extensions, UICollectionView extensions
-- Remove adapters
 - Add support for OSX
 
 ## License

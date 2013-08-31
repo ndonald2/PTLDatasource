@@ -11,7 +11,7 @@
 
 typedef void(^PTLTableViewCellConfigBlock)(UITableView *tableView, UITableViewCell *cell, id item, NSIndexPath *indexPath);
 
-@protocol PTLTableViewDatasource <PTLDatasource>
+@protocol PTLTableViewDatasource <PTLDatasource, UITableViewDataSource>
 
 - (NSString *)tableViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath;
 - (PTLTableViewCellConfigBlock)tableViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath;
