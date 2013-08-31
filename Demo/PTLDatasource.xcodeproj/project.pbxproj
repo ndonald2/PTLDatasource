@@ -144,16 +144,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1759309317CAEAD5003BB4B5 /* iOS */ = {
+		1733AF1917D1A55400E7D7F8 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				D3EA3FC01797820C00A50247 /* PTLCollectionViewDatasource.h */,
 				D3EA3FC21797820C00A50247 /* PTLTableViewDatasource.h */,
 			);
-			name = iOS;
+			name = Base;
 			sourceTree = "<group>";
 		};
-		1759309517CAEBCD003BB4B5 /* iOS */ = {
+		1733AF1A17D1A57A00E7D7F8 /* iOS Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1733AF1917D1A55400E7D7F8 /* Base */,
+				175930A717CB079F003BB4B5 /* CollectionView */,
+				175930A617CB078F003BB4B5 /* TableView */,
+				1759309517CAEBCD003BB4B5 /* Adapters */,
+			);
+			name = "iOS Extensions";
+			sourceTree = "<group>";
+		};
+		1733AF1B17D1A5EE00E7D7F8 /* OSX Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "OSX Extensions";
+			sourceTree = "<group>";
+		};
+		1759309517CAEBCD003BB4B5 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
 				D3EA3FBC1797820C00A50247 /* PTLCollectionViewDatasourceAdapter.h */,
@@ -161,16 +179,7 @@
 				D3EA3FCA1797820C00A50247 /* PTLTableViewDatasourceAdapter.h */,
 				D3EA3FCB1797820C00A50247 /* PTLTableViewDatasourceAdapter.m */,
 			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		1759309617CAECE9003BB4B5 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				175930A617CB078F003BB4B5 /* TableView */,
-				175930A717CB079F003BB4B5 /* CollectionView */,
-			);
-			name = Extensions;
+			name = Adapters;
 			sourceTree = "<group>";
 		};
 		175930A617CB078F003BB4B5 /* TableView */ = {
@@ -222,9 +231,9 @@
 			children = (
 				1763BBC917D18E0A0013B027 /* Categories */,
 				D3EA40231797833E00A50247 /* Base */,
-				D3EA40241797834800A50247 /* Extensions */,
-				D3EA40251797835C00A50247 /* Concrete Datasources */,
-				D3EA40221797832800A50247 /* Adapters */,
+				D3EA40251797835C00A50247 /* Datasources */,
+				1733AF1A17D1A57A00E7D7F8 /* iOS Extensions */,
+				1733AF1B17D1A5EE00E7D7F8 /* OSX Extensions */,
 			);
 			name = PTLDatasource;
 			path = ../PTLDatasource;
@@ -313,34 +322,18 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		D3EA40221797832800A50247 /* Adapters */ = {
-			isa = PBXGroup;
-			children = (
-				1759309517CAEBCD003BB4B5 /* iOS */,
-			);
-			name = Adapters;
-			sourceTree = "<group>";
-		};
 		D3EA40231797833E00A50247 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				D3B5A1CD17AB4FBC00E7B7E6 /* PTLDatasourceIncludes.h */,
 				D3EA3FC41797820C00A50247 /* PTLDatasource.h */,
 				D3EA3FC51797820C00A50247 /* PTLDatasource.m */,
+				D3B5A1CE17AB506100E7B7E6 /* PTLDatasourceContainer.h */,
 			);
 			name = Base;
 			sourceTree = "<group>";
 		};
-		D3EA40241797834800A50247 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				1759309317CAEAD5003BB4B5 /* iOS */,
-				D3B5A1CE17AB506100E7B7E6 /* PTLDatasourceContainer.h */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		D3EA40251797835C00A50247 /* Concrete Datasources */ = {
+		D3EA40251797835C00A50247 /* Datasources */ = {
 			isa = PBXGroup;
 			children = (
 				D3EA3FBA1797820C00A50247 /* PTLArrayDatasource.h */,
@@ -351,9 +344,8 @@
 				D3EA3FC71797820C00A50247 /* PTLFetchedDatasource.m */,
 				D3EA3FC81797820C00A50247 /* PTLIndexDatasource.h */,
 				D3EA3FC91797820C00A50247 /* PTLIndexDatasource.m */,
-				1759309617CAECE9003BB4B5 /* Extensions */,
 			);
-			name = "Concrete Datasources";
+			name = Datasources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
