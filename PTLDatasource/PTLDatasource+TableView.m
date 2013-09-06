@@ -18,11 +18,6 @@ static NSString * const kPTLTableViewDatasourceFooterIdentifier = @"kPTLTableVie
 
 #pragma mark - Properties
 
-//SYNTHESIZE_ASC_OBJ(tableViewHeaderTitle, setTableViewHeaderTitle);
-//SYNTHESIZE_ASC_OBJ(tableViewFooterTitle, setTableViewFooterTitle);
-//SYNTHESIZE_ASC_OBJ(tableViewCellIdentifier, setTableViewCellIdentifier);
-//SYNTHESIZE_ASC_BLOCK_OBJ(tableViewCellConfigBlock, setTableViewCellConfigBlock, PTLTableViewCellConfigBlock);
-
 - (void)setTableViewCellIdentifier:(NSString *)tableViewCellIdentifier {
    objc_setAssociatedObject(self, (__bridge const void *)(kPTLTableViewDatasourceCellIdentifier), tableViewCellIdentifier, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }

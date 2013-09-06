@@ -7,7 +7,6 @@
 //
 
 #import "PTLFetchedDatasource+TableView.h"
-#import "NSObject+PTLSwizzle.h"
 
 @interface PTLFetchedDatasource (Private)
 
@@ -17,17 +16,12 @@
 
 @implementation PTLFetchedDatasource (TableView)
 
-+ (void)load {
-   [self ptl_swizzleMethod:@selector(tableViewHeaderTitleForSection:) withMethod:@selector(fetched_tableViewHeaderTitleForSection:)];
-   [self ptl_swizzleMethod:@selector(tableViewFooterTitleForSection:) withMethod:@selector(fetched_tableViewFooterTitleForSection:)];
-}
-
 #pragma mark - Protocol Methods
 
-- (NSString *)fetched_tableViewHeaderTitleForSection:(NSInteger)sectionIndex {
+- (NSString *)tableViewHeaderTitleForSection:(NSInteger)sectionIndex {
    NSParameterAssert(sectionIndex < [self numberOfSections]);
 
-   NSString *explicitTitle = [self fetched_tableViewHeaderTitleForSection:sectionIndex];
+   NSString *explicitTitle = [super tableViewHeaderTitleForSection:sectionIndex];
    if (explicitTitle.length > 0) {
       return (sectionIndex == 0) ? explicitTitle : nil;
    }
@@ -36,10 +30,10 @@
    return sectionInfo.name;
 }
 
-- (NSString *)fetched_tableViewFooterTitleForSection:(NSInteger)sectionIndex {
+- (NSString *)tableViewFooterTitleForSection:(NSInteger)sectionIndex {
    NSParameterAssert(sectionIndex < [self numberOfSections]);
 
-   NSString *explicitTitle = [self fetched_tableViewFooterTitleForSection:sectionIndex];
+   NSString *explicitTitle = [super tableViewFooterTitleForSection:sectionIndex];
    if (explicitTitle.length > 0 &&
        sectionIndex == 0) {
       return explicitTitle;
