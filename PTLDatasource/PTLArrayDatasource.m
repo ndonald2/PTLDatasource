@@ -107,8 +107,8 @@
 
 - (void)removeAllItems {
     [self notifyObserversOfChangesBeginning];
-    [self.items removeAllObjects];
     NSInteger end = self.items.count;
+    [self.items removeAllObjects];
     for (int i = 0; i < end; i++) {
         [self notifyObserversOfChange:PTLChangeTypeRemove
                           atIndexPath:[NSIndexPath indexPathForItem:i inSection:0]
