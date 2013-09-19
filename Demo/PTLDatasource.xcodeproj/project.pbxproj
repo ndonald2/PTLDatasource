@@ -30,7 +30,6 @@
 		D3EA3FF91797823600A50247 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD51797823500A50247 /* Foundation.framework */; };
 		D3EA3FFA1797823600A50247 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD91797823500A50247 /* CoreData.framework */; };
 		D3EA40021797823600A50247 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3EA40001797823600A50247 /* InfoPlist.strings */; };
-		D3EA40051797823600A50247 /* PTLDatasource_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA40041797823600A50247 /* PTLDatasource_DemoTests.m */; };
 		D3EA4016179782E700A50247 /* PTLColorCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA400D1797828A00A50247 /* PTLColorCollectionViewController.m */; };
 		D3EA4017179782E700A50247 /* PTLEnumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA400F1797828A00A50247 /* PTLEnumTableViewController.m */; };
 		D3EA4018179782E700A50247 /* PTLFontFamilyPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA40111797828A00A50247 /* PTLFontFamilyPicker.m */; };
@@ -101,8 +100,6 @@
 		D3EA3FF61797823600A50247 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		D3EA3FFF1797823600A50247 /* PTLDatasource DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PTLDatasource DemoTests-Info.plist"; sourceTree = "<group>"; };
 		D3EA40011797823600A50247 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D3EA40031797823600A50247 /* PTLDatasource_DemoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTLDatasource_DemoTests.h; sourceTree = "<group>"; };
-		D3EA40041797823600A50247 /* PTLDatasource_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTLDatasource_DemoTests.m; sourceTree = "<group>"; };
 		D3EA400C1797828A00A50247 /* PTLColorCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLColorCollectionViewController.h; sourceTree = "<group>"; };
 		D3EA400D1797828A00A50247 /* PTLColorCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLColorCollectionViewController.m; sourceTree = "<group>"; };
 		D3EA400E1797828A00A50247 /* PTLEnumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLEnumTableViewController.h; sourceTree = "<group>"; };
@@ -273,8 +270,6 @@
 		D3EA3FFD1797823600A50247 /* PTLDatasource DemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				D3EA40031797823600A50247 /* PTLDatasource_DemoTests.h */,
-				D3EA40041797823600A50247 /* PTLDatasource_DemoTests.m */,
 				D3EA3FFE1797823600A50247 /* Supporting Files */,
 				D3EA40291797872200A50247 /* PTLArrayDatasourceTests.h */,
 				D3EA402A1797872200A50247 /* PTLArrayDatasourceTests.m */,
@@ -464,7 +459,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3EA40051797823600A50247 /* PTLDatasource_DemoTests.m in Sources */,
 				D3EA402B1797872200A50247 /* PTLArrayDatasourceTests.m in Sources */,
 				D3B5A1D617AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m in Sources */,
 			);
