@@ -6,8 +6,8 @@
 //
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface PTLArrayDatasourceTests : SenTestCase
+@interface PTLArrayDatasourceTests : XCTestCase
 
 @end
