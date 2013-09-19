@@ -170,48 +170,4 @@
    return childDatasource;
 }
 
-#pragma mark - PTLTableViewDatasource
-
-- (NSString *)titleForSection:(NSInteger)sectionIndex {
-    id datasource = [self childDatasourceContainingSectionIndex:sectionIndex];
-    return [datasource titleForSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex]];
-}
-
-- (NSString *)subtitleForSection:(NSInteger)sectionIndex {
-    id datasource = [self childDatasourceContainingSectionIndex:sectionIndex];
-    return [datasource subtitleForSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex]];
-}
-
-- (NSString *)tableViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
-    return [datasource tableViewCellIdentifierForIndexPath:[self resolvedChildDatasourceIndexPathForIndexPath:indexPath]];
-}
-
-- (PTLTableViewCellConfigBlock)tableViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
-    return [datasource tableViewCellConfigBlockForIndexPath:[self resolvedChildDatasourceIndexPathForIndexPath:indexPath]];
-}
-
-#pragma mark - PTLCollectionViewDatasource
-
-- (NSString *)collectionViewCellIdentifierForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
-    return [datasource collectionViewCellIdentifierForIndexPath:indexPath];
-}
-
-- (PTLCollectionViewCellConfigBlock)collectionViewCellConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
-    return [datasource collectionViewCellConfigBlockForIndexPath:indexPath];
-}
-
-- (NSString *)collectionViewSupplementaryViewIdentifierForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
-    return [datasource collectionViewSupplementaryViewIdentifierForIndexPath:indexPath];
-}
-
-- (PTLCollectionViewSupplementaryViewConfigBlock)collectionViewSupplementaryViewConfigBlockForIndexPath:(NSIndexPath *)indexPath {
-    id datasource = [self childDatasourceContainingSectionIndex:indexPath.section];
-    return [datasource collectionViewSupplementaryViewConfigBlockForIndexPath:indexPath];
-}
-
 @end
