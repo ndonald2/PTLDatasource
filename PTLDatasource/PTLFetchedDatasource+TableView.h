@@ -6,9 +6,13 @@
 //
 //
 
+#ifdef _COREDATADEFINES_H
+
 #import "PTLFetchedDatasource.h"
 #import "PTLDatasource+TableView.h"
 
 @interface PTLFetchedDatasource (TableView)
 
 @end
+
+#endif

@@ -6,6 +6,8 @@
 //
 //
 
+#ifdef _COREDATADEFINES_H
+
 #import "PTLFetchedDatasource+TableView.h"
 
 @interface PTLFetchedDatasource (Private)
@@ -42,3 +44,5 @@
 }
 
 @end
+
+#endif
