@@ -13,7 +13,7 @@
 
 @interface PTLDatasource ()
 
-@property (nonatomic, readonly, strong) NSMutableArray *observers;
+@property (nonatomic, readonly, strong) NSHashTable *observers;
 
 @end
 
@@ -84,8 +84,8 @@
 
 @dynamic observers;
 
-- (NSHashTable *)observers {
-    NSHashTable *result = objc_getAssociatedObject(self, @"observers");
+- (NSMutableArray *)observers {
+    NSMutableArray *result = objc_getAssociatedObject(self, @"observers");
     if (result == nil) {
         result = [NSHashTable weakObjectsHashTable];
         objc_setAssociatedObject(self, @"observers", result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -94,7 +94,7 @@
 }
 
 - (void)notifyObserversOfChangesBeginning {
-   for (id observer in self.observers) {
+   for (id observer in self.observers.allObjects) {
       if ([observer respondsToSelector:@selector(datasourceWillChange:)]) {
          [observer datasourceWillChange:self];
       }
@@ -102,7 +102,7 @@
 }
 
 - (void)notifyObserversOfChangesEnding {
-   for (id observer in self.observers) {
+   for (id observer in self.observers.allObjects) {
       if ([observer respondsToSelector:@selector(datasourceDidChange:)]) {
          [observer datasourceDidChange:self];
       }
@@ -110,7 +110,7 @@
 }
 
 - (void)notifyObserversOfChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath {
-   for (id observer in self.observers) {
+   for (id observer in self.observers.allObjects) {
       if ([observer respondsToSelector:@selector(datasource:didChange:atIndexPath:newIndexPath:)]) {
          [observer datasource:self didChange:change atIndexPath:indexPath newIndexPath:newIndexPath];
       }
@@ -118,7 +118,7 @@
 }
 
 - (void)notifyObserversOfSectionChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex {
-   for (id observer in self.observers) {
+   for (id observer in self.observers.allObjects) {
       if ([observer respondsToSelector:@selector(datasource:didChange:atSectionIndex:)]) {
          [observer datasource:self didChange:change atSectionIndex:sectionIndex];
       }
