@@ -104,14 +104,12 @@ static NSString * const kPTLCollectionViewDatasourceElementKindToReusableViewCon
 
 - (NSString *)collectionViewSupplementaryViewIdentifierForIndexPath:(NSIndexPath *)indexPath elementKind:(NSString *)elementKind {
    NSParameterAssert(indexPath.section < [self numberOfSections]);
-   NSParameterAssert(indexPath.item < [self numberOfItemsInSection:indexPath.section]);
    NSMapTable *table = objc_getAssociatedObject(self, (__bridge const void *)(kPTLCollectionViewDatasourceElementKindToReusableViewIdentifier));
    return [table objectForKey:elementKind];
 }
 
 - (PTLCollectionViewSupplementaryViewConfigBlock)collectionViewSupplementaryViewConfigBlockForIndexPath:(NSIndexPath *)indexPath elementKind:(NSString *)elementKind {
    NSParameterAssert(indexPath.section < [self numberOfSections]);
-   NSParameterAssert(indexPath.item < [self numberOfItemsInSection:indexPath.section]);
    NSMapTable *table = objc_getAssociatedObject(self, (__bridge const void *)(kPTLCollectionViewDatasourceElementKindToReusableViewConfigBlock));
    return [table objectForKey:elementKind];
 }
