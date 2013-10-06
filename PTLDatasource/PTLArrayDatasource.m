@@ -161,4 +161,12 @@
     return (index == NSNotFound) ? nil : [NSIndexPath indexPathForItem:index inSection:0];
 }
 
+- (NSArray *)allItems {
+   return [self.items copy];
+}
+
+- (NSInteger)numberOfItems {
+   return self.items.count;
+}
+
 @end

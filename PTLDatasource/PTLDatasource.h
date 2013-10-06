@@ -31,6 +31,8 @@
 
 - (BOOL)containsItem:(id)item;
 - (NSIndexPath *)indexPathOfItem:(id)item;
+- (NSArray *)allItems;
+- (NSInteger)numberOfItems;
 
 @end
 

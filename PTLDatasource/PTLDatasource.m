@@ -42,6 +42,14 @@
     return nil;
 }
 
+- (NSArray *)allItems {
+   return @[];
+}
+
+- (NSInteger)numberOfItems {
+   return 0;
+}
+
 #pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {

@@ -166,4 +166,16 @@
     return [self indexPathOfIndexValue:((NSNumber *)item).integerValue];
 }
 
+- (NSArray *)allItems {
+   NSMutableArray *results = [NSMutableArray arrayWithCapacity:self.indecies.count];
+   [self.indecies enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+      [results addObject:@(idx)];
+   }];
+   return [results copy];
+}
+
+- (NSInteger)numberOfItems {
+   return self.indecies.count;
+}
+
 @end

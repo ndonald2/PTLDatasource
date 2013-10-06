@@ -170,4 +170,41 @@
    return childDatasource;
 }
 
+#pragma mark - Lookup
+
+- (BOOL)containsItem:(id)item {
+   for (id<PTLDatasource> datasource in self.datasources) {
+      if ([datasource containsItem:item]) {
+         return YES;
+      }
+   }
+   return NO;
+}
+
+- (NSIndexPath *)indexPathOfItem:(id)item {
+   for (id<PTLDatasource> datasource in self.datasources) {
+      NSIndexPath *indexPath = [datasource indexPathOfItem:item];
+      if (indexPath != nil) {
+         return indexPath;
+      }
+   }
+   return nil;
+}
+
+- (NSArray *)allItems {
+   NSMutableArray *results = [NSMutableArray array];
+   for (id<PTLDatasource> datasource in self.datasources) {
+      [results addObjectsFromArray:[datasource allItems]];
+   }
+   return results;
+}
+
+- (NSInteger)numberOfItems {
+   NSInteger count = 0;
+   for (id<PTLDatasource> datasource in self.datasources) {
+      count += [datasource numberOfItems];
+   }
+   return count;
+}
+
 @end

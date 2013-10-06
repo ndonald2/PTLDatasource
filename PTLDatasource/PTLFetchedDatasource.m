@@ -101,6 +101,24 @@
     [self notifyObserversOfChangesEnding];
 }
 
+#pragma mark - Lookup
+
+- (BOOL)containsItem:(id)item {
+   return [self.controller.fetchedObjects containsObject:item];
+}
+
+- (NSIndexPath *)indexPathOfItem:(id)item {
+   return [self.controller indexPathForObject:item];
+}
+
+- (NSArray *)allItems {
+   return self.controller.fetchedObjects;
+}
+
+- (NSInteger)numberOfItems {
+   return self.controller.fetchedObjects.count;
+}
+
 @end
 
 #endif
