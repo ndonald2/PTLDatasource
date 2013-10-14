@@ -7,7 +7,7 @@
 //
 
 #import "PTLEnumTableViewController.h"
-#import "PTLDatasourceIncludes.h"
+#import "UIKit+PTLDatasource.h"
 
 @interface PTLEnumTableViewController ()
 

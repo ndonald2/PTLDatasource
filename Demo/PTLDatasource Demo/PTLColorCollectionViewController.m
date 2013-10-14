@@ -7,7 +7,7 @@
 //
 
 #import "PTLColorCollectionViewController.h"
-#import "PTLDatasourceIncludes.h"
+#import "UIKit+PTLDatasource.h"
 
 static NSString * const kColorCell = @"ColorCell";
 static NSString * const kColorHeader = @"ColorHeader";

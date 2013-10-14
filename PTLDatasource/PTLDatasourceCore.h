@@ -12,14 +12,6 @@
 #import "PTLDatasource.h"
 #import "PTLArrayDatasource.h"
 #import "PTLCompositeDatasource.h"
-#import "PTLFetchedDatasource.h"
 #import "PTLIndexDatasource.h"
-
-#ifdef TARGET_OS_IPHONE
-#import "PTLDatasource+UIKit.h"
-#endif
-
-#ifdef TARGET_OS_MAC
-#endif
 
 #endif
