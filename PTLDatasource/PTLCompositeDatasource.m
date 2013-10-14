@@ -185,7 +185,7 @@
    for (id<PTLDatasource> datasource in self.datasources) {
       NSIndexPath *indexPath = [datasource indexPathOfItem:item];
       if (indexPath != nil) {
-         return indexPath;
+         return [self resolvedIndexPathForChildDatasource:datasource indexPath:indexPath];
       }
    }
    return nil;
