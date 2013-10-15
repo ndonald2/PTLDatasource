@@ -8,9 +8,23 @@ Helpers to lighten your view controllers.
 - UIKit
 
 ### Optional
-- CoreData : PTLFetchedDatasource will not be available if CoreData isn't linked.
+- CoreData
 
 ## Usage
+
+- In your Podfile, specify:
+
+        pod 'PTLDatasource'
+
+- And import the necessary headers:
+
+        #import "UIKit+PTLDatasource.h"
+        // or
+        #import "UIKit+PTLDatasourceFetching.h"
+
+- If you are not using CoreData in your project, you can exclude PTLFetchedDatasource, by specifying just the Core components in your Podfile:
+
+        pod 'PTLDatasource/Core'
 
 ### Basic Array Datasource
 
