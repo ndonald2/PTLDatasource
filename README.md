@@ -15,6 +15,8 @@ Helpers to lighten your view controllers.
 ### Basic Array Datasource
 
 ```
+#import "UIKit+PTLDatasource.h"
+
 // Prepare your table view
 [self.tableView registerClass:cellClass forCellReuseIdentifier:identifier];
 
@@ -30,6 +32,8 @@ self.tableView.dataSource = ds;
 ### Basic Enum Datasource
 
 ```
+#import "UIKit+PTLDatasource.h"
+
 typedef NS_ENUM(NSInteger, MyEnum) {
     MyEnumFoo,
     MyEnumBar,
@@ -55,6 +59,8 @@ self.tableView.dataSource = ds;
 ### Advanced Multiple Datasources
 
 ```
+#import "UIKit+PTLDatasourceFetching.h"
+
 // Prepare your table view
 [self.tableView registerClass:arrayCellClass forCellReuseIdentifier:arrayIdentifier];
 [self.tableView registerClass:indexCellClass forCellReuseIdentifier:indexIdentifier];
@@ -89,7 +95,7 @@ self.tableView.dataSource = ds;
 
 ## Roadmap
 - Add unit tests for PTLFetchedDatasource, UITableView extensions, UICollectionView extensions
-- Add support for OSX
+- Add extensions for sorting and filtering
 
 ## License
 [MIT](LICENSE.txt)
