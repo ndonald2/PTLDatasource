@@ -7,44 +7,7 @@
 //
 
 #import "PTLIndexDatasource.h"
-
-@interface NSIndexSet (Indexing)
-
-- (NSUInteger)ptl_indexValueAtIndex:(NSUInteger)targetIndex;
-- (NSUInteger)ptl_indexOfIndexValue:(NSUInteger)indexValue;
-
-@end
-
-@implementation NSIndexSet (Indexing)
-
-- (NSUInteger)ptl_indexValueAtIndex:(NSUInteger)targetIndex {
-    NSUInteger indexValue = [self firstIndex];
-    for (NSUInteger i = 0; i < targetIndex; i++){
-        indexValue = [self indexGreaterThanIndex:i];
-    }
-    return indexValue;
-}
-
-- (NSUInteger)ptl_indexOfIndexValue:(NSUInteger)indexValue {
-    if (![self containsIndex:indexValue]) {
-        return NSNotFound;
-    }
-
-    __block NSUInteger indexCounter = 0;
-    [self enumerateRangesUsingBlock:^(NSRange range, BOOL *stop) {
-        if (indexValue >= range.location &&
-            indexValue < NSMaxRange(range)) {
-            // Found the value
-            indexCounter += indexValue - range.location;
-            *stop = YES;
-        } else {
-            indexCounter += range.length;
-        }
-    }];
-    return indexCounter;
-}
-
-@end
+#import "NSIndexSet+PTLDatasource.h"
 
 @interface PTLIndexDatasource ()
 

@@ -38,6 +38,7 @@
 		D3EA4017179782E700A50247 /* PTLEnumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA400F1797828A00A50247 /* PTLEnumTableViewController.m */; };
 		D3EA4018179782E700A50247 /* PTLFontFamilyPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA40111797828A00A50247 /* PTLFontFamilyPicker.m */; };
 		D3EA402B1797872200A50247 /* PTLArrayDatasourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA402A1797872200A50247 /* PTLArrayDatasourceTests.m */; };
+		D3FF85D21821F452009DE4CF /* NSIndexSet+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FF85D11821F452009DE4CF /* NSIndexSet+PTLDatasource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,8 @@
 		D3EA40111797828A00A50247 /* PTLFontFamilyPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLFontFamilyPicker.m; sourceTree = "<group>"; };
 		D3EA40291797872200A50247 /* PTLArrayDatasourceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLArrayDatasourceTests.h; sourceTree = "<group>"; };
 		D3EA402A1797872200A50247 /* PTLArrayDatasourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLArrayDatasourceTests.m; sourceTree = "<group>"; };
+		D3FF85D01821F452009DE4CF /* NSIndexSet+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+PTLDatasource.h"; sourceTree = "<group>"; };
+		D3FF85D11821F452009DE4CF /* NSIndexSet+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+PTLDatasource.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,8 @@
 			children = (
 				17279C45180CA37F00CB17E4 /* NSObject+PTLSwizzle.h */,
 				17279C46180CA37F00CB17E4 /* NSObject+PTLSwizzle.m */,
+				D3FF85D01821F452009DE4CF /* NSIndexSet+PTLDatasource.h */,
+				D3FF85D11821F452009DE4CF /* NSIndexSet+PTLDatasource.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 			files = (
 				17279C53180CA3A000CB17E4 /* PTLArrayDatasource.m in Sources */,
 				D3EA3FE21797823500A50247 /* main.m in Sources */,
+				D3FF85D21821F452009DE4CF /* NSIndexSet+PTLDatasource.m in Sources */,
 				17279C5D180CA3C400CB17E4 /* PTLDatasource+CollectionView.m in Sources */,
 				D3EA3FE61797823500A50247 /* PTLAppDelegate.m in Sources */,
 				17279C68180CA3E400CB17E4 /* PTLFetchedDatasource.m in Sources */,
