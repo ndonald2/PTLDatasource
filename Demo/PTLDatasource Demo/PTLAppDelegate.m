@@ -10,6 +10,7 @@
 #import "PTLColorCollectionViewController.h"
 #import "PTLEnumTableViewController.h"
 #import "PTLFontFamilyPicker.h"
+#import "PTLPeopleFilterViewController.h"
 
 @implementation PTLAppDelegate
 
@@ -30,8 +31,11 @@
     PTLColorCollectionViewController *colorVC = [[PTLColorCollectionViewController alloc] initWithCollectionViewLayout:[PTLColorCollectionViewController defaultLayout]];
     UINavigationController *colorNav = [[UINavigationController alloc] initWithRootViewController:colorVC];
 
+    PTLPeopleFilterViewController *peopleVC = [[PTLPeopleFilterViewController alloc] init];
+    UINavigationController *peopleNav = [[UINavigationController alloc] initWithRootViewController:peopleVC];
+
     UITabBarController *tab = [[UITabBarController alloc] init];
-    tab.viewControllers = @[fontNav, enumNav, colorNav];
+    tab.viewControllers = @[peopleNav, fontNav, enumNav, colorNav];
     self.window.rootViewController = tab;
     
     self.window.backgroundColor = [UIColor whiteColor];

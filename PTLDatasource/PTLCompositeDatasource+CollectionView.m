@@ -53,7 +53,7 @@
    return (result) ?: [super collectionViewSupplementaryViewIdentifierForIndexPath:indexPath elementKind:elementKind];
 }
 
-- (PTLCollectionViewSupplementaryViewConfigBlock)composite_collectionViewSupplementaryViewConfigBlockForIndexPath:(NSIndexPath *)indexPath elementKind:(NSString *)elementKind {
+- (PTLCollectionViewSupplementaryViewConfigBlock)collectionViewSupplementaryViewConfigBlockForIndexPath:(NSIndexPath *)indexPath elementKind:(NSString *)elementKind {
    PTLCollectionViewSupplementaryViewConfigBlock result = nil;
    id<PTLDatasource> datasource = [self descendantDatasourceContainingSectionIndex:indexPath.section];
    if ([datasource conformsToProtocol:@protocol(PTLCollectionViewDatasource)] &&

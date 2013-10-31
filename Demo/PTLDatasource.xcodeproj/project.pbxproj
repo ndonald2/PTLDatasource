@@ -18,10 +18,21 @@
 		17279C64180CA3D400CB17E4 /* PTLDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17279C61180CA3D400CB17E4 /* PTLDatasource+TableView.m */; };
 		17279C68180CA3E400CB17E4 /* PTLFetchedDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 17279C67180CA3E400CB17E4 /* PTLFetchedDatasource.m */; };
 		17279C6C180CA3F700CB17E4 /* PTLFetchedDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17279C6B180CA3F700CB17E4 /* PTLFetchedDatasource+TableView.m */; };
+		D365D86B18233E5200801E4F /* PTLFilteredDatasource+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D365D86A18233E5200801E4F /* PTLFilteredDatasource+CollectionView.m */; };
+		D365D86E182344A000801E4F /* PTLMutableIndexPathMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D365D86D182344A000801E4F /* PTLMutableIndexPathMapping.m */; };
+		D368F9331822FEF300712632 /* heroes.json in Resources */ = {isa = PBXBuildFile; fileRef = D368F9301822FEF300712632 /* heroes.json */; };
+		D368F9341822FEF300712632 /* ladies.json in Resources */ = {isa = PBXBuildFile; fileRef = D368F9311822FEF300712632 /* ladies.json */; };
+		D368F9351822FEF300712632 /* villians.json in Resources */ = {isa = PBXBuildFile; fileRef = D368F9321822FEF300712632 /* villians.json */; };
+		D368F9381822FF1900712632 /* PTLPeopleFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D368F9371822FF1900712632 /* PTLPeopleFilterViewController.m */; };
+		D368F93A1823058A00712632 /* PTLPeopleFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D368F9391823058A00712632 /* PTLPeopleFilterViewController.xib */; };
+		D368F93E18230A7500712632 /* PTLFilteredDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D368F93D18230A7500712632 /* PTLFilteredDatasource+TableView.m */; };
 		D36D91071822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D36D91061822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.m */; };
 		D38E0B9A1868A122007A01B2 /* UITableView+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */; };
 		D38E0B9D1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */; };
+		D36D910C1822B27000A05D23 /* PTLIndexPathMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D36D91091822B27000A05D23 /* PTLIndexPathMapping.m */; };
+		D36D910D1822B27000A05D23 /* PTLIndexPathMappingDelta.m in Sources */ = {isa = PBXBuildFile; fileRef = D36D910B1822B27000A05D23 /* PTLIndexPathMappingDelta.m */; };
 		D3B5A1D617AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */; };
+		D3E44AF21868B17B00637440 /* NSArray+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E44AF11868B17B00637440 /* NSArray+PTLDatasource.m */; };
 		D3EA3FD41797823500A50247 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD31797823500A50247 /* UIKit.framework */; };
 		D3EA3FD61797823500A50247 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD51797823500A50247 /* Foundation.framework */; };
 		D3EA3FD81797823500A50247 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD71797823500A50247 /* CoreGraphics.framework */; };
@@ -42,6 +53,7 @@
 		D3EA4018179782E700A50247 /* PTLFontFamilyPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA40111797828A00A50247 /* PTLFontFamilyPicker.m */; };
 		D3EA402B1797872200A50247 /* PTLArrayDatasourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EA402A1797872200A50247 /* PTLArrayDatasourceTests.m */; };
 		D3FF85D21821F452009DE4CF /* NSIndexSet+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FF85D11821F452009DE4CF /* NSIndexSet+PTLDatasource.m */; };
+		D3FF85D618220167009DE4CF /* PTLFilteredDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3FF85D518220167009DE4CF /* PTLFilteredDatasource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,14 +96,32 @@
 		17279C69180CA3EE00CB17E4 /* UIKit+PTLDatasourceFetching.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIKit+PTLDatasourceFetching.h"; sourceTree = "<group>"; };
 		17279C6A180CA3F700CB17E4 /* PTLFetchedDatasource+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLFetchedDatasource+TableView.h"; sourceTree = "<group>"; };
 		17279C6B180CA3F700CB17E4 /* PTLFetchedDatasource+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLFetchedDatasource+TableView.m"; sourceTree = "<group>"; };
+		D365D86918233E5200801E4F /* PTLFilteredDatasource+CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLFilteredDatasource+CollectionView.h"; sourceTree = "<group>"; };
+		D365D86A18233E5200801E4F /* PTLFilteredDatasource+CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLFilteredDatasource+CollectionView.m"; sourceTree = "<group>"; };
+		D365D86C182344A000801E4F /* PTLMutableIndexPathMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLMutableIndexPathMapping.h; sourceTree = "<group>"; };
+		D365D86D182344A000801E4F /* PTLMutableIndexPathMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLMutableIndexPathMapping.m; sourceTree = "<group>"; };
+		D368F9301822FEF300712632 /* heroes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heroes.json; sourceTree = "<group>"; };
+		D368F9311822FEF300712632 /* ladies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ladies.json; sourceTree = "<group>"; };
+		D368F9321822FEF300712632 /* villians.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = villians.json; sourceTree = "<group>"; };
+		D368F9361822FF1900712632 /* PTLPeopleFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLPeopleFilterViewController.h; sourceTree = "<group>"; };
+		D368F9371822FF1900712632 /* PTLPeopleFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLPeopleFilterViewController.m; sourceTree = "<group>"; };
+		D368F9391823058A00712632 /* PTLPeopleFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PTLPeopleFilterViewController.xib; sourceTree = "<group>"; };
+		D368F93C18230A7500712632 /* PTLFilteredDatasource+TableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTLFilteredDatasource+TableView.h"; sourceTree = "<group>"; };
+		D368F93D18230A7500712632 /* PTLFilteredDatasource+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLFilteredDatasource+TableView.m"; sourceTree = "<group>"; };
 		D36D91051822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+PTLDatasource.h"; sourceTree = "<group>"; };
 		D36D91061822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+PTLDatasource.m"; sourceTree = "<group>"; };
 		D38E0B981868A122007A01B2 /* UITableView+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PTLDatasource.h"; sourceTree = "<group>"; };
 		D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PTLDatasource.m"; sourceTree = "<group>"; };
 		D38E0B9B1868A2F9007A01B2 /* UICollectionView+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+PTLDatasource.h"; sourceTree = "<group>"; };
 		D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+PTLDatasource.m"; sourceTree = "<group>"; };
+		D36D91081822B27000A05D23 /* PTLIndexPathMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexPathMapping.h; sourceTree = "<group>"; };
+		D36D91091822B27000A05D23 /* PTLIndexPathMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexPathMapping.m; sourceTree = "<group>"; };
+		D36D910A1822B27000A05D23 /* PTLIndexPathMappingDelta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexPathMappingDelta.h; sourceTree = "<group>"; };
+		D36D910B1822B27000A05D23 /* PTLIndexPathMappingDelta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexPathMappingDelta.m; sourceTree = "<group>"; };
 		D3B5A1D417AB67BA00E7B7E6 /* PTLIndexDatasourceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexDatasourceTests.h; sourceTree = "<group>"; };
 		D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexDatasourceTests.m; sourceTree = "<group>"; };
+		D3E44AF01868B17B00637440 /* NSArray+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PTLDatasource.h"; sourceTree = "<group>"; };
+		D3E44AF11868B17B00637440 /* NSArray+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PTLDatasource.m"; sourceTree = "<group>"; };
 		D3EA3FD01797823500A50247 /* PTLDatasource Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PTLDatasource Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EA3FD31797823500A50247 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D3EA3FD51797823500A50247 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -120,6 +150,8 @@
 		D3EA402A1797872200A50247 /* PTLArrayDatasourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLArrayDatasourceTests.m; sourceTree = "<group>"; };
 		D3FF85D01821F452009DE4CF /* NSIndexSet+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+PTLDatasource.h"; sourceTree = "<group>"; };
 		D3FF85D11821F452009DE4CF /* NSIndexSet+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+PTLDatasource.m"; sourceTree = "<group>"; };
+		D3FF85D418220167009DE4CF /* PTLFilteredDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLFilteredDatasource.h; sourceTree = "<group>"; };
+		D3FF85D518220167009DE4CF /* PTLFilteredDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLFilteredDatasource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +207,8 @@
 				17279C62180CA3D400CB17E4 /* PTLTableViewDatasource.h */,
 				D38E0B981868A122007A01B2 /* UITableView+PTLDatasource.h */,
 				D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */,
+				D368F93C18230A7500712632 /* PTLFilteredDatasource+TableView.h */,
+				D368F93D18230A7500712632 /* PTLFilteredDatasource+TableView.m */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -189,6 +223,8 @@
 				17279C5B180CA3C400CB17E4 /* PTLDatasource+CollectionView.m */,
 				D38E0B9B1868A2F9007A01B2 /* UICollectionView+PTLDatasource.h */,
 				D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */,
+				D365D86918233E5200801E4F /* PTLFilteredDatasource+CollectionView.h */,
+				D365D86A18233E5200801E4F /* PTLFilteredDatasource+CollectionView.m */,
 			);
 			name = CollectionView;
 			sourceTree = "<group>";
@@ -202,6 +238,8 @@
 				D3FF85D11821F452009DE4CF /* NSIndexSet+PTLDatasource.m */,
 				D36D91051822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.h */,
 				D36D91061822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.m */,
+				D3E44AF01868B17B00637440 /* NSArray+PTLDatasource.h */,
+				D3E44AF11868B17B00637440 /* NSArray+PTLDatasource.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -248,8 +286,27 @@
 			children = (
 				D3EA40231797833E00A50247 /* Base */,
 				D3EA40251797835C00A50247 /* Datasources */,
+				D3FF85D318220157009DE4CF /* Transformable */,
 			);
 			name = Core;
+			sourceTree = "<group>";
+		};
+		D368F92F1822FEDE00712632 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D368F9301822FEF300712632 /* heroes.json */,
+				D368F9311822FEF300712632 /* ladies.json */,
+				D368F9321822FEF300712632 /* villians.json */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D368F93B182305C400712632 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D368F9391823058A00712632 /* PTLPeopleFilterViewController.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		D3964C05179781B70020B888 = {
@@ -261,6 +318,19 @@
 				D3EA3FD21797823500A50247 /* Frameworks */,
 				D3EA3FD11797823500A50247 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		D3E44AEE1868ADEF00637440 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D36D91081822B27000A05D23 /* PTLIndexPathMapping.h */,
+				D36D91091822B27000A05D23 /* PTLIndexPathMapping.m */,
+				D365D86C182344A000801E4F /* PTLMutableIndexPathMapping.h */,
+				D365D86D182344A000801E4F /* PTLMutableIndexPathMapping.m */,
+				D36D910A1822B27000A05D23 /* PTLIndexPathMappingDelta.h */,
+				D36D910B1822B27000A05D23 /* PTLIndexPathMappingDelta.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		D3EA3FB91797820C00A50247 /* PTLDatasource */ = {
@@ -299,6 +369,8 @@
 			isa = PBXGroup;
 			children = (
 				D3EA40151797828F00A50247 /* Controllers */,
+				D368F93B182305C400712632 /* Views */,
+				D368F92F1822FEDE00712632 /* Resources */,
 				D3EA3FE41797823500A50247 /* PTLAppDelegate.h */,
 				D3EA3FE51797823500A50247 /* PTLAppDelegate.m */,
 				D3EA3FED1797823500A50247 /* PTLDatasource_Demo.xcdatamodeld */,
@@ -351,6 +423,8 @@
 				D3EA400F1797828A00A50247 /* PTLEnumTableViewController.m */,
 				D3EA40101797828A00A50247 /* PTLFontFamilyPicker.h */,
 				D3EA40111797828A00A50247 /* PTLFontFamilyPicker.m */,
+				D368F9361822FF1900712632 /* PTLPeopleFilterViewController.h */,
+				D368F9371822FF1900712632 /* PTLPeopleFilterViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -377,6 +451,16 @@
 				17279C52180CA3A000CB17E4 /* PTLIndexDatasource.m */,
 			);
 			name = Datasources;
+			sourceTree = "<group>";
+		};
+		D3FF85D318220157009DE4CF /* Transformable */ = {
+			isa = PBXGroup;
+			children = (
+				D3E44AEE1868ADEF00637440 /* Helpers */,
+				D3FF85D418220167009DE4CF /* PTLFilteredDatasource.h */,
+				D3FF85D518220167009DE4CF /* PTLFilteredDatasource.m */,
+			);
+			name = Transformable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,8 +533,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D368F9351822FEF300712632 /* villians.json in Resources */,
 				D3EA3FE01797823500A50247 /* InfoPlist.strings in Resources */,
+				D368F9331822FEF300712632 /* heroes.json in Resources */,
 				D3EA3FE81797823500A50247 /* Default.png in Resources */,
+				D368F93A1823058A00712632 /* PTLPeopleFilterViewController.xib in Resources */,
+				D368F9341822FEF300712632 /* ladies.json in Resources */,
 				D3EA3FEA1797823500A50247 /* Default@2x.png in Resources */,
 				D3EA3FEC1797823500A50247 /* Default-568h@2x.png in Resources */,
 			);
@@ -493,11 +581,15 @@
 				D3FF85D21821F452009DE4CF /* NSIndexSet+PTLDatasource.m in Sources */,
 				17279C5D180CA3C400CB17E4 /* PTLDatasource+CollectionView.m in Sources */,
 				D3EA3FE61797823500A50247 /* PTLAppDelegate.m in Sources */,
+				D365D86E182344A000801E4F /* PTLMutableIndexPathMapping.m in Sources */,
+				D368F9381822FF1900712632 /* PTLPeopleFilterViewController.m in Sources */,
 				17279C68180CA3E400CB17E4 /* PTLFetchedDatasource.m in Sources */,
 				17279C6C180CA3F700CB17E4 /* PTLFetchedDatasource+TableView.m in Sources */,
 				17279C47180CA37F00CB17E4 /* NSObject+PTLSwizzle.m in Sources */,
 				D3EA3FEF1797823500A50247 /* PTLDatasource_Demo.xcdatamodeld in Sources */,
+				D3E44AF21868B17B00637440 /* NSArray+PTLDatasource.m in Sources */,
 				17279C63180CA3D400CB17E4 /* PTLCompositeDatasource+TableView.m in Sources */,
+				D368F93E18230A7500712632 /* PTLFilteredDatasource+TableView.m in Sources */,
 				17279C4C180CA38D00CB17E4 /* PTLDatasource.m in Sources */,
 				17279C5C180CA3C400CB17E4 /* PTLCompositeDatasource+CollectionView.m in Sources */,
 				D38E0B9D1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m in Sources */,
@@ -505,9 +597,13 @@
 				D3EA4016179782E700A50247 /* PTLColorCollectionViewController.m in Sources */,
 				17279C64180CA3D400CB17E4 /* PTLDatasource+TableView.m in Sources */,
 				17279C55180CA3A000CB17E4 /* PTLIndexDatasource.m in Sources */,
+				D36D910D1822B27000A05D23 /* PTLIndexPathMappingDelta.m in Sources */,
 				D3EA4017179782E700A50247 /* PTLEnumTableViewController.m in Sources */,
 				D3EA4018179782E700A50247 /* PTLFontFamilyPicker.m in Sources */,
+				D365D86B18233E5200801E4F /* PTLFilteredDatasource+CollectionView.m in Sources */,
+				D36D910C1822B27000A05D23 /* PTLIndexPathMapping.m in Sources */,
 				17279C54180CA3A000CB17E4 /* PTLCompositeDatasource.m in Sources */,
+				D3FF85D618220167009DE4CF /* PTLFilteredDatasource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
