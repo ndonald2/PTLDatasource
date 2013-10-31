@@ -67,8 +67,8 @@
     NSInteger end = self.items.count;
     for (int i = start; i < end; i++) {
         [self notifyObserversOfChange:PTLChangeTypeInsert
-                          atIndexPath:[NSIndexPath indexPathForItem:i inSection:0]
-                         newIndexPath:nil];
+                          atIndexPath:nil
+                         newIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
     }
     [self notifyObserversOfChangesEnding];
 }
@@ -79,8 +79,8 @@
     [self notifyObserversOfChangesBeginning];
     [self.items insertObject:item atIndex:index];
     [self notifyObserversOfChange:PTLChangeTypeInsert
-                      atIndexPath:[NSIndexPath indexPathForItem:index inSection:0]
-                     newIndexPath:nil];
+                      atIndexPath:nil
+                     newIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
     [self notifyObserversOfChangesEnding];
 }
 

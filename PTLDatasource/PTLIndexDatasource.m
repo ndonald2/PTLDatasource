@@ -109,8 +109,8 @@
         [self.indecies addIndex:indexValue];
         NSInteger index = [self.indecies ptl_indexOfIndexValue:indexValue];
         [self notifyObserversOfChange:PTLChangeTypeInsert
-                          atIndexPath:[NSIndexPath indexPathForItem:index inSection:0]
-                         newIndexPath:nil];
+                          atIndexPath:nil
+                         newIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
     }];
     [self notifyObserversOfChangesEnding];
 }
