@@ -27,6 +27,7 @@
 
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex;
+- (NSArray *)allItemsInSection:(NSInteger)sectionIndex;
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath;
 
 - (BOOL)containsItem:(id)item;

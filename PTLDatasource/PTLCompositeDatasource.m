@@ -97,8 +97,17 @@
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex {
+    NSParameterAssert(sectionIndex >= 0 &&
+                      sectionIndex < [self numberOfSections]);
     id<PTLDatasource> datasource = [self childDatasourceContainingSectionIndex:sectionIndex];
     return [datasource numberOfItemsInSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex]];
+}
+
+- (NSArray *)allItemsInSection:(NSInteger)sectionIndex {
+    NSParameterAssert(sectionIndex >= 0 &&
+                      sectionIndex < [self numberOfSections]);
+    id<PTLDatasource> datasource = [self childDatasourceContainingSectionIndex:sectionIndex];
+    return [datasource allItemsInSection:[self resolvedChildDatasourceSectionIndexForSectionIndex:sectionIndex]];
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {

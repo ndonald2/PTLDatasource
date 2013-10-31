@@ -43,10 +43,21 @@
 }
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex {
+    NSParameterAssert(sectionIndex >= 0 &&
+                      sectionIndex < [self numberOfSections]);
     return ((id<NSFetchedResultsSectionInfo>)[self.controller.sections objectAtIndex:sectionIndex]).numberOfObjects;
 }
 
+- (NSArray *)allItemsInSection:(NSInteger)sectionIndex {
+    NSParameterAssert(sectionIndex >= 0 &&
+                      sectionIndex < [self numberOfSections]);
+    return ((id<NSFetchedResultsSectionInfo>)[self.controller.sections objectAtIndex:sectionIndex]).objects;
+}
+
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
+    NSParameterAssert(indexPath.section == 0);
+    NSParameterAssert(indexPath.item >= 0 &&
+                      indexPath.item < [self numberOfItemsInSection:indexPath.section]);
     return [self.controller objectAtIndexPath:indexPath];
 }
 

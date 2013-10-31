@@ -30,6 +30,11 @@
     return 0;
 }
 
+- (NSArray *)allItemsInSection:(NSInteger)sectionIndex {
+    NSAssert(NO, @"Invalid section index, there are no sections in the datasource.");
+    return @[];
+}
+
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }

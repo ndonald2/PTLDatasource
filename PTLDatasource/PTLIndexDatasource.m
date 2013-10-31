@@ -81,6 +81,16 @@
     return self.indecies.count;
 }
 
+- (NSArray *)allItemsInSection:(NSInteger)sectionIndex {
+    NSParameterAssert(sectionIndex >= 0 &&
+                      sectionIndex < [self numberOfSections]);
+    NSMutableArray *results = [NSMutableArray arrayWithCapacity:[self numberOfItemsInSection:sectionIndex]];
+    [self.indecies enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        [results addObject:@(index)];
+    }];
+    return [results copy];
+}
+
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
     NSParameterAssert(indexPath.section == 0);
     NSParameterAssert(indexPath.item >= 0 &&

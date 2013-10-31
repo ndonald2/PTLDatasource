@@ -44,6 +44,12 @@
     return self.items.count;
 }
 
+- (NSArray *)allItemsInSection:(NSInteger)sectionIndex {
+    NSParameterAssert(sectionIndex >= 0 &&
+                      sectionIndex < [self numberOfSections]);
+    return [self.items copy];
+}
+
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
     NSParameterAssert(indexPath.section == 0);
     NSParameterAssert(indexPath.item >= 0 &&
