@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Pear Tree Labs. All rights reserved.
 //
 
-#ifdef _COREDATADEFINES_H
-
 #import "PTLDatasource.h"
 #import <CoreData/CoreData.h>
 
@@ -16,9 +14,3 @@
 - (id)initWithFetchedResults:(NSFetchedResultsController *)controller trackChanges:(BOOL)trackChanges;
 
 @end
-
-#else
-
-#warning CoreData not found, PTLFetchedDatasource will be unavailable.
-
-#endif

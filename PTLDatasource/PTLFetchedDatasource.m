@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Pear Tree Labs. All rights reserved.
 //
 
-#ifdef _COREDATADEFINES_H
-
 #import "PTLFetchedDatasource.h"
 
 @interface PTLFetchedDatasource () <NSFetchedResultsControllerDelegate>
@@ -131,5 +129,3 @@
 }
 
 @end
-
-#endif
