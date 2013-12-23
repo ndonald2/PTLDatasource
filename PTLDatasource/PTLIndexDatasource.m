@@ -129,14 +129,14 @@
     if (![item isKindOfClass:[NSNumber class]]) {
         return NO;
     }
-    return [self containsIndexValue:((NSNumber *)item).integerValue];
+    return [self containsIndexValue:((NSNumber *)item).unsignedIntegerValue];
 }
 
 - (NSIndexPath *)indexPathOfItem:(id)item {
     if (![item isKindOfClass:[NSNumber class]]) {
         return nil;
     }
-    return [self indexPathOfIndexValue:((NSNumber *)item).integerValue];
+    return [self indexPathOfIndexValue:((NSNumber *)item).unsignedIntegerValue];
 }
 
 - (NSArray *)allItems {
