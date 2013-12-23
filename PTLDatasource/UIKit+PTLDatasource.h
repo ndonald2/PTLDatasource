@@ -11,8 +11,8 @@
 
 #import "PTLDatasourceCore.h"
 
-#import "PTLCollectionViewDatasource.h"
-#import "PTLTableViewDatasource.h"
+#import "UICollectionView+PTLDatasource.h"
+#import "UITableView+PTLDatasource.h"
 
 #import "PTLDatasource+CollectionView.h"
 #import "PTLDatasource+TableView.h"
