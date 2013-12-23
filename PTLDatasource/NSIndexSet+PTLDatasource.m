@@ -15,7 +15,7 @@
     
     NSUInteger indexValue = [self firstIndex];
     for (NSUInteger i = 0; i < targetIndex; i++){
-        indexValue = [self indexGreaterThanIndex:i];
+        indexValue = [self indexGreaterThanIndex:indexValue];
     }
     return indexValue;
 }
