@@ -1,6 +1,6 @@
 //
 //  PTLCompositeDatasource.m
-//  PTLDatasource Demo
+//  PTLDatasource
 //
 //  Created by Brian Partridge on 7/11/13.
 //  Copyright (c) 2013 Pear Tree Labs. All rights reserved.
