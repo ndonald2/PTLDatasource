@@ -133,7 +133,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    id item = [self.datasource itemAtIndexPath:indexPath];
+    id item = [tableView.ptl_datasource itemAtIndexPath:indexPath];
     NSLog(@"picked: %@", item);
 }
 

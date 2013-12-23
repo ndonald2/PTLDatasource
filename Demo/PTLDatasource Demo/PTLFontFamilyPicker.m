@@ -50,7 +50,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *familyName = [self.datasource itemAtIndexPath:indexPath];
+    NSString *familyName = [tableView.ptl_datasource itemAtIndexPath:indexPath];
     NSLog(@"picked: %@", familyName);
 }
 

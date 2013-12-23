@@ -67,4 +67,12 @@ static NSString * const kColorHeader = @"ColorHeader";
    return colorDatasource;
 }
 
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    id item = [collectionView.ptl_datasource itemAtIndexPath:indexPath];
+    NSLog(@"picked: %@", item);
+}
+
 @end
