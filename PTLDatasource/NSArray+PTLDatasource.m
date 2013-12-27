@@ -10,12 +10,12 @@
 
 @implementation NSArray (PTLDatasource)
 
-- (NSArray *)deepCopy {
+- (NSArray *)ptl_deepCopy {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
     for (id item in self) {
         id copy = item;
-        if ([item respondsToSelector:@selector(immutableDeepCopy)]) {
-            copy = [item deepCopy];
+        if ([item respondsToSelector:@selector(ptl_deepCopy)]) {
+            copy = [item ptl_deepCopy];
         } else if ([item respondsToSelector:@selector(copy)]) {
             copy = [item copy];
         }
@@ -24,12 +24,12 @@
     return [result copy];
 }
 
-- (NSMutableArray *)mutableDeepCopy {
+- (NSMutableArray *)ptl_mutableDeepCopy {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
     for (id item in self) {
         id mutableCopy = item;
-        if ([item respondsToSelector:@selector(mutableDeepCopy)]) {
-            mutableCopy = [item mutableDeepCopy];
+        if ([item respondsToSelector:@selector(ptl_mutableDeepCopy)]) {
+            mutableCopy = [item ptl_mutableDeepCopy];
         } else if ([item respondsToSelector:@selector(mutableCopy)]) {
             mutableCopy = [item mutableCopy];
         }

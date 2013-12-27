@@ -25,7 +25,7 @@
 
 - (NSArray *)itemIndeciesBySection {
     if (self.immutableDataNeedsRefresh) {
-        self.itemIndeciesBySection = [self.mutableItemIndeciesBySection deepCopy];
+        self.itemIndeciesBySection = [self.mutableItemIndeciesBySection ptl_deepCopy];
         self.immutableDataNeedsRefresh = NO;
     }
     return super.itemIndeciesBySection;
@@ -36,7 +36,7 @@
 - (instancetype)initWithMapping:(PTLIndexPathMapping *)mapping {
 	self = [super initWithMapping:mapping];
 	if (self) {
-	    _mutableItemIndeciesBySection = [self.itemIndeciesBySection mutableDeepCopy];
+	    _mutableItemIndeciesBySection = [self.itemIndeciesBySection ptl_mutableDeepCopy];
 	}
 
 	return self;
@@ -45,7 +45,7 @@
 - (instancetype)initWithFilter:(NSPredicate *)filter datasource:(id<PTLDatasource>)datasource {
 	self = [super initWithFilter:filter datasource:datasource];
 	if (self) {
-	    _mutableItemIndeciesBySection = [self.itemIndeciesBySection mutableDeepCopy];
+	    _mutableItemIndeciesBySection = [self.itemIndeciesBySection ptl_mutableDeepCopy];
 	}
 
 	return self;

@@ -10,7 +10,7 @@
 
 @interface NSArray (PTLDatasource)
 
-- (NSArray *)deepCopy;
-- (NSMutableArray *)mutableDeepCopy;
+- (NSArray *)ptl_deepCopy;
+- (NSMutableArray *)ptl_mutableDeepCopy;
 
 @end
