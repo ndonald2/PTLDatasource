@@ -1,0 +1,255 @@
+//
+//  PTLSortedDatasource.m
+//  PTLDatasource
+//
+//  Created by Brian Partridge on 12/26/13.
+//
+//
+
+#import "PTLSortedDatasource.h"
+#import "PTLDatasourceContainer.h"
+#import "PTLMutableSortedIndexPathMapping.h"
+
+@interface PTLSortedDatasource () <PTLDatasourceContainer>
+
+@property (nonatomic, strong) id<PTLDatasource> sourceDatasource;
+@property (nonatomic, strong) PTLSortedIndexPathMapping *mapping;
+@property (nonatomic, strong) PTLMutableSortedIndexPathMapping *mutableMapping;
+
+@end
+
+@implementation PTLSortedDatasource
+
+#pragma mark - Properties
+
+- (void)setSortDescriptors:(NSArray *)sortDescriptors {
+    if (_sortDescriptors == sortDescriptors) {
+        return;
+    }
+
+    _sortDescriptors = sortDescriptors;
+
+    self.mapping = [[PTLSortedIndexPathMapping alloc] initWithSortDescriptors:sortDescriptors datasource:self.sourceDatasource];
+}
+
+#pragma mark - Lifecycle
+
+- (instancetype)initWithDatasource:(id<PTLDatasource>)datasource sortDescriptor:(NSSortDescriptor *)sortDescriptor {
+    NSArray *sortDescriptors = (sortDescriptor == nil) ? nil : @[sortDescriptor];
+    return [self initWithDatasource:datasource sortDescriptors:sortDescriptors];
+}
+
+- (instancetype)initWithDatasource:(id<PTLDatasource>)datasource sortDescriptors:(NSArray *)sortDescriptors {
+	self = [super init];
+	if (self) {
+	    _sourceDatasource = datasource;
+        NSParameterAssert([datasource conformsToProtocol:@protocol(PTLDatasource)]);
+        if ([datasource conformsToProtocol:@protocol(PTLObservableDatasource)]) {
+            [(id<PTLObservableDatasource>)datasource addChangeObserver:self];
+        }
+        _sortDescriptors = sortDescriptors;
+        _mapping = [[PTLSortedIndexPathMapping alloc] initWithSortDescriptors:sortDescriptors datasource:datasource];
+	}
+
+	return self;
+}
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    return self;
+}
+
+#pragma mark - PTLDatasource
+
+- (NSInteger)numberOfSections {
+    return self.mapping.sortedItemsBySection.count;
+}
+
+- (NSInteger)numberOfItemsInSection:(NSInteger)sectionIndex {
+    NSParameterAssert(sectionIndex >= 0 &&
+                      sectionIndex < [self numberOfSections]);
+
+    NSArray *sortedItems = [self.mapping.sortedItemsBySection objectAtIndex:sectionIndex];
+    return sortedItems.count;
+}
+
+- (NSArray *)allItemsInSection:(NSInteger)sectionIndex {
+    NSParameterAssert(sectionIndex >= 0 &&
+                      sectionIndex < [self numberOfSections]);
+
+    return [self.mapping.sortedItemsBySection objectAtIndex:sectionIndex];
+}
+
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath {
+    NSIndexPath *translatedIndexPath = [self.mapping datasourceIndexPathForIndexPath:indexPath];
+    return [self.sourceDatasource itemAtIndexPath:translatedIndexPath];
+}
+
+#pragma mark - Lookup
+
+- (BOOL)containsItem:(id)item {
+    return [self.sourceDatasource containsItem:item];
+}
+
+- (NSIndexPath *)indexPathOfItem:(id)item {
+    NSIndexPath *indexPath = [self.sourceDatasource indexPathOfItem:item];
+    return [self.mapping indexPathForDatasourceIndexPath:indexPath];
+}
+
+- (NSArray *)allItems {
+    NSMutableArray *results = [NSMutableArray arrayWithCapacity:[self numberOfItems]];
+    for (NSInteger i = 0; i < [self numberOfSections]; i++) {
+        [results addObjectsFromArray:[self allItemsInSection:i]];
+    }
+    return [results copy];
+}
+
+- (NSInteger)numberOfItems {
+    return [self.sourceDatasource numberOfItems];
+}
+
+#pragma mark - PTLDatasourceObserver
+
+- (void)datasourceWillChange:(id<PTLDatasource>)datasource {
+    NSLog(@"%@ will change", self);
+
+    [self notifyObserversOfChangesBeginning];
+    self.mutableMapping = [self.mapping mutableCopy];
+}
+
+- (void)datasourceDidChange:(id<PTLDatasource>)datasource {
+    NSLog(@"%@ did change", self);
+
+    self.mapping = [self.mutableMapping copy];
+    self.mutableMapping = nil;
+    [self notifyObserversOfChangesEnding];
+}
+
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath {
+    NSLog(@"%@ changed item %d at: %@ new: %@", self, change, indexPath, newIndexPath);
+
+    switch(change) {
+        case PTLChangeTypeInsert: {
+            // Attempt to add the item and verify that there is a valid insertion indexpath.
+            NSIndexPath *addedIndexPath = [self.mutableMapping addItemAtIndexPath:newIndexPath toDatasource:datasource];
+            if (addedIndexPath != nil) {
+                [self notifyObserversOfChange:change
+                                  atIndexPath:nil
+                                 newIndexPath:addedIndexPath];
+            }
+        }   break;
+
+        case PTLChangeTypeRemove: {
+            // Remove from mapping and verify there is a valid removal indexpath.
+            NSIndexPath *removedIndexPath = [self.mutableMapping removeItemAtIndexPath:indexPath fromDatasource:datasource];
+            if (removedIndexPath != nil) {
+                [self notifyObserversOfChange:change
+                                  atIndexPath:removedIndexPath
+                                 newIndexPath:nil];
+            }
+        }   break;
+
+        case PTLChangeTypeUpdate: {
+            // Update the item in the mapping (repositioning if necessary) and return it's indexpath/
+            NSIndexPath *updatedIndexPath = [self.mutableMapping updateItemAtIndexPath:indexPath fromDatasource:datasource];
+            if (updatedIndexPath != nil) {
+                [self notifyObserversOfChange:change
+                                  atIndexPath:updatedIndexPath
+                                 newIndexPath:nil];
+            }
+        }   break;
+
+        case PTLChangeTypeMove: {
+            // Remove from mapping and verify there is a valid removal indexpath before re-adding the item.
+            NSIndexPath *removedIndexPath = [self.mutableMapping removeItemAtIndexPath:indexPath fromDatasource:datasource];
+            if (removedIndexPath != nil) {
+                NSIndexPath *addedIndexPath = [self.mutableMapping addItemAtIndexPath:newIndexPath toDatasource:datasource];
+                [self notifyObserversOfChange:change
+                                  atIndexPath:removedIndexPath
+                                 newIndexPath:addedIndexPath];
+            }
+        }   break;
+    }
+}
+
+- (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex {
+    NSLog(@"%@ changed section %d at: %d", self, change, sectionIndex);
+
+    NSUInteger resultSectionIndex = NSNotFound;
+    switch(change) {
+        case PTLChangeTypeInsert:
+            resultSectionIndex = [self.mutableMapping addSection:sectionIndex toDatasource:datasource];
+            break;
+
+        case PTLChangeTypeRemove:
+            resultSectionIndex = [self.mutableMapping removeSection:sectionIndex fromDatasource:datasource];
+            break;
+
+        default:
+            break;
+    }
+
+    [self notifyObserversOfSectionChange:change
+                          atSectionIndex:resultSectionIndex];
+
+}
+
+#pragma mark - PTLDatasourceContainer
+
+- (NSInteger)numberOfChildDatasources {
+    return 1;
+}
+
+- (id<PTLDatasource>)childDatasourceAtIndex:(NSInteger)datasourceIndex {
+    NSParameterAssert(datasourceIndex < [self numberOfChildDatasources]);
+    return self.sourceDatasource;
+}
+
+- (NSIndexSet *)sectionIndicesForDescendantDatasource:(id<PTLDatasource>)datasource {
+    NSInteger sectionCount = [self numberOfSections];
+    if (sectionCount != 0) {
+        if (datasource == self.sourceDatasource) {
+            return [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, sectionCount)];
+        } else if ([self.sourceDatasource conformsToProtocol:@protocol(PTLDatasourceContainer)]) {
+            return [(id<PTLDatasourceContainer>)self.sourceDatasource sectionIndicesForDescendantDatasource:datasource];
+        }
+    }
+    return [NSIndexSet indexSet];
+}
+
+- (id<PTLDatasource>)descendantDatasourceContainingSectionIndex:(NSInteger)sectionIndex {
+    NSParameterAssert(sectionIndex < [self numberOfSections]);
+    if ([self.sourceDatasource conformsToProtocol:@protocol(PTLDatasourceContainer)]) {
+        return [(id<PTLDatasourceContainer>)self.sourceDatasource descendantDatasourceContainingSectionIndex:sectionIndex];
+    }
+    return self.sourceDatasource;
+}
+
+#pragma mark - Sorting
+
+//- (void)notifyObserversOfSortingChanges:(PTLIndexPathMappingDelta *)changes {
+//    [self notifyObserversOfChangesBeginning];
+//
+//    for (NSInteger i = 0; i < changes.removedItemIndeciesBySection.count; i++) {
+//        NSIndexSet *removedIndecies = [changes.removedItemIndeciesBySection objectAtIndex:i];
+//        [removedIndecies enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:i];
+//            NSIndexPath *translatedIndexPath = [self.mapping indexPathForDatasourceIndexPath:indexPath];
+//            [self notifyObserversOfChange:PTLChangeTypeRemove atIndexPath:translatedIndexPath newIndexPath:nil];
+//        }];
+//    }
+//
+//    for (NSInteger i = 0; i < changes.addedItemIndeciesBySection.count; i++) {
+//        NSIndexSet *addedIndecies = [changes.addedItemIndeciesBySection objectAtIndex:i];
+//        [addedIndecies enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:idx inSection:i];
+//            NSIndexPath *translatedIndexPath = [self.mapping indexPathForDatasourceIndexPath:indexPath];
+//            [self notifyObserversOfChange:PTLChangeTypeInsert atIndexPath:nil newIndexPath:translatedIndexPath];
+//        }];
+//    }
+//    
+//    [self notifyObserversOfChangesEnding];
+//}
+
+@end

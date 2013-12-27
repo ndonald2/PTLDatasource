@@ -27,10 +27,13 @@
 		D368F93A1823058A00712632 /* PTLPeopleFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D368F9391823058A00712632 /* PTLPeopleFilterViewController.xib */; };
 		D368F93E18230A7500712632 /* PTLFilteredDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D368F93D18230A7500712632 /* PTLFilteredDatasource+TableView.m */; };
 		D36D91071822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D36D91061822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.m */; };
-		D38E0B9A1868A122007A01B2 /* UITableView+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */; };
-		D38E0B9D1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */; };
 		D36D910C1822B27000A05D23 /* PTLIndexPathMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D36D91091822B27000A05D23 /* PTLIndexPathMapping.m */; };
 		D36D910D1822B27000A05D23 /* PTLIndexPathMappingDelta.m in Sources */ = {isa = PBXBuildFile; fileRef = D36D910B1822B27000A05D23 /* PTLIndexPathMappingDelta.m */; };
+		D38E0B9A1868A122007A01B2 /* UITableView+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */; };
+		D38E0B9D1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */; };
+		D39E31FB186CDA4C00F6DC62 /* PTLSortedDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D39E31FA186CDA4C00F6DC62 /* PTLSortedDatasource.m */; };
+		D39E31FF186CEBD300F6DC62 /* PTLSortedIndexPathMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D39E31FE186CEBD300F6DC62 /* PTLSortedIndexPathMapping.m */; };
+		D39E3202186CF39E00F6DC62 /* PTLMutableSortedIndexPathMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D39E3201186CF39E00F6DC62 /* PTLMutableSortedIndexPathMapping.m */; };
 		D3B5A1D617AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */; };
 		D3E44AF21868B17B00637440 /* NSArray+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E44AF11868B17B00637440 /* NSArray+PTLDatasource.m */; };
 		D3EA3FD41797823500A50247 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD31797823500A50247 /* UIKit.framework */; };
@@ -110,14 +113,20 @@
 		D368F93D18230A7500712632 /* PTLFilteredDatasource+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLFilteredDatasource+TableView.m"; sourceTree = "<group>"; };
 		D36D91051822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+PTLDatasource.h"; sourceTree = "<group>"; };
 		D36D91061822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+PTLDatasource.m"; sourceTree = "<group>"; };
-		D38E0B981868A122007A01B2 /* UITableView+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PTLDatasource.h"; sourceTree = "<group>"; };
-		D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PTLDatasource.m"; sourceTree = "<group>"; };
-		D38E0B9B1868A2F9007A01B2 /* UICollectionView+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+PTLDatasource.h"; sourceTree = "<group>"; };
-		D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+PTLDatasource.m"; sourceTree = "<group>"; };
 		D36D91081822B27000A05D23 /* PTLIndexPathMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexPathMapping.h; sourceTree = "<group>"; };
 		D36D91091822B27000A05D23 /* PTLIndexPathMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexPathMapping.m; sourceTree = "<group>"; };
 		D36D910A1822B27000A05D23 /* PTLIndexPathMappingDelta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexPathMappingDelta.h; sourceTree = "<group>"; };
 		D36D910B1822B27000A05D23 /* PTLIndexPathMappingDelta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexPathMappingDelta.m; sourceTree = "<group>"; };
+		D38E0B981868A122007A01B2 /* UITableView+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PTLDatasource.h"; sourceTree = "<group>"; };
+		D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PTLDatasource.m"; sourceTree = "<group>"; };
+		D38E0B9B1868A2F9007A01B2 /* UICollectionView+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+PTLDatasource.h"; sourceTree = "<group>"; };
+		D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+PTLDatasource.m"; sourceTree = "<group>"; };
+		D39E31F9186CDA4C00F6DC62 /* PTLSortedDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLSortedDatasource.h; sourceTree = "<group>"; };
+		D39E31FA186CDA4C00F6DC62 /* PTLSortedDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLSortedDatasource.m; sourceTree = "<group>"; };
+		D39E31FD186CEBD300F6DC62 /* PTLSortedIndexPathMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLSortedIndexPathMapping.h; sourceTree = "<group>"; };
+		D39E31FE186CEBD300F6DC62 /* PTLSortedIndexPathMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLSortedIndexPathMapping.m; sourceTree = "<group>"; };
+		D39E3200186CF39E00F6DC62 /* PTLMutableSortedIndexPathMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLMutableSortedIndexPathMapping.h; sourceTree = "<group>"; };
+		D39E3201186CF39E00F6DC62 /* PTLMutableSortedIndexPathMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLMutableSortedIndexPathMapping.m; sourceTree = "<group>"; };
 		D3B5A1D417AB67BA00E7B7E6 /* PTLIndexDatasourceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexDatasourceTests.h; sourceTree = "<group>"; };
 		D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexDatasourceTests.m; sourceTree = "<group>"; };
 		D3E44AF01868B17B00637440 /* NSArray+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PTLDatasource.h"; sourceTree = "<group>"; };
@@ -320,7 +329,18 @@
 			);
 			sourceTree = "<group>";
 		};
-		D3E44AEE1868ADEF00637440 /* Helpers */ = {
+		D39E31FC186CEB9500F6DC62 /* Sorting Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D39E31FD186CEBD300F6DC62 /* PTLSortedIndexPathMapping.h */,
+				D39E31FE186CEBD300F6DC62 /* PTLSortedIndexPathMapping.m */,
+				D39E3200186CF39E00F6DC62 /* PTLMutableSortedIndexPathMapping.h */,
+				D39E3201186CF39E00F6DC62 /* PTLMutableSortedIndexPathMapping.m */,
+			);
+			name = "Sorting Helpers";
+			sourceTree = "<group>";
+		};
+		D3E44AEE1868ADEF00637440 /* Filtering Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				D36D91081822B27000A05D23 /* PTLIndexPathMapping.h */,
@@ -330,7 +350,7 @@
 				D36D910A1822B27000A05D23 /* PTLIndexPathMappingDelta.h */,
 				D36D910B1822B27000A05D23 /* PTLIndexPathMappingDelta.m */,
 			);
-			name = Helpers;
+			name = "Filtering Helpers";
 			sourceTree = "<group>";
 		};
 		D3EA3FB91797820C00A50247 /* PTLDatasource */ = {
@@ -456,9 +476,12 @@
 		D3FF85D318220157009DE4CF /* Transformable */ = {
 			isa = PBXGroup;
 			children = (
-				D3E44AEE1868ADEF00637440 /* Helpers */,
+				D39E31FC186CEB9500F6DC62 /* Sorting Helpers */,
+				D3E44AEE1868ADEF00637440 /* Filtering Helpers */,
 				D3FF85D418220167009DE4CF /* PTLFilteredDatasource.h */,
 				D3FF85D518220167009DE4CF /* PTLFilteredDatasource.m */,
+				D39E31F9186CDA4C00F6DC62 /* PTLSortedDatasource.h */,
+				D39E31FA186CDA4C00F6DC62 /* PTLSortedDatasource.m */,
 			);
 			name = Transformable;
 			sourceTree = "<group>";
@@ -591,6 +614,8 @@
 				17279C63180CA3D400CB17E4 /* PTLCompositeDatasource+TableView.m in Sources */,
 				D368F93E18230A7500712632 /* PTLFilteredDatasource+TableView.m in Sources */,
 				17279C4C180CA38D00CB17E4 /* PTLDatasource.m in Sources */,
+				D39E31FB186CDA4C00F6DC62 /* PTLSortedDatasource.m in Sources */,
+				D39E31FF186CEBD300F6DC62 /* PTLSortedIndexPathMapping.m in Sources */,
 				17279C5C180CA3C400CB17E4 /* PTLCompositeDatasource+CollectionView.m in Sources */,
 				D38E0B9D1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m in Sources */,
 				D38E0B9A1868A122007A01B2 /* UITableView+PTLDatasource.m in Sources */,
@@ -602,6 +627,7 @@
 				D3EA4018179782E700A50247 /* PTLFontFamilyPicker.m in Sources */,
 				D365D86B18233E5200801E4F /* PTLFilteredDatasource+CollectionView.m in Sources */,
 				D36D910C1822B27000A05D23 /* PTLIndexPathMapping.m in Sources */,
+				D39E3202186CF39E00F6DC62 /* PTLMutableSortedIndexPathMapping.m in Sources */,
 				17279C54180CA3A000CB17E4 /* PTLCompositeDatasource.m in Sources */,
 				D3FF85D618220167009DE4CF /* PTLFilteredDatasource.m in Sources */,
 			);
