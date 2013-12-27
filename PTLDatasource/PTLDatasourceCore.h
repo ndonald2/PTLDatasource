@@ -13,5 +13,7 @@
 #import "PTLArrayDatasource.h"
 #import "PTLCompositeDatasource.h"
 #import "PTLIndexDatasource.h"
+#import "PTLFilteredDatasource.h"
+#import "PTLSortedDatasource.h"
 
 #endif
