@@ -20,9 +20,7 @@
 		17279C6C180CA3F700CB17E4 /* PTLFetchedDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17279C6B180CA3F700CB17E4 /* PTLFetchedDatasource+TableView.m */; };
 		D365D86B18233E5200801E4F /* PTLFilteredDatasource+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D365D86A18233E5200801E4F /* PTLFilteredDatasource+CollectionView.m */; };
 		D365D86E182344A000801E4F /* PTLMutableIndexPathMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D365D86D182344A000801E4F /* PTLMutableIndexPathMapping.m */; };
-		D368F9331822FEF300712632 /* heroes.json in Resources */ = {isa = PBXBuildFile; fileRef = D368F9301822FEF300712632 /* heroes.json */; };
-		D368F9341822FEF300712632 /* ladies.json in Resources */ = {isa = PBXBuildFile; fileRef = D368F9311822FEF300712632 /* ladies.json */; };
-		D368F9351822FEF300712632 /* villians.json in Resources */ = {isa = PBXBuildFile; fileRef = D368F9321822FEF300712632 /* villians.json */; };
+		D368F9331822FEF300712632 /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = D368F9301822FEF300712632 /* characters.json */; };
 		D368F9381822FF1900712632 /* PTLPeopleFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D368F9371822FF1900712632 /* PTLPeopleFilterViewController.m */; };
 		D368F93A1823058A00712632 /* PTLPeopleFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D368F9391823058A00712632 /* PTLPeopleFilterViewController.xib */; };
 		D368F93E18230A7500712632 /* PTLFilteredDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D368F93D18230A7500712632 /* PTLFilteredDatasource+TableView.m */; };
@@ -103,9 +101,7 @@
 		D365D86A18233E5200801E4F /* PTLFilteredDatasource+CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLFilteredDatasource+CollectionView.m"; sourceTree = "<group>"; };
 		D365D86C182344A000801E4F /* PTLMutableIndexPathMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLMutableIndexPathMapping.h; sourceTree = "<group>"; };
 		D365D86D182344A000801E4F /* PTLMutableIndexPathMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLMutableIndexPathMapping.m; sourceTree = "<group>"; };
-		D368F9301822FEF300712632 /* heroes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = heroes.json; sourceTree = "<group>"; };
-		D368F9311822FEF300712632 /* ladies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ladies.json; sourceTree = "<group>"; };
-		D368F9321822FEF300712632 /* villians.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = villians.json; sourceTree = "<group>"; };
+		D368F9301822FEF300712632 /* characters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
 		D368F9361822FF1900712632 /* PTLPeopleFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLPeopleFilterViewController.h; sourceTree = "<group>"; };
 		D368F9371822FF1900712632 /* PTLPeopleFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLPeopleFilterViewController.m; sourceTree = "<group>"; };
 		D368F9391823058A00712632 /* PTLPeopleFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PTLPeopleFilterViewController.xib; sourceTree = "<group>"; };
@@ -303,9 +299,7 @@
 		D368F92F1822FEDE00712632 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D368F9301822FEF300712632 /* heroes.json */,
-				D368F9311822FEF300712632 /* ladies.json */,
-				D368F9321822FEF300712632 /* villians.json */,
+				D368F9301822FEF300712632 /* characters.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -556,12 +550,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D368F9351822FEF300712632 /* villians.json in Resources */,
 				D3EA3FE01797823500A50247 /* InfoPlist.strings in Resources */,
-				D368F9331822FEF300712632 /* heroes.json in Resources */,
+				D368F9331822FEF300712632 /* characters.json in Resources */,
 				D3EA3FE81797823500A50247 /* Default.png in Resources */,
 				D368F93A1823058A00712632 /* PTLPeopleFilterViewController.xib in Resources */,
-				D368F9341822FEF300712632 /* ladies.json in Resources */,
 				D3EA3FEA1797823500A50247 /* Default@2x.png in Resources */,
 				D3EA3FEC1797823500A50247 /* Default-568h@2x.png in Resources */,
 			);

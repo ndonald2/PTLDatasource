@@ -1,0 +1,73 @@
+{
+  "heroes":[
+    {
+    "alter-ego":"Peter Parker",
+    "name":"Spider-Man"
+    },
+    {
+    "alter-ego":"Bruce Wayne",
+    "name":"Batman"
+    },
+    {
+    "alter-ego":"Scott Summers",
+    "name":"Cyclops"
+    },
+    {
+    "alter-ego":"Clark Kent",
+    "name":"Superman"
+    },
+    {
+    "alter-ego":"Tony Stark",
+    "name":"Iron Man"
+    }
+  ],
+  "heroines":[
+    {
+      "name":"Black Cat",
+      "alter-ego":"Felicia Hardy"
+    },
+    {
+      "name":"Catwoman",
+      "alter-ego":"Selina Kyle"
+    },
+    {
+      "name":"Phoenix",
+      "alter-ego":"Jean Grey"
+    },
+    {
+      "name":"Shadow Cat",
+      "alter-ego":"Kitty Pride"
+    },
+    {
+      "name":"Black Widow",
+      "alter-ego":"Natasha Romanoff"
+    },
+  ],
+  "villans":[
+    {
+      "name":"Dr Octopus",
+      "alter-ego":"Otto Octavius"
+    },
+    {
+      "name":"Green Goblin",
+      "alter-ego":"Norman Osborn"
+    },
+    {
+      "name":"Kingpin",
+      "alter-ego":"Wilson Fisk"
+    },
+    {
+      "name":"Two Face",
+      "alter-ego":"Harvey Dent"
+    },
+    {
+      "name":"Magneto",
+      "alter-ego":"Erik Lehnsherr"
+    },
+    {
+      "name":"Sabertooth",
+      "alter-ego":"Victor Creed"
+    }
+  ]
+}
+  
