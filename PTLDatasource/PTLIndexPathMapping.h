@@ -19,7 +19,7 @@
  */
 @property (nonatomic, readonly, strong) NSArray *itemIndeciesBySection;
 
-@property (nonatomic, strong) NSPredicate *filter;
+@property (nonatomic, readonly, strong) NSPredicate *filter;
 
 + (BOOL)evaluateFilter:(NSPredicate *)filter onItem:(id)item;
 
