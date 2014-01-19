@@ -16,9 +16,11 @@
 - (void)addIndexValuesFromIndexSet:(NSIndexSet *)indexValues;
 
 - (void)removeIndexValue:(NSUInteger)indexValue;
+- (void)removeIndexValueAtIndex:(NSUInteger)index;
 - (void)removeAllItems;
 
 - (BOOL)containsIndexValue:(NSUInteger)indexValue;
 - (NSIndexPath *)indexPathOfIndexValue:(NSUInteger)indexValue;
+- (NSUInteger)indexValueAtIndex:(NSUInteger)index;
 
 @end

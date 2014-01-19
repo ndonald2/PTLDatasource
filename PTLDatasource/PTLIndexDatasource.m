@@ -95,11 +95,17 @@
         return;
     }
     [self notifyObserversOfChangesBeginning];
+    NSIndexPath *indexPath = [self indexPathOfItem:@(indexValue)];
     [self.indecies removeIndex:indexValue];
     [self notifyObserversOfChange:PTLChangeTypeRemove
-                      atIndexPath:[self indexPathOfItem:@(indexValue)]
+                      atIndexPath:indexPath
                      newIndexPath:nil];
     [self notifyObserversOfChangesEnding];
+}
+
+- (void)removeIndexValueAtIndex:(NSUInteger)index {
+    NSUInteger indexValue = [self indexValueAtIndex:index];
+    [self removeIndexValue:indexValue];
 }
 
 - (void)removeAllItems {
@@ -123,6 +129,10 @@
 - (NSIndexPath *)indexPathOfIndexValue:(NSUInteger)indexValue {
     NSInteger index = [self.indecies ptl_indexOfIndexValue:indexValue];
     return (index == NSNotFound) ? nil : [NSIndexPath indexPathForItem:index inSection:0];
+}
+
+- (NSUInteger)indexValueAtIndex:(NSUInteger)index {
+    return [self.indecies ptl_indexValueAtIndex:index];
 }
 
 - (BOOL)containsItem:(id)item {
