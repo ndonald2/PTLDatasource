@@ -14,7 +14,7 @@
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:self.count];
     for (id item in self) {
         id copy = item;
-        if ([item respondsToSelector:@selector(immutableDeepCopy)]) {
+        if ([item respondsToSelector:@selector(deepCopy)]) {
             copy = [item deepCopy];
         } else if ([item respondsToSelector:@selector(copy)]) {
             copy = [item copy];
