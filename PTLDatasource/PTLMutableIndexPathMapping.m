@@ -21,6 +21,8 @@
 
 @implementation PTLMutableIndexPathMapping
 
+@synthesize itemIndeciesBySection = _itemIndeciesBySection;
+
 #pragma mark - Properties
 
 - (NSArray *)itemIndeciesBySection {

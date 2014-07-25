@@ -76,6 +76,8 @@
             [self notifyObserversOfSectionChange:PTLChangeTypeRemove
                                   atSectionIndex:sectionIndex];
             break;
+        default:
+            break;
     }
 }
 
@@ -102,6 +104,8 @@
             [self notifyObserversOfChange:PTLChangeTypeMove
                               atIndexPath:indexPath
                              newIndexPath:newIndexPath];
+            break;
+        default:
             break;
     }
 }

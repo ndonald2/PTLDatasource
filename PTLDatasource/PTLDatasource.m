@@ -89,8 +89,8 @@
 
 @dynamic observers;
 
-- (NSMutableArray *)observers {
-    NSMutableArray *result = objc_getAssociatedObject(self, @"observers");
+- (NSHashTable *)observers {
+    NSHashTable *result = objc_getAssociatedObject(self, @"observers");
     if (result == nil) {
         result = [NSHashTable weakObjectsHashTable];
         objc_setAssociatedObject(self, @"observers", result, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
