@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17279C47180CA37F00CB17E4 /* NSObject+PTLSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 17279C46180CA37F00CB17E4 /* NSObject+PTLSwizzle.m */; };
 		17279C4C180CA38D00CB17E4 /* PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 17279C49180CA38D00CB17E4 /* PTLDatasource.m */; };
 		17279C53180CA3A000CB17E4 /* PTLArrayDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 17279C4E180CA3A000CB17E4 /* PTLArrayDatasource.m */; };
 		17279C54180CA3A000CB17E4 /* PTLCompositeDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 17279C50180CA3A000CB17E4 /* PTLCompositeDatasource.m */; };
@@ -27,10 +26,10 @@
 		D368F93A1823058A00712632 /* PTLPeopleFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D368F9391823058A00712632 /* PTLPeopleFilterViewController.xib */; };
 		D368F93E18230A7500712632 /* PTLFilteredDatasource+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D368F93D18230A7500712632 /* PTLFilteredDatasource+TableView.m */; };
 		D36D91071822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D36D91061822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.m */; };
-		D38E0B9A1868A122007A01B2 /* UITableView+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */; };
-		D38E0B9D1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */; };
 		D36D910C1822B27000A05D23 /* PTLIndexPathMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = D36D91091822B27000A05D23 /* PTLIndexPathMapping.m */; };
 		D36D910D1822B27000A05D23 /* PTLIndexPathMappingDelta.m in Sources */ = {isa = PBXBuildFile; fileRef = D36D910B1822B27000A05D23 /* PTLIndexPathMappingDelta.m */; };
+		D38E0B9A1868A122007A01B2 /* UITableView+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */; };
+		D38E0B9D1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */; };
 		D3B5A1D617AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */; };
 		D3E44AF21868B17B00637440 /* NSArray+PTLDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E44AF11868B17B00637440 /* NSArray+PTLDatasource.m */; };
 		D3EA3FD41797823500A50247 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EA3FD31797823500A50247 /* UIKit.framework */; };
@@ -67,8 +66,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17279C45180CA37F00CB17E4 /* NSObject+PTLSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PTLSwizzle.h"; sourceTree = "<group>"; };
-		17279C46180CA37F00CB17E4 /* NSObject+PTLSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PTLSwizzle.m"; sourceTree = "<group>"; };
 		17279C48180CA38D00CB17E4 /* PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLDatasource.h; sourceTree = "<group>"; };
 		17279C49180CA38D00CB17E4 /* PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLDatasource.m; sourceTree = "<group>"; };
 		17279C4A180CA38D00CB17E4 /* PTLDatasourceContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLDatasourceContainer.h; sourceTree = "<group>"; };
@@ -110,14 +107,14 @@
 		D368F93D18230A7500712632 /* PTLFilteredDatasource+TableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PTLFilteredDatasource+TableView.m"; sourceTree = "<group>"; };
 		D36D91051822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+PTLDatasource.h"; sourceTree = "<group>"; };
 		D36D91061822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+PTLDatasource.m"; sourceTree = "<group>"; };
-		D38E0B981868A122007A01B2 /* UITableView+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PTLDatasource.h"; sourceTree = "<group>"; };
-		D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PTLDatasource.m"; sourceTree = "<group>"; };
-		D38E0B9B1868A2F9007A01B2 /* UICollectionView+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+PTLDatasource.h"; sourceTree = "<group>"; };
-		D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+PTLDatasource.m"; sourceTree = "<group>"; };
 		D36D91081822B27000A05D23 /* PTLIndexPathMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexPathMapping.h; sourceTree = "<group>"; };
 		D36D91091822B27000A05D23 /* PTLIndexPathMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexPathMapping.m; sourceTree = "<group>"; };
 		D36D910A1822B27000A05D23 /* PTLIndexPathMappingDelta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexPathMappingDelta.h; sourceTree = "<group>"; };
 		D36D910B1822B27000A05D23 /* PTLIndexPathMappingDelta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexPathMappingDelta.m; sourceTree = "<group>"; };
+		D38E0B981868A122007A01B2 /* UITableView+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PTLDatasource.h"; sourceTree = "<group>"; };
+		D38E0B991868A122007A01B2 /* UITableView+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PTLDatasource.m"; sourceTree = "<group>"; };
+		D38E0B9B1868A2F9007A01B2 /* UICollectionView+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+PTLDatasource.h"; sourceTree = "<group>"; };
+		D38E0B9C1868A2F9007A01B2 /* UICollectionView+PTLDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+PTLDatasource.m"; sourceTree = "<group>"; };
 		D3B5A1D417AB67BA00E7B7E6 /* PTLIndexDatasourceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTLIndexDatasourceTests.h; sourceTree = "<group>"; };
 		D3B5A1D517AB67BA00E7B7E6 /* PTLIndexDatasourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTLIndexDatasourceTests.m; sourceTree = "<group>"; };
 		D3E44AF01868B17B00637440 /* NSArray+PTLDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PTLDatasource.h"; sourceTree = "<group>"; };
@@ -232,8 +229,6 @@
 		1763BBC917D18E0A0013B027 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				17279C45180CA37F00CB17E4 /* NSObject+PTLSwizzle.h */,
-				17279C46180CA37F00CB17E4 /* NSObject+PTLSwizzle.m */,
 				D3FF85D01821F452009DE4CF /* NSIndexSet+PTLDatasource.h */,
 				D3FF85D11821F452009DE4CF /* NSIndexSet+PTLDatasource.m */,
 				D36D91051822A05900A05D23 /* NSMutableIndexSet+PTLDatasource.h */,
@@ -585,7 +580,6 @@
 				D368F9381822FF1900712632 /* PTLPeopleFilterViewController.m in Sources */,
 				17279C68180CA3E400CB17E4 /* PTLFetchedDatasource.m in Sources */,
 				17279C6C180CA3F700CB17E4 /* PTLFetchedDatasource+TableView.m in Sources */,
-				17279C47180CA37F00CB17E4 /* NSObject+PTLSwizzle.m in Sources */,
 				D3EA3FEF1797823500A50247 /* PTLDatasource_Demo.xcdatamodeld in Sources */,
 				D3E44AF21868B17B00637440 /* NSArray+PTLDatasource.m in Sources */,
 				17279C63180CA3D400CB17E4 /* PTLCompositeDatasource+TableView.m in Sources */,
