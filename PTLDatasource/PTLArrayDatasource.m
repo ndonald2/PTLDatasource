@@ -71,7 +71,7 @@
     NSInteger start = self.items.count;
     [self.items addObjectsFromArray:items];
     NSInteger end = self.items.count;
-    for (int i = start; i < end; i++) {
+    for (NSInteger i = start; i < end; i++) {
         [self notifyObserversOfChange:PTLChangeTypeInsert
                           atIndexPath:nil
                          newIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];

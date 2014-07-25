@@ -135,7 +135,7 @@
 }
 
 - (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atIndexPath:(NSIndexPath *)indexPath newIndexPath:(NSIndexPath *)newIndexPath {
-    NSLog(@"%@ changed item %d at: %@ new: %@", self, change, indexPath, newIndexPath);
+    NSLog(@"%@ changed item %ld at: %@ new: %@", self, (long)change, indexPath, newIndexPath);
 
     switch(change) {
         case PTLChangeTypeInsert: {
@@ -182,7 +182,7 @@
 }
 
 - (void)datasource:(id<PTLDatasource>)datasource didChange:(PTLChangeType)change atSectionIndex:(NSInteger)sectionIndex {
-    NSLog(@"%@ changed section %d at: %d", self, change, sectionIndex);
+    NSLog(@"%@ changed section %ld at: %ld", self, (long)change, (long)sectionIndex);
 
     NSUInteger resultSectionIndex = NSNotFound;
     switch(change) {
